@@ -1,0 +1,691 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="aries58," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="一、基础1.DFS和BFS的区别及其使用场景2.通知中心和代理的区别3.weak和strong的区别 +34.什么时候使用到weak?5.引用循环(retain cycle)是怎样产生的？6.Cocoa 有哪些消息传递机制？delegation，Notification，KVO，block，Target-Action7.简述ViewController的生命周期8.什么是RestFul API
+二">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网易阿里百度iOS面试题">
+<meta property="og:url" content="http://yoursite.com/2015/05/05/2015-05-05-网易阿里百度iOS面试题/index.html">
+<meta property="og:site_name" content="上善若水,道法自然">
+<meta property="og:description" content="一、基础1.DFS和BFS的区别及其使用场景2.通知中心和代理的区别3.weak和strong的区别 +34.什么时候使用到weak?5.引用循环(retain cycle)是怎样产生的？6.Cocoa 有哪些消息传递机制？delegation，Notification，KVO，block，Target-Action7.简述ViewController的生命周期8.什么是RestFul API
+二">
+<meta property="og:updated_time" content="2016-06-13T15:12:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网易阿里百度iOS面试题">
+<meta name="twitter:description" content="一、基础1.DFS和BFS的区别及其使用场景2.通知中心和代理的区别3.weak和strong的区别 +34.什么时候使用到weak?5.引用循环(retain cycle)是怎样产生的？6.Cocoa 有哪些消息传递机制？delegation，Notification，KVO，block，Target-Action7.简述ViewController的生命周期8.什么是RestFul API
+二">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/05/05/2015-05-05-网易阿里百度iOS面试题/"/>
+
+
+
+
+
+  <title> 网易阿里百度iOS面试题 | 上善若水,道法自然 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">上善若水,道法自然</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/05/2015-05-05-网易阿里百度iOS面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aries">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="上善若水,道法自然">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                网易阿里百度iOS面试题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-05-05T22:12:33+08:00">
+                2015-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/aries58/" itemprop="url" rel="index">
+                    <span itemprop="name">aries58</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一、基础<br>1.DFS和BFS的区别及其使用场景<br>2.通知中心和代理的区别<br>3.weak和strong的区别 +3<br>4.什么时候使用到weak?<br>5.引用循环(retain cycle)是怎样产生的？<br>6.Cocoa 有哪些消息传递机制？<br>delegation，Notification，KVO，block，Target-Action<br>7.简述ViewController的生命周期<br>8.什么是RestFul API</p>
+<p>二、中等</p>
+<p>1.谈谈Swift和Objective-C的优缺点 +2<br>2.n 的阶乘末尾有几个0？<br>方法一：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)test&#123;</div><div class="line">    </div><div class="line">    int ret=<span class="number">0</span> ;</div><div class="line">    int j=<span class="number">0</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (int i=<span class="number">1</span>; i &lt;= N; i++) &#123;</div><div class="line">        </div><div class="line">        j=i;</div><div class="line">        <span class="keyword">while</span> (j % <span class="number">5</span> == <span class="number">0</span>) &#123;</div><div class="line">            </div><div class="line">            ret++; </div><div class="line">            j /= <span class="number">5</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"ret=%d"</span>,ret);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(void)test02</div><div class="line">&#123;</div><div class="line">    int ret=<span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (N) &#123;</div><div class="line">        </div><div class="line">        ret += N/<span class="number">5</span>;</div><div class="line">        N /= <span class="number">5</span>;</div><div class="line">    &#125;</div><div class="line">    NSLog(@<span class="string">"ret=%d"</span>,ret);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.iOS 环境下一共有几种多线程编程技术？<br>NSThread、GCD、NSOperation、<br>4.现在有一张大图，想让用户下载到一半能取消下载，你应该用哪种多线程方法来实现？<br>5.weak和<strong>unsafe_unretained的区别，</strong>unsafe_unretained的使用场景<br>6.Block里引用到self的话一定要用weak self吗？<br>7.简述Runloop的原理<br>8.NSTimer只能在主线程上运行吗？<br>9.UIView在什么时候会调用drawRect:，当我调用setNeedsDisplay后，视图会立刻刷新吗？不会的话是在什么时候刷新？<br>loadView和viewDidLoad方法之后调用drawRect,<br>10.loadView和viewDidLoad的区别<br>viewDidLoad用于初始化，加载时用到的,不论是从xib中加载视图，还是从loadview生成视图，都会被调用。loadView 此方法在控制器的view为nil的时候被调用。<br>11.简述Autolayout布局系统的原理<br>12.id和NSObject的区别<br>13.用 CocoaPods 的时候，如果一个库依赖AFNetwork 1.1，另一个库依赖AFNetwork 2.0，能够安装吗？冲突是如何解决的？</p>
+<p>三、高等</p>
+<p>1.如何用GCD来实现NSOperation的取消？</p>
+<p>四、开放性问题</p>
+<p>1.用过什么开源框架，读过它们的源码吗？<br>2.这个项目你遇到过什么难题，是如何解决的？ +3</p>
+<p>查看更多内容:  <a href="http://aries58.com/tags/" target="_blank" rel="external">aries58更多内容</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/aries58/" rel="tag"># aries58</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/01/2015-02-01-Copy详解/" rel="next" title="Copy详解">
+                <i class="fa fa-chevron-left"></i> Copy详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/" rel="prev" title="使用CocoaPods管理开源框架及安装详细步骤">
+                使用CocoaPods管理开源框架及安装详细步骤 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Aries" />
+          <p class="site-author-name" itemprop="name">Aries</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aries</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
