@@ -246,7 +246,6 @@
 <p>是通过initWithFormat初始化NSString, 返回的是alloc申请内存的NSString实例,需手动release。</p>
 <p><img src="http://aries58.com/images/002.png" alt="002 icon"></p>
 <p>stringWithFormat是返回autorelease的NSString实例,不用手动release,在自动释放池中自动释放。</p>
-<p>查看更多内容:  <a href="http://aries58.com/tags/" target="_blank" rel="external">aries58更多内容</a></p>
 
         
         </div>
@@ -257,7 +256,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cj138zmmu00042g2ojgfk5kwd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cj13afep70004a32o45od9se6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -376,7 +375,6 @@
 <p>快速排序</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">void QuickSort(int array[],int len)</div><div class="line">&#123;</div><div class="line">    QSort(array, <span class="number">0</span>, len-<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    int a[]=&#123;<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>&#125;;</div><div class="line">    </div><div class="line">    int count=sizeof(a)/sizeof(int);</div><div class="line">    </div><div class="line">    QuickSort(a,count);</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (int i=<span class="number">0</span>; i&lt;count; i++)</div><div class="line">    &#123;</div><div class="line">        printf(<span class="string">"result=%d\n"</span>,a[i]);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    printf(<span class="string">"Hello, World!\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>查看更多内容:  <a href="http://aries58.com/tags/" target="_blank" rel="external">aries58更多内容</a></p>
 
         
         </div>
@@ -387,7 +385,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/" data-id="cj138zmmu00032g2opjuo9niv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/" data-id="cj13afep60003a32o9z6vbjbr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -513,7 +511,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/" data-id="cj138zmms00022g2onol43w8l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/" data-id="cj13afep50002a32o79oy45u9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -640,7 +638,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/" data-id="cj138zmmq00012g2oq54xcbcb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/" data-id="cj13afep20001a32of8h45rim" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -753,7 +751,7 @@
             
             <p>NSArray:用于对象有序集合,存储的元素在一个整块的内存中按序排列;<br>NSDictionary:用于键值映射;<br>NSSet:用于对象无序集合,散列存储(哈希);</p>
 <p>NSArray比NSSet的平均效率低.<br>1.NSArray,本质上是一个数组，根据index查找元素是相当快的,但它查找某个指定的元素效率不是很高。如某个元素所对应的index=100,那么要找到该元素,就必然遍历了此元素之前的100个元素。<br>对于NSSet,因为它的组织结构是hash，所以它能够在常数时间里找到对应的元素。哈希表就是一种以键-值存储数据的结构,我们只要输入待查找的值即key，即可查找到其对应的值。<br>2.NSet元素的单一性,即同一个对象在NSSet中只存在一份;同一个对象在NSArray中可以存在多份。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line"> </div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;arrayM=%@&quot;,arrayM);</div><div class="line"> </div><div class="line"> NSMutableSet *setM=[NSMutableSet set];</div><div class="line"> </div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;setM=%@&quot;,setM);</div><div class="line"> </div><div class="line"> /*</div><div class="line">  arrayM=(</div><div class="line">  Aries58,</div><div class="line">  Aries58</div><div class="line">  )</div><div class="line">  setM=&#123;(</div><div class="line">  Aries58</div><div class="line">  )&#125;</div><div class="line">  */</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line"> </div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;arrayM=%@&quot;,arrayM);</div><div class="line"> </div><div class="line"> NSMutableSet *setM=[NSMutableSet set];</div><div class="line"> </div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;setM=%@&quot;,setM);</div><div class="line"> </div><div class="line">  arrayM=(</div><div class="line">  Aries58,</div><div class="line">  Aries58</div><div class="line">  )</div><div class="line">  setM=&#123;(</div><div class="line">  Aries58</div><div class="line">  )&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -764,7 +762,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/" data-id="cj138zmmk00002g2osg9di9ft" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/" data-id="cj13afeoy0000a32op4ln0195" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

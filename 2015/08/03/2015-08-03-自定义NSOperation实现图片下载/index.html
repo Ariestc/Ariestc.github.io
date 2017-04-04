@@ -13,7 +13,7 @@ MyTable">
 <meta property="og:site_name" content="上善若水,道法自然">
 <meta property="og:description" content="NSOperation不可以直接创建，但是我们可以使用它的子类NSBlockOperation和NSInvocationOperation,前者是使用Block的方式，使用起来比较方便.如果NSBlockOperation和NSInvocationOperation都不能满足你应用的需求，你可以选择继承NSOperation并做你想做的操作,以下是实现图片下载的Operation.
 MyTable">
-<meta property="og:updated_time" content="2017-04-04T07:46:06.000Z">
+<meta property="og:updated_time" content="2017-04-04T08:30:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义NSOperation实现图片下载">
 <meta name="twitter:description" content="NSOperation不可以直接创建，但是我们可以使用它的子类NSBlockOperation和NSInvocationOperation,前者是使用Block的方式，使用起来比较方便.如果NSBlockOperation和NSInvocationOperation都不能满足你应用的需求，你可以选择继承NSOperation并做你想做的操作,以下是实现图片下载的Operation.
@@ -256,7 +256,6 @@ MyTable">
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@property(nonatomic,copy) NSString *name;</div><div class="line"></div><div class="line">@property(nonatomic,copy) NSString *icon;</div><div class="line"></div><div class="line">@property(nonatomic,copy) NSString *download;</div><div class="line"></div><div class="line">+(instancetype)<span class="symbol">appWithDict:</span>(NSDictionary *)dict;</div></pre></td></tr></table></figure>
 <p>.m文件</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+(instancetype)<span class="symbol">appWithDict:</span>(NSDictionary *)dict</div><div class="line">&#123;</div><div class="line">    MyApp *app=[[MyApp alloc] init];</div><div class="line">    </div><div class="line">    [app <span class="symbol">setValuesForKeysWithDictionary:</span>dict];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> app;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>查看更多内容:  <a href="http://aries58.com/tags/" target="_blank" rel="external">aries58更多内容</a></p>
 
         
         </div>
@@ -267,7 +266,7 @@ MyTable">
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/08/03/2015-08-03-自定义NSOperation实现图片下载/" data-id="cj138zmnd000c2g2odflsc08j" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/08/03/2015-08-03-自定义NSOperation实现图片下载/" data-id="cj13afepn000ca32o2xjc2j97" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

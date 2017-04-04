@@ -18,7 +18,7 @@
 同步方式执行任务:
 1234dispatch_sync(dispatc">
 <meta property="og:image" content="http://aries58.com/images/004.png">
-<meta property="og:updated_time" content="2017-04-04T07:45:49.000Z">
+<meta property="og:updated_time" content="2017-04-04T08:31:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GCD详解">
 <meta name="twitter:description" content="GCD基本思想就是将任务放到队列中执行,任务表示执行什么操作,队列表示用来存放任务。GCD会自动将队列中的任务取出,放到对应的线程中执行。任务的取出遵循FIFO原则:先进先出,后进后出。
@@ -280,7 +280,6 @@
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">static dispatch_once_t onceToken;</div><div class="line"></div><div class="line">dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">    <span class="comment"># 只执行1次的代码(这里面默认是线程安全的)</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>组队列:</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">dispatch_group_t group =  dispatch_group_create();</div><div class="line"></div><div class="line">dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</div><div class="line">    <span class="comment">#执行第1个耗时的异步操作</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</div><div class="line">    <span class="comment"># 执行第2个耗时的异步操作</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">dispatch_group_notify(group, dispatch_get_main_queue(), ^&#123;</div><div class="line">    <span class="comment"># 等前面的异步操作都执行完毕后，回到主线程...</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>查看更多内容:  <a href="http://aries58.com/tags/" target="_blank" rel="external">aries58更多内容</a></p>
 
         
         </div>
@@ -291,7 +290,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cj138zmmw00052g2oa6rlnc9i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cj13afepe0006a32opzs79ouo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

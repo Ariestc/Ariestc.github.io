@@ -21,7 +21,7 @@
 写法二:
 .h文件
 12+(instancetype)shareNetworkTo">
-<meta property="og:updated_time" content="2017-04-04T07:46:09.000Z">
+<meta property="og:updated_time" content="2017-04-04T08:29:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift与Objective-C之单例写法">
 <meta name="twitter:description" content="单例是对于一些需要全局访问的实例或者在app的生命周期只应存在一个的对象而产生设计模式。
@@ -267,7 +267,6 @@
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+(instancetype)shareNetworkTools</div><div class="line">&#123;</div><div class="line">    static id instance;</div><div class="line">    </div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    </div><div class="line">    dispatch_once(&amp;onceToken , ^&#123;</div><div class="line">    </div><div class="line">        instance=[[<span class="keyword">self</span> alloc] init];</div><div class="line">        </div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Objective-C 单例写法</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#设置初始化静态变量 多次赋值</span></div><div class="line">static id instance;</div><div class="line"></div><div class="line"><span class="comment">#内存分配调用函数 -- 此方法为阻止[[NetworkTools alloc] init] 重新分配内存</span></div><div class="line">+(instancetype)<span class="symbol">allocWithZone:</span>(struct _NSZone *)zone&#123;</div><div class="line">    </div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken,^&#123;</div><div class="line">        </div><div class="line">        instance=[<span class="keyword">super</span> <span class="symbol">allocWithZone:</span>zone];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+(instancetype)shareNetworkTools</div><div class="line">&#123;</div><div class="line">    </div><div class="line"><span class="comment">#    static id instance;</span></div><div class="line">    </div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    </div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        </div><div class="line">        instance=[[<span class="keyword">self</span> alloc] init];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>查看更多内容:  <a href="http://aries58.com/tags/" target="_blank" rel="external">aries58更多内容</a></p>
 
         
         </div>
@@ -278,7 +277,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/10/20/2015-10-20-Swift之单例写法/" data-id="cj138zmnf000e2g2o49azi6sb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/10/20/2015-10-20-Swift之单例写法/" data-id="cj13afepq000ea32ozi8p5rg2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
