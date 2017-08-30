@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
 <meta property="og:description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
-<meta property="og:updated_time" content="2017-08-30T12:02:21.000Z">
+<meta property="og:updated_time" content="2017-08-30T12:04:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KVO底层实现">
 <meta name="twitter:description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
@@ -245,18 +245,28 @@
             <p> KVO本质就是去判断是否调用了一个对象的set方法<br>        KVO底层实现:<br>        1.动态创建Dog的子类NSKVONotifying_Dog<br>        2.修改当前对象的isa指针为NSKVONotifying_Dog<br>        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法<br>        4.重写NSKVONotifying_Dog的set方法:<br>            1&gt;[super set]<br>            2&gt;通知观察者属性改变</p>
 <p>自定义KVO方法:<br>ViewController:</p>
 <pre><code class="ruby">[dog <span class="symbol">aries_addObserver:</span><span class="keyword">self</span> <span class="symbol">forKeyPath:</span>@<span class="string">"age"</span> <span class="symbol">options:</span>NSKeyValueObservingOptionNew <span class="symbol">context:</span><span class="literal">nil</span>];
-</code></pre>
-<p>1.动态创建Dog的子类NSKVONotifying_Dog<br>2.修改当前对象的isa指针为NSKVONotifying_Dog<br>NSObject (KVO):</p>
-<pre><code class="ruby">-(void)<span class="symbol">aries_addObserver:</span>(NSObject *)observer <span class="symbol">forKeyPath:</span>(NSString *)keyPath <span class="symbol">options:</span>(NSKeyValueObservingOptions)options <span class="symbol">context:</span>(void *)context
+
+<span class="number">1</span>.动态创建Dog的子类NSKVONotifying_Dog
+<span class="number">2</span>.修改当前对象的isa指针为NSKVONotifying_Dog
+NSObject (KVO):
+
+
+-(void)<span class="symbol">aries_addObserver:</span>(NSObject *)observer <span class="symbol">forKeyPath:</span>(NSString *)keyPath <span class="symbol">options:</span>(NSKeyValueObservingOptions)options <span class="symbol">context:</span>(void *)context
 {
     object_setClass(<span class="keyword">self</span>, [NSKVONotifying_Dog <span class="class"><span class="keyword">class</span>]);</span>
 
     objc_setAssociatedObject(<span class="keyword">self</span>, @<span class="string">"ariesObserve"</span>, observer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
 }
-</code></pre>
-<p>3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法<br>4.重写NSKVONotifying_Dog的set方法:<br>            1&gt;[super set]<br>            2&gt;通知观察者属性改变<br>NSKVONotifying_Dog(模拟系统动态创建的类):</p>
-<pre><code class="ruby">-(void)<span class="symbol">setAge:</span>(int)age
+
+<span class="number">3</span>.调用对象的set方法，即调用NSKVONotifying_Dog的set方法
+<span class="number">4</span>.重写NSKVONotifying_Dog的set方法:
+            <span class="number">1</span>&gt;[<span class="keyword">super</span> set]
+            <span class="number">2</span>&gt;通知观察者属性改变
+NSKVONotifying_Dog(模拟系统动态创建的类):
+
+
+-(void)<span class="symbol">setAge:</span>(int)age
 {
     [<span class="keyword">super</span> <span class="symbol">setAge:</span>age];
 
@@ -280,7 +290,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/" data-id="cj6yz297w000pz15wjzwusvgo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/" data-id="cj6yz5m0n000p0d5w2z15tf69" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
