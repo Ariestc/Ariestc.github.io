@@ -3,24 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>递归算法应用 | 上善若水,道法自然</title>
+    <title>KVO底层实现 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="在调用一个函数的过程中又出现直接或间接地调用该函数本身,成为函数的递归调用.递归的两个条件:1.函数自己调用自己;2.必须有个明确地返回值.说明: 函数每次调用,都会分配新的存储空间.
-例一:有5个人坐在一起,问第5个人多少岁?他说比第4个人大2岁。问第四个人岁数,他说比第三个人大2岁,以此类推,最后问第一个人,他说是10岁。请问第5个人多大？
-12345678910-(NSUInteger)co">
+    <meta name="description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="递归算法应用">
-<meta property="og:url" content="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/index.html">
+<meta property="og:title" content="KVO底层实现">
+<meta property="og:url" content="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="在调用一个函数的过程中又出现直接或间接地调用该函数本身,成为函数的递归调用.递归的两个条件:1.函数自己调用自己;2.必须有个明确地返回值.说明: 函数每次调用,都会分配新的存储空间.
-例一:有5个人坐在一起,问第5个人多少岁?他说比第4个人大2岁。问第四个人岁数,他说比第三个人大2岁,以此类推,最后问第一个人,他说是10岁。请问第5个人多大？
-12345678910-(NSUInteger)co">
-<meta property="og:updated_time" content="2017-04-04T08:32:53.000Z">
+<meta property="og:description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
+<meta property="og:updated_time" content="2017-08-30T11:26:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="递归算法应用">
-<meta name="twitter:description" content="在调用一个函数的过程中又出现直接或间接地调用该函数本身,成为函数的递归调用.递归的两个条件:1.函数自己调用自己;2.必须有个明确地返回值.说明: 函数每次调用,都会分配新的存储空间.
-例一:有5个人坐在一起,问第5个人多少岁?他说比第4个人大2岁。问第四个人岁数,他说比第三个人大2岁,以此类推,最后问第一个人,他说是10岁。请问第5个人多大？
-12345678910-(NSUInteger)co">
+<meta name="twitter:title" content="KVO底层实现">
+<meta name="twitter:description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
     
 
     
@@ -215,7 +209,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2013-12-08-递归算法应用" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2017-08-30-KVO底层实现" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -223,7 +217,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            递归算法应用
+            KVO底层实现
         </h1>
     
 
@@ -232,8 +226,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2013/12/08/2013-12-08-递归算法应用/">
-            <time datetime="2013-12-08T12:26:47.000Z" itemprop="datePublished">2013-12-08</time>
+        <a href="/2017/08/30/2017-08-30-KVO底层实现/">
+            <time datetime="2017-08-30T11:58:00.000Z" itemprop="datePublished">2017-08-30</time>
         </a>
     </div>
 
@@ -248,12 +242,13 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>在调用一个函数的过程中又出现直接或间接地调用该函数本身,成为函数的递归调用.<br>递归的两个条件:<br>1.函数自己调用自己;<br>2.必须有个明确地返回值.<br>说明: 函数每次调用,都会分配新的存储空间.</p>
-<p>例一:<br>有5个人坐在一起,问第5个人多少岁?他说比第4个人大2岁。问第四个人岁数,他说比第三个人大2岁,以此类推,最后问第一个人,他说是10岁。请问第5个人多大？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">-(NSUInteger)computeAgeWithNumber:(NSUInteger)num &#123; </div><div class="line">    if (num == 1) return 10;</div><div class="line">    return [self computeAgeWithNumber:num-1] + 2;  </div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad&#123;</div><div class="line">    [super viewDidLoad]; </div><div class="line">    NSUInteger result=[self computeAgeWithNumber:5];</div><div class="line">    NSLog(@&quot;result=%ld&quot;,result);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>例二:<br>一列数的规则如下: 1、1、2、3、5、8、13、21、34、……求第30位是多少,用递归算法实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(NSUInteger)computeCountwithNumber:(NSUInteger)num&#123;</div><div class="line">    </div><div class="line">    if (num &lt;= 2) return 1;</div><div class="line">    return [self computeCountwithNumber:num-1] + [self computeCountwithNumber:num-2];  </div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    NSUInteger result=[self computeCountwithNumber:30];</div><div class="line">    NSLog(@&quot;result=%ld&quot;,result);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>例三:<br>利用递归实现n的阶乘的计算</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(NSUInteger)computeFactorialWithNumber:(NSUInteger)num &#123;</div><div class="line">    </div><div class="line">    if (num == 0 || num == 1) return num; </div><div class="line">    return [self computeFactorialWithNumber:num-1] * num;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    NSUInteger result=[self computeFactorialWithNumber:5];</div><div class="line">    NSLog(@&quot;result=%ld&quot;,result);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p> KVO本质就是去判断是否调用了一个对象的set方法<br>        KVO底层实现:<br>        1.动态创建Dog的子类NSKVONotifying_Dog<br>        2.修改当前对象的isa指针为NSKVONotifying_Dog<br>        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法<br>        4.重写NSKVONotifying_Dog的set方法:<br>            1&gt;[super set]<br>            2&gt;通知观察者属性改变</p>
+<p>自定义KVO方法:<br>ViewController:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[dog <span class="symbol">aries_addObserver:</span><span class="keyword">self</span> <span class="symbol">forKeyPath:</span>@<span class="string">"age"</span> <span class="symbol">options:</span>NSKeyValueObservingOptionNew <span class="symbol">context:</span><span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">NSObject (KVO):</div><div class="line"></div><div class="line"></div><div class="line">`<span class="string">``</span> ruby</div><div class="line"></div><div class="line">-(void)<span class="symbol">aries_addObserver:</span>(NSObject *)observer <span class="symbol">forKeyPath:</span>(NSString *)keyPath <span class="symbol">options:</span>(NSKeyValueObservingOptions)options <span class="symbol">context:</span>(void *)context</div><div class="line">&#123;</div><div class="line">    object_setClass(<span class="keyword">self</span>, [NSKVONotifying_Dog <span class="class"><span class="keyword">class</span>]);</span></div><div class="line">    </div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, @<span class="string">"ariesObserve"</span>, observer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">    </div><div class="line">&#125;</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">NSKVONotifying_Dog(模拟系统动态创建的类):</div><div class="line"></div><div class="line">`<span class="string">``</span> ruby</div><div class="line"></div><div class="line">-(void)<span class="symbol">setAge:</span>(int)age</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">super</span> <span class="symbol">setAge:</span>age];</div><div class="line">    </div><div class="line">    <span class="regexp">//</span>通知观察者</div><div class="line">  id ariesObserve= objc_getAssociatedObject(<span class="keyword">self</span>, @<span class="string">"ariesObserve"</span>);</div><div class="line">    </div><div class="line">    [ariesObserve <span class="symbol">observeValueForKeyPath:</span>@<span class="string">"age"</span> <span class="symbol">ofObject:</span><span class="keyword">self</span> <span class="symbol">change:</span><span class="literal">nil</span> <span class="symbol">context:</span><span class="literal">nil</span>];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>记得调用age的set方法</p>
+<pre><code class="ruby">
+_dog.age++;
+</code></pre>
 
         
         </div>
@@ -264,7 +259,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/" data-id="cj6yymvfn0002v65wje9hrt5r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/" data-id="cj6yymvgy000ov65wlzm4imt0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -332,7 +327,7 @@
 
             
     
-        <a href="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/">Comments</a>
+        <a href="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/">Comments</a>
     
 
         </footer>
@@ -341,19 +336,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2014/03/01/2014-03-01-冒泡算法实现数据排序/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    冒泡算法实现数据排序
-                
-            </div>
-        </a>
     
-    
-        <a href="/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/04/03/2017-04-03-Aries教你在Mac上用Hexo+Github Page轻松搭建博客/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">NSArray、NSDictionary以及NSSet的区别</div>
+            <div class="article-nav-title">Aries教你在Mac上用Hexo+Github Page轻松搭建博客</div>
         </a>
     
 </nav>
@@ -532,9 +518,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/';
+            this.page.url = 'http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/';
         
-        this.page.identifier = '2013-12-08-递归算法应用';
+        this.page.identifier = '2017-08-30-KVO底层实现';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

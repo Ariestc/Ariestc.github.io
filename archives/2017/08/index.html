@@ -3,24 +3,14 @@
 <head>
     <meta charset="utf-8">
     
-    <title>递归算法应用 | 上善若水,道法自然</title>
+    <title>Archive: 2017/8 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="在调用一个函数的过程中又出现直接或间接地调用该函数本身,成为函数的递归调用.递归的两个条件:1.函数自己调用自己;2.必须有个明确地返回值.说明: 函数每次调用,都会分配新的存储空间.
-例一:有5个人坐在一起,问第5个人多少岁?他说比第4个人大2岁。问第四个人岁数,他说比第三个人大2岁,以此类推,最后问第一个人,他说是10岁。请问第5个人多大？
-12345678910-(NSUInteger)co">
-<meta property="og:type" content="article">
-<meta property="og:title" content="递归算法应用">
-<meta property="og:url" content="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="上善若水,道法自然">
+<meta property="og:url" content="http://www.ariest.net/archives/2017/08/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="在调用一个函数的过程中又出现直接或间接地调用该函数本身,成为函数的递归调用.递归的两个条件:1.函数自己调用自己;2.必须有个明确地返回值.说明: 函数每次调用,都会分配新的存储空间.
-例一:有5个人坐在一起,问第5个人多少岁?他说比第4个人大2岁。问第四个人岁数,他说比第三个人大2岁,以此类推,最后问第一个人,他说是10岁。请问第5个人多大？
-12345678910-(NSUInteger)co">
-<meta property="og:updated_time" content="2017-04-04T08:32:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="递归算法应用">
-<meta name="twitter:description" content="在调用一个函数的过程中又出现直接或间接地调用该函数本身,成为函数的递归调用.递归的两个条件:1.函数自己调用自己;2.必须有个明确地返回值.说明: 函数每次调用,都会分配新的存储空间.
-例一:有5个人坐在一起,问第5个人多少岁?他说比第4个人大2岁。问第四个人岁数,他说比第三个人大2岁,以此类推,最后问第一个人,他说是10岁。请问第5个人多大？
-12345678910-(NSUInteger)co">
+<meta name="twitter:title" content="上善若水,道法自然">
     
 
     
@@ -215,165 +205,40 @@
 </aside>
 
             
-            <section id="main"><article id="post-2013-12-08-递归算法应用" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main"><div class="timeline timeline-wrap">
+    
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fa fa-calendar"></i></span>
+                <h1 class="title">2017</h1>
+            </div>
         
-        
-            <header class="article-header">
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            递归算法应用
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2017/08/30/2017-08-30-KVO底层实现/">KVO底层实现</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2013/12/08/2013-12-08-递归算法应用/">
-            <time datetime="2013-12-08T12:26:47.000Z" itemprop="datePublished">2013-12-08</time>
+        <a href="/2017/08/30/2017-08-30-KVO底层实现/">
+            <time datetime="2017-08-30T11:58:00.000Z" itemprop="datePublished">2017-08-30</time>
         </a>
     </div>
 
 
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>在调用一个函数的过程中又出现直接或间接地调用该函数本身,成为函数的递归调用.<br>递归的两个条件:<br>1.函数自己调用自己;<br>2.必须有个明确地返回值.<br>说明: 函数每次调用,都会分配新的存储空间.</p>
-<p>例一:<br>有5个人坐在一起,问第5个人多少岁?他说比第4个人大2岁。问第四个人岁数,他说比第三个人大2岁,以此类推,最后问第一个人,他说是10岁。请问第5个人多大？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">-(NSUInteger)computeAgeWithNumber:(NSUInteger)num &#123; </div><div class="line">    if (num == 1) return 10;</div><div class="line">    return [self computeAgeWithNumber:num-1] + 2;  </div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad&#123;</div><div class="line">    [super viewDidLoad]; </div><div class="line">    NSUInteger result=[self computeAgeWithNumber:5];</div><div class="line">    NSLog(@&quot;result=%ld&quot;,result);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>例二:<br>一列数的规则如下: 1、1、2、3、5、8、13、21、34、……求第30位是多少,用递归算法实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(NSUInteger)computeCountwithNumber:(NSUInteger)num&#123;</div><div class="line">    </div><div class="line">    if (num &lt;= 2) return 1;</div><div class="line">    return [self computeCountwithNumber:num-1] + [self computeCountwithNumber:num-2];  </div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    NSUInteger result=[self computeCountwithNumber:30];</div><div class="line">    NSLog(@&quot;result=%ld&quot;,result);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>例三:<br>利用递归实现n的阶乘的计算</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(NSUInteger)computeFactorialWithNumber:(NSUInteger)num &#123;</div><div class="line">    </div><div class="line">    if (num == 0 || num == 1) return num; </div><div class="line">    return [self computeFactorialWithNumber:num-1] * num;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    NSUInteger result=[self computeFactorialWithNumber:5];</div><div class="line">    NSLog(@&quot;result=%ld&quot;,result);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/" data-id="cj6yymvfn0002v65wje9hrt5r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2014/03/01/2014-03-01-冒泡算法实现数据排序/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    冒泡算法实现数据排序
-                
+                    
+                    
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">NSArray、NSDictionary以及NSSet的区别</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-    
-    </section>
-
+</div>
 </section>
             
                 <aside id="sidebar">
@@ -532,13 +397,11 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/';
-        
-        this.page.identifier = '2013-12-08-递归算法应用';
+        this.page.identifier = 'undefined';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'icarus' + '.disqus.com/embed.js';
+        s.src = '//' + 'icarus' + '.disqus.com/count.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
