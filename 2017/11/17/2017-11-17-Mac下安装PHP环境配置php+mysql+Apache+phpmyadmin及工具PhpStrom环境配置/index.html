@@ -3,14 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2015/6 | 上善若水,道法自然</title>
+    <title>2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="上善若水,道法自然">
-<meta property="og:url" content="http://www.ariest.net/archives/2015/06/index.html">
+    <meta name="description" content="Mac默认已安装Apache和PHP环境,只需开启即可
+ 一、开启Apache sudo apachectl start 附:  sudo apachectl stop（关闭）  sudo apachectl  -k restart(重启) 开启后浏览器输入: http://localhost 回车会显示”It works!” 表示Apache开启成功
+二、开启PHP1.修改Apache配置文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置">
+<meta property="og:url" content="http://www.ariest.net/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
+<meta property="og:description" content="Mac默认已安装Apache和PHP环境,只需开启即可
+ 一、开启Apache sudo apachectl start 附:  sudo apachectl stop（关闭）  sudo apachectl  -k restart(重启) 开启后浏览器输入: http://localhost 回车会显示”It works!” 表示Apache开启成功
+二、开启PHP1.修改Apache配置文件">
+<meta property="og:updated_time" content="2017-11-19T03:30:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="上善若水,道法自然">
+<meta name="twitter:title" content="2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置">
+<meta name="twitter:description" content="Mac默认已安装Apache和PHP环境,只需开启即可
+ 一、开启Apache sudo apachectl start 附:  sudo apachectl stop（关闭）  sudo apachectl  -k restart(重启) 开启后浏览器输入: http://localhost 回车会显示”It works!” 表示Apache开启成功
+二、开启PHP1.修改Apache配置文件">
     
 
     
@@ -205,40 +215,157 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2015</h1>
-            </div>
+            <section id="main"><article id="post-2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/">使用CocoaPods管理开源框架及安装详细步骤</a>
+        <h1 class="article-title" itemprop="name">
+            2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/">
-            <time datetime="2015-06-23T02:08:23.000Z" itemprop="datePublished">2015-06-23</time>
+        <a href="/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/">
+            <time datetime="2017-11-17T02:56:00.000Z" itemprop="datePublished">2017-11-17</time>
         </a>
     </div>
 
 
-                    
-                    
-                </div>
-            </div>
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p> Mac默认已安装Apache和PHP环境,只需开启即可</p>
+<p> 一、开启Apache<br> sudo apachectl start<br> 附:<br>  sudo apachectl stop（关闭）<br>  sudo apachectl  -k restart(重启)<br> 开启后浏览器输入: <a href="http://localhost" target="_blank" rel="external">http://localhost</a> 回车会显示”It works!” 表示Apache开启成功</p>
+<p>二、开启PHP<br>1.修改Apache配置文件<br> 1&gt; 打开终端输入命令: sudo vim /etc/apache2/httpd.conf<br> 2&gt; 找到#LoadModule php5_module libexec/apache2/libphp5.so删除本行前面”#”字符即可<br> 3&gt; mac下Apache默认文件夹路劲为: /Library/WebServer/Documents 在该目录下创建一个test.php文件，文件中输入如下内容: &lt;?php phpInfo(); ?&gt;<br> 浏览器输入:<a href="http://localhost/test.php" target="_blank" rel="external">http://localhost/test.php</a> 开是否显示PHPinfo页面<br> 4&gt; 若不成功 打开终端，输入命令：<br> sudo vim /etc/apache2/httpd.conf<br> 找到①DocumentRoot “/Library/WebServer/Documents”<br>    ②DocumentRoot “/Library/WebServer/Documents”</p>
+<p><directory "="" library="" webserver="" documents"="">将这两出””中的路径修改为test.php存放的路径,删除前面的”#”;<br>5&gt;浏览器输入localhost/test.php,出现PHP的info页,则表示成功。</directory></p>
+<p>三、安装MySQL<br>1&gt; 官网下载: <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">https://dev.mysql.com/downloads/mysql/</a><br>2&gt; 安装，注意安装完后会弹出对话框，务必保存临时密码到文件夹，以备后用<br>3&gt; 启动MySQL<br>系统偏好设置-&gt; MySQL<br>4&gt; 点击Start MySQL Server 启动<br>5&gt; 打开终端，输入命令：<br>/usr/local/mysql/bin/mysqladmin -u root -p’填写之前保存的临时密码’ password ‘新设置的密码’</p>
+<p>四、安装phpmyadmin<br>1&gt; 下载地址: <a href="https://www.phpmyadmin.net" target="_blank" rel="external">https://www.phpmyadmin.net</a><br>下载后更改文件夹名为: phpmyadmin 并放在/Library/WebServer/Documents/目录下<br>2&gt; 终端进入 cd /etc/apache2<br>3&gt; ls 查看文件（输入nl httpd.conf 可给此文件加上行号）<br>4&gt; vim httpd.conf（修改此文件）此步骤待确定<br>5&gt; 浏览器输入: localhost/phpMyAdmin 用户名填写: root 密码填写: 新设置的密码 登陆成功即可。</p>
+<p>五、PhpStrom环境配置<br>1&gt; Mac OS X 中没有默认的php.ini文件,有对应的模版文件php.ini.default<br>自行拷贝修改终端输入:<br>sudo cp /private/etc/php.ini.default /private/etc/php.ini<br>2&gt; 在Apache目录下创建PHP路径<br>如: /Library/WebServer/Documents/myphp<br>myphp为Apache路径下自定义创建的文件夹，用于放置php文件<br>3&gt; 修改端口号，phpstrom默认端口号为63342，而Apache端口号为80<br>Preferences-&gt;Buid,Execution<deployment-><br>添加project设置<br>Name为:Apache<br>Type为In place<br>Web sever root URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a><br>点击apply 然后点击ok<br>4&gt;点击Mappings选项<br>设置localpath为: /Library/WebServer/Documents/<br>点击apply 然后点击ok</deployment-></p>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://www.ariest.net/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" data-id="cja6artay000quw56y0qeug5y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/11/15/2017-11-15-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -397,11 +524,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://www.ariest.net/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/';
+        
+        this.page.identifier = '2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
