@@ -3,30 +3,14 @@
 <head>
     <meta charset="utf-8">
     
-    <title>利用Runtime实现自动化归档 | 上善若水,道法自然</title>
+    <title>上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。
-创建NSObject分类 .h文件
-1234@interface NSObject (Extention)@end
-.m文件
-1234567891011121314151617181920212223242526272829303132333435363738394">
-<meta property="og:type" content="article">
-<meta property="og:title" content="利用Runtime实现自动化归档">
-<meta property="og:url" content="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="上善若水,道法自然">
+<meta property="og:url" content="http://www.ariest.net/page/4/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。
-创建NSObject分类 .h文件
-1234@interface NSObject (Extention)@end
-.m文件
-1234567891011121314151617181920212223242526272829303132333435363738394">
-<meta property="og:updated_time" content="2017-04-04T08:33:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用Runtime实现自动化归档">
-<meta name="twitter:description" content="Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。
-创建NSObject分类 .h文件
-1234@interface NSObject (Extention)@end
-.m文件
-1234567891011121314151617181920212223242526272829303132333435363738394">
+<meta name="twitter:title" content="上善若水,道法自然">
     
 
     
@@ -221,15 +205,16 @@
 </aside>
 
             
-            <section id="main"><article id="post-2016-04-05-利用Runtime实现自动化归档" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main">
+    <article id="post-2013-08-13-NSArray、NSDictionary以及NSSet的区别" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
             <header class="article-header">
                 
     
-        <h1 class="article-title" itemprop="name">
-            利用Runtime实现自动化归档
+        <h1 itemprop="name">
+            <a class="article-title" href="/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/">NSArray、NSDictionary以及NSSet的区别</a>
         </h1>
     
 
@@ -238,8 +223,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/05/2016-04-05-利用Runtime实现自动化归档/">
-            <time datetime="2016-04-05T11:03:53.000Z" itemprop="datePublished">2016-04-05</time>
+        <a href="/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/">
+            <time datetime="2013-08-13T13:03:23.000Z" itemprop="datePublished">2013-08-13</time>
         </a>
     </div>
 
@@ -254,11 +239,9 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。</p>
-<p>创建NSObject分类 .h文件</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@interface NSObject (Extention)</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<p>.m文件</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#import &lt;objc/message.h&gt;</span></div><div class="line"></div><div class="line">@interface NSObject ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation NSObject (Extension)</div><div class="line"></div><div class="line">+(NSArray *)memberNamesOfClass&#123;</div><div class="line">    </div><div class="line">    unsigned int count=<span class="number">0</span>;</div><div class="line">    </div><div class="line">    <span class="comment">#类中所有成员变量</span></div><div class="line">    Ivar *ivars=class_copyIvarList(<span class="keyword">self</span>, &amp;count);</div><div class="line">    </div><div class="line">    NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (int i=<span class="number">0</span>; i&lt;count; i++) &#123;</div><div class="line">        </div><div class="line">        Ivar ivar=ivars[i];</div><div class="line">        </div><div class="line">        <span class="comment">#=&gt;成员属性名</span></div><div class="line">        NSString *name=[NSString <span class="symbol">stringWithUTF8String:</span>ivar_getName(ivar)];</div><div class="line">        </div><div class="line">        NSString *key=[name <span class="symbol">substringFromIndex:</span><span class="number">0</span>];</div><div class="line">        </div><div class="line">        [arrayM <span class="symbol">addObject:</span>key];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">#=&gt;C语言手动释放</span></div><div class="line">    free(ivars);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> arrayM;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#=&gt; 归档</span></div><div class="line">- (void)<span class="symbol">encodeWithCoder:</span>(NSCoder *)encode</div><div class="line">&#123;</div><div class="line">    NSArray *memberNames=[<span class="keyword">self</span>.<span class="keyword">class</span> memberNamesOfClass];</div><div class="line">    </div><div class="line">        <span class="keyword">for</span> (NSString *key <span class="keyword">in</span> memberNames) &#123;</div><div class="line">        </div><div class="line">        id value=[<span class="keyword">self</span> <span class="symbol">valueForKey:</span>key];</div><div class="line">        </div><div class="line">        [encode <span class="symbol">encodeObject:</span>value <span class="symbol">forKey:</span>key];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#=&gt;解档</span></div><div class="line">-(instancetype)<span class="symbol">initWithCoder:</span>(NSCoder *)decode</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span>=[<span class="keyword">self</span> init];</div><div class="line">    </div><div class="line">    NSArray *memberNames=[<span class="keyword">self</span>.<span class="keyword">class</span> memberNamesOfClass];</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (NSString *key <span class="keyword">in</span> memberNames) &#123;</div><div class="line">        </div><div class="line">        id value=[decode <span class="symbol">decodeObjectForKey:</span>key];</div><div class="line">        </div><div class="line">        [<span class="keyword">self</span> <span class="symbol">setValue:</span>value <span class="symbol">forKey:</span>key];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p>NSArray:用于对象有序集合,存储的元素在一个整块的内存中按序排列;<br>NSDictionary:用于键值映射;<br>NSSet:用于对象无序集合,散列存储(哈希);</p>
+<p>NSArray比NSSet的平均效率低.<br>1.NSArray,本质上是一个数组，根据index查找元素是相当快的,但它查找某个指定的元素效率不是很高。如某个元素所对应的index=100,那么要找到该元素,就必然遍历了此元素之前的100个元素。<br>对于NSSet,因为它的组织结构是hash，所以它能够在常数时间里找到对应的元素。哈希表就是一种以键-值存储数据的结构,我们只要输入待查找的值即key，即可查找到其对应的值。<br>2.NSet元素的单一性,即同一个对象在NSSet中只存在一份;同一个对象在NSArray中可以存在多份。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line"> </div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;arrayM=%@&quot;,arrayM);</div><div class="line"> </div><div class="line"> NSMutableSet *setM=[NSMutableSet set];</div><div class="line"> </div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;setM=%@&quot;,setM);</div><div class="line"> </div><div class="line">  arrayM=(</div><div class="line">  Aries58,</div><div class="line">  Aries58</div><div class="line">  )</div><div class="line">  setM=&#123;(</div><div class="line">  Aries58</div><div class="line">  )&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -269,7 +252,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/" data-id="cjaid1zvc000mmf56w73uh6re" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/" data-id="cjaid1zuk0000mf5600xlg1wa" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -337,48 +320,19 @@
 
             
     
-        <a href="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/">Comentarios</a>
+        <a href="http://www.ariest.net/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/">Comentarios</a>
     
 
         </footer>
     </div>
     
-        
-<nav id="article-nav">
-    
-        <a href="/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más nuevo</strong>
-            <div class="article-nav-title">
-                
-                    NSURLSession实现网络请求和下载任务
-                
-            </div>
-        </a>
-    
-    
-        <a href="/2016/03/01/2016-03-01-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title">通过ReactiveCocoa结合MVVM设计模式进行网络亲请求</div>
-        </a>
-    
-</nav>
-
-
-    
 </article>
 
 
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
 
-    
-    </section>
-
+    <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Anterior</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
 </section>
             
                 <aside id="sidebar">
@@ -537,13 +491,11 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/';
-        
-        this.page.identifier = '2016-04-05-利用Runtime实现自动化归档';
+        this.page.identifier = 'undefined';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'icarus' + '.disqus.com/embed.js';
+        s.src = '//' + 'icarus' + '.disqus.com/count.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();

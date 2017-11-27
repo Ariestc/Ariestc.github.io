@@ -3,30 +3,54 @@
 <head>
     <meta charset="utf-8">
     
-    <title>利用Runtime实现自动化归档 | 上善若水,道法自然</title>
+    <title>GCD 相关Apple文档关键词翻译(一) | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。
-创建NSObject分类 .h文件
-1234@interface NSObject (Extention)@end
-.m文件
-1234567891011121314151617181920212223242526272829303132333435363738394">
+    <meta name="description" content="parallel invocation 并行调用
+dramatically 显著地
+eliminates 消除
+grab  抓
+encapsulate 封装
+serial queue 串行队列
+concurrent queue并行队列
+synchronize同步
+arbitrary随意的
+interdependencies相互依赖
+contend for争夺
+minimize最小化
+refact">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用Runtime实现自动化归档">
-<meta property="og:url" content="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/index.html">
+<meta property="og:title" content="GCD 相关Apple文档关键词翻译(一)">
+<meta property="og:url" content="http://www.ariest.net/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译(一)/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。
-创建NSObject分类 .h文件
-1234@interface NSObject (Extention)@end
-.m文件
-1234567891011121314151617181920212223242526272829303132333435363738394">
-<meta property="og:updated_time" content="2017-04-04T08:33:15.000Z">
+<meta property="og:description" content="parallel invocation 并行调用
+dramatically 显著地
+eliminates 消除
+grab  抓
+encapsulate 封装
+serial queue 串行队列
+concurrent queue并行队列
+synchronize同步
+arbitrary随意的
+interdependencies相互依赖
+contend for争夺
+minimize最小化
+refact">
+<meta property="og:updated_time" content="2017-11-27T15:37:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用Runtime实现自动化归档">
-<meta name="twitter:description" content="Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。
-创建NSObject分类 .h文件
-1234@interface NSObject (Extention)@end
-.m文件
-1234567891011121314151617181920212223242526272829303132333435363738394">
+<meta name="twitter:title" content="GCD 相关Apple文档关键词翻译(一)">
+<meta name="twitter:description" content="parallel invocation 并行调用
+dramatically 显著地
+eliminates 消除
+grab  抓
+encapsulate 封装
+serial queue 串行队列
+concurrent queue并行队列
+synchronize同步
+arbitrary随意的
+interdependencies相互依赖
+contend for争夺
+minimize最小化
+refact">
     
 
     
@@ -221,7 +245,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2016-04-05-利用Runtime实现自动化归档" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2015-05-08-GCD 相关Apple文档关键词翻译(一)" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -229,7 +253,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            利用Runtime实现自动化归档
+            GCD 相关Apple文档关键词翻译(一)
         </h1>
     
 
@@ -238,8 +262,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/05/2016-04-05-利用Runtime实现自动化归档/">
-            <time datetime="2016-04-05T11:03:53.000Z" itemprop="datePublished">2016-04-05</time>
+        <a href="/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译(一)/">
+            <time datetime="2015-05-08T14:08:33.000Z" itemprop="datePublished">2015-05-08</time>
         </a>
     </div>
 
@@ -254,11 +278,80 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。</p>
-<p>创建NSObject分类 .h文件</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@interface NSObject (Extention)</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<p>.m文件</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#import &lt;objc/message.h&gt;</span></div><div class="line"></div><div class="line">@interface NSObject ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation NSObject (Extension)</div><div class="line"></div><div class="line">+(NSArray *)memberNamesOfClass&#123;</div><div class="line">    </div><div class="line">    unsigned int count=<span class="number">0</span>;</div><div class="line">    </div><div class="line">    <span class="comment">#类中所有成员变量</span></div><div class="line">    Ivar *ivars=class_copyIvarList(<span class="keyword">self</span>, &amp;count);</div><div class="line">    </div><div class="line">    NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (int i=<span class="number">0</span>; i&lt;count; i++) &#123;</div><div class="line">        </div><div class="line">        Ivar ivar=ivars[i];</div><div class="line">        </div><div class="line">        <span class="comment">#=&gt;成员属性名</span></div><div class="line">        NSString *name=[NSString <span class="symbol">stringWithUTF8String:</span>ivar_getName(ivar)];</div><div class="line">        </div><div class="line">        NSString *key=[name <span class="symbol">substringFromIndex:</span><span class="number">0</span>];</div><div class="line">        </div><div class="line">        [arrayM <span class="symbol">addObject:</span>key];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">#=&gt;C语言手动释放</span></div><div class="line">    free(ivars);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> arrayM;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#=&gt; 归档</span></div><div class="line">- (void)<span class="symbol">encodeWithCoder:</span>(NSCoder *)encode</div><div class="line">&#123;</div><div class="line">    NSArray *memberNames=[<span class="keyword">self</span>.<span class="keyword">class</span> memberNamesOfClass];</div><div class="line">    </div><div class="line">        <span class="keyword">for</span> (NSString *key <span class="keyword">in</span> memberNames) &#123;</div><div class="line">        </div><div class="line">        id value=[<span class="keyword">self</span> <span class="symbol">valueForKey:</span>key];</div><div class="line">        </div><div class="line">        [encode <span class="symbol">encodeObject:</span>value <span class="symbol">forKey:</span>key];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#=&gt;解档</span></div><div class="line">-(instancetype)<span class="symbol">initWithCoder:</span>(NSCoder *)decode</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span>=[<span class="keyword">self</span> init];</div><div class="line">    </div><div class="line">    NSArray *memberNames=[<span class="keyword">self</span>.<span class="keyword">class</span> memberNamesOfClass];</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (NSString *key <span class="keyword">in</span> memberNames) &#123;</div><div class="line">        </div><div class="line">        id value=[decode <span class="symbol">decodeObjectForKey:</span>key];</div><div class="line">        </div><div class="line">        [<span class="keyword">self</span> <span class="symbol">setValue:</span>value <span class="symbol">forKey:</span>key];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <ol>
+<li>parallel invocation 并行调用</li>
+<li>dramatically 显著地</li>
+<li>eliminates 消除</li>
+<li>grab  抓</li>
+<li>encapsulate 封装</li>
+<li>serial queue 串行队列</li>
+<li>concurrent queue并行队列</li>
+<li>synchronize同步</li>
+<li>arbitrary随意的</li>
+<li>interdependencies相互依赖</li>
+<li>contend for争夺</li>
+<li>minimize最小化</li>
+<li>refactor重构</li>
+<li>rearchitect重新构建</li>
+<li>mechanisms机制</li>
+<li>algorithm算法</li>
+<li>minimal latency最小延迟</li>
+<li>performance penalty性能消耗</li>
+<li>indeterminate不定</li>
+<li>impose强加</li>
+<li>mutex互斥</li>
+<li>equivalent相等，相当的</li>
+<li>not any more than = no more than 大体相等,只不过,仅仅</li>
+<li>not more than 少于,不多于,不超过</li>
+<li>iterations迭代,重</li>
+<li>reentrant折返</li>
+<li>thread-based、lock-based、queue-based、dispatch-based、loop-based</li>
+<li>thread-communication线程通信</li>
+<li>discerningly有见识的</li>
+<li>low overhead低开销</li>
+<li>warrant保证</li>
+<li>striding(stride) 跨越 striding for 大步前进 stride value 步幅值</li>
+<li>specify to指定为</li>
+<li>proportional 成比例的</li>
+<li>inline一致</li>
+<li>metric though度量标准</li>
+<li>Thread joins线程连接 joinable thread可连接的线程</li>
+<li>semantics语义</li>
+<li>simultaneously同时</li>
+<li>finite number有限数量</li>
+<li>semaphores 信号灯</li>
+<li>In turn反过来</li>
+<li>restrict 限制</li>
+<li>In contrast相反</li>
+<li>trap into陷入</li>
+<li>underlying底层</li>
+<li>monitor processes监视进程</li>
+<li>trigger 触发、触发器</li>
+<li>Compatibility兼容性</li>
+<li>mutate objects改变对象</li>
+<li>Consequently所以</li>
+<li>suppress压制</li>
+<li>in conjunction with和什么结合</li>
+<li>reclaimed回收</li>
+<li>process periodic event处理定期事件</li>
+<li>event handler事件处理器</li>
+<li>notably特别是</li>
+<li>manipulate操纵</li>
+<li>illegal instruction非法指令</li>
+<li>different phases of 不同阶段</li>
+<li>backlogged积压</li>
+<li>coalescing scheme合并方案</li>
+<li>designated 特定的</li>
+<li>code snippet代码片段</li>
+<li>scope范围</li>
+<li>external ownership外部所有权</li>
+<li>autonomous自主性</li>
+<li>graphics-intensive图形密集型</li>
+<li>interval timers间隔定时器</li>
+<li>leeway余地</li>
+<li>nanosecond纳秒</li>
+<li>accommodate容纳、迁就</li>
+</ol>
 
         
         </div>
@@ -269,7 +362,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/" data-id="cjaid1zvc000mmf56w73uh6re" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译(一)/" data-id="cjaid1zuy000amf56w06ssc9c" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -337,7 +430,7 @@
 
             
     
-        <a href="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/">Comentarios</a>
+        <a href="http://www.ariest.net/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译(一)/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译(一)/">Comentarios</a>
     
 
         </footer>
@@ -346,19 +439,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
-                    NSURLSession实现网络请求和下载任务
+                    使用CocoaPods管理开源框架及安装详细步骤
                 
             </div>
         </a>
     
     
-        <a href="/2016/03/01/2016-03-01-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2015/05/05/2015-05-05-网易阿里百度iOS面试题/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title">通过ReactiveCocoa结合MVVM设计模式进行网络亲请求</div>
+            <div class="article-nav-title">网易阿里百度iOS面试题</div>
         </a>
     
 </nav>
@@ -537,9 +630,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/';
+            this.page.url = 'http://www.ariest.net/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译(一)/';
         
-        this.page.identifier = '2016-04-05-利用Runtime实现自动化归档';
+        this.page.identifier = '2015-05-08-GCD 相关Apple文档关键词翻译(一)';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

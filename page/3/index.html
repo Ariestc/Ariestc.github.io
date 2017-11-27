@@ -76,7 +76,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -95,10 +95,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -129,7 +129,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
     </div>
 
                 </td>
@@ -149,16 +149,16 @@
             <h2 id="name">Aries</h2>
             <h3 id="title">Moblie &amp; Web Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Beijing , China</span>
-            <a id="follow" target="_blank" href="https://github.com/ariestc/">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://github.com/ariestc/">SEGUIR</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                29
-                <span>posts</span>
+                31
+                <span>Entradas</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>tag</span>
+                <span>Etiqueta</span>
             </div>
         </div>
         
@@ -206,7 +206,7 @@
 
             
             <section id="main">
-    <article id="post-2014-11-05-如何在XCode6中创建PCH文件" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-02-01-Copy详解" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -214,7 +214,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/">如何在XCode6中创建PCH文件</a>
+            <a class="article-title" href="/2015/02/01/2015-02-01-Copy详解/">Copy详解</a>
         </h1>
     
 
@@ -223,8 +223,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/">
-            <time datetime="2014-11-05T07:04:23.000Z" itemprop="datePublished">2014-11-05</time>
+        <a href="/2015/02/01/2015-02-01-Copy详解/">
+            <time datetime="2015-02-01T11:13:33.000Z" itemprop="datePublished">2015-02-01</time>
         </a>
     </div>
 
@@ -239,15 +239,17 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>pch文件主要用于分类文件头文件导入,方便全局使用。公共宏的定义,项目api管理等。<br>以下是PCH文件创建步骤:</p>
-<p>1.新建文件 command + N</p>
-<p>2.选择iOS/Mac -&gt; Other -&gt; PCH File -&gt; 输入pch文件名,例如: YourProject-Prefix.pch</p>
-<p>3.在Xcode6中,选择Project -&gt; Build Settings, 然后搜索: Prefix Header</p>
-<p>4.在Apple LLVM 6.0分组可以看到Prefix Header</p>
-<p>5.输入YourProjectName/YourProject-Prefix.pch</p>
-<p>6.Clean项目: command + shift + K</p>
-<p>7.编译项目: command + B</p>
-
+            <p>@property (copy) NSMutableArray *array;<br>此写法存在两个问题:<br>1.添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃.因为 copy 就是复制一个不可变 NSArray 的对象。<br>2.使用了 atomic 属性会严重影响性能。</p>
+<p>nonatomic与atomic:<br>nonatomic即非原子属性,不会为setter方法加锁,非线程安全,适合内存小的移动设备。<br>atomic即原子属性,为setter方法加锁,线程安全,但需要消耗大量CPU的资源。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">NSMutableArray *array=[NSMutableArray <span class="symbol">arrayWithObjects:</span>@<span class="string">"Aries58"</span>,@<span class="string">"Aris5801"</span>, <span class="literal">nil</span>];</div><div class="line">   </div><div class="line">   <span class="keyword">self</span>.mutableArray=array;</div><div class="line">   </div><div class="line">   <span class="comment">#-[__NSArrayI removeObjectAtIndex:]: unrecognized selector sent to instance 0x7f9eb2c3ced0</span></div><div class="line"></div><div class="line">   [<span class="keyword">self</span>.mutableArray <span class="symbol">removeObjectAtIndex:</span><span class="number">0</span>];</div></pre></td></tr></table></figure>
+<p>互斥锁(线程同步技术):<br>锁定1份代码只能用一把锁,用多把锁是无效的。<br>优点:能有效防止因多线程抢夺资源造成的数据安全问题。<br>缺点:需要消耗大量的CPU资源。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@synchronized(锁对象) &#123;</div><div class="line">    </div><div class="line">    <span class="comment">#需要锁定的代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在非集合类对象中：对immutable对象进行copy操作,是指针复制,mutableCopy是内容复制。<br>               对mutable对象进行copy和mutableCopy都是内容复制。</p>
+<p>浅复制: [immutableObject copy]<br>深复制: [immutableObject mutableCopy]<br>       [mutableObject copy]<br>       [mutableObject mutableCopy]</p>
+<p>非集合类对象copy</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)test02&#123;</div><div class="line">    </div><div class="line">    NSMutableString *string=[NSMutableString <span class="symbol">stringWithString:</span>@<span class="string">"Aries58"</span>];</div><div class="line">    </div><div class="line">    NSString *stringCopy=[string copy];</div><div class="line">    <span class="comment">#NSString *stringCopy=[string mutableCopy];</span></div><div class="line">    <span class="comment">#NSString *stringCopy=string;</span></div><div class="line">    </div><div class="line">    [string <span class="symbol">appendString:</span>@<span class="string">"Successful"</span>];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"string=%@"</span>,string);</div><div class="line">    NSLog(@<span class="string">"stringCopy=%@"</span>,stringCopy);</div><div class="line"></div><div class="line">         string=Aries58Successful</div><div class="line">         stringCopy=Aries58</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>集合类对象copy</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)test04&#123;</div><div class="line">    </div><div class="line">    NSMutableArray *array=[NSMutableArray <span class="symbol">arrayWithObjects:</span>[NSMutableString <span class="symbol">stringWithString:</span>@<span class="string">"Aries58"</span>],@<span class="string">"Aries5802"</span>,@<span class="string">"Aries5803"</span>, <span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    NSArray *copyArray=[array copy];</div><div class="line">    </div><div class="line">    NSMutableArray *mCopyArray=[array mutableCopy];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"array=%p"</span>,array);</div><div class="line">    NSLog(@<span class="string">"copyArray=%p"</span>,copyArray);</div><div class="line">    NSLog(@<span class="string">"mCopyArray=%p"</span>,mCopyArray);</div><div class="line">    </div><div class="line">              array=<span class="number">0x7fe532e069d0</span></div><div class="line">          copyArray=<span class="number">0x7fe532e0bd80</span></div><div class="line">         mCopyArray=<span class="number">0x7fe532e0d9b0</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)test03&#123;</div><div class="line">    </div><div class="line">    NSArray *array=@[@[@<span class="string">"Aries58"</span>,@<span class="string">"Aries5801"</span>],@[@<span class="string">"Aries5802"</span>,@<span class="string">"Aries5803"</span>]];</div><div class="line">    </div><div class="line">    NSArray *copyArray=[array copy];</div><div class="line">    </div><div class="line">    NSMutableArray *mCopyArray=[array mutableCopy];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"array=%p"</span>,array);</div><div class="line">    NSLog(@<span class="string">"copyArray=%p"</span>,copyArray);</div><div class="line">    NSLog(@<span class="string">"mCopyArray=%p"</span>,mCopyArray);</div><div class="line">    </div><div class="line">    </div><div class="line">              array=<span class="number">0x7f8131c3d360</span></div><div class="line">          copyArray=<span class="number">0x7f8131c3d360</span></div><div class="line">         mCopyArray=<span class="number">0x7f8131c03bf0</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -257,7 +259,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/" data-id="cjagxm1ib0008a356k52rx9lm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/" data-id="cjaid1zv3000emf56udfkkp4i" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -325,7 +327,262 @@
 
             
     
-        <a href="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/">Comments</a>
+        <a href="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/">Comentarios</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2014-11-08-搬瓦工VPS配置" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/11/08/2014-11-08-搬瓦工VPS配置/">2014-11-08-搬瓦工VPS配置</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/11/08/2014-11-08-搬瓦工VPS配置/">
+            <time datetime="2014-11-08T12:50:23.000Z" itemprop="datePublished">2014-11-08</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>1.打开官网<a href="https://www.bwh1.net" target="_blank" rel="external">https://www.bwh1.net</a> 选择要进行购买的套餐并支付。<br>2.网页拽到最底端点击My Services选项会看到购买到的IP及激活状态(active)<br>3.点击该栏右边KiwiVM Control Panel选项</p>
+<ol>
+<li>点击Main Controls 后先进行stop操作，后面安装完后进行start操作即可</li>
+<li>点击Install new OS 选择centos-6-x86_64-bbr进行安装<br>6.选择Shadowsocks Server进行安装，安装后会产生encryption port password<br>7.选择ShadowsocksX客户端将以下信息进行配置<br>Shadowsocks server encryption<br>Shadowsocks server port<br>Shadowsocks server password<br>8.配置浏览器设置代理(不同浏览器更具体是配置即可)<br>Proxy type：Socks v5<br>Proxy IP(Socks Host):127.0.0.1<br>port:1080</li>
+</ol>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/" data-id="cjaid1zv0000dmf569gqf9nyh" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/">Comentarios</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2014-11-05-如何在XCode6中创建PCH文件" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/">如何在XCode6中创建PCH文件</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/">
+            <time datetime="2014-11-05T07:04:23.000Z" itemprop="datePublished">2014-11-05</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>pch文件主要用于分类文件头文件导入,方便全局使用。公共宏的定义,项目api管理等。<br>以下是PCH文件创建步骤:</p>
+<p>1.新建文件 command + N</p>
+<p>2.选择iOS/Mac -&gt; Other -&gt; PCH File -&gt; 输入pch文件名,例如: YourProject-Prefix.pch</p>
+<p>3.在Xcode6中,选择Project -&gt; Build Settings, 然后搜索: Prefix Header</p>
+<p>4.在Apple LLVM 6.0分组可以看到Prefix Header</p>
+<p>5.输入YourProjectName/YourProject-Prefix.pch</p>
+<p>6.Clean项目: command + shift + K</p>
+<p>7.编译项目: command + B</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/" data-id="cjaid1zuw0007mf56goi00cmi" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/">Comentarios</a>
     
 
         </footer>
@@ -382,7 +639,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/" data-id="cjagxm1ia0007a356sjowrmqp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/" data-id="cjaid1zux0009mf5694sbvxsd" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -450,7 +707,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/">Comments</a>
+        <a href="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/">Comentarios</a>
     
 
         </footer>
@@ -530,7 +787,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cjagxm1i80005a356n7x167cc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cjaid1zuv0006mf56shxm9gn7" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -598,7 +855,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/">Comments</a>
+        <a href="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/">Comentarios</a>
     
 
         </footer>
@@ -657,7 +914,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" data-id="cjagxm1i60003a356b4p0cjyz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" data-id="cjaid1zut0005mf56i04rtk3f" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -725,7 +982,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/">Comments</a>
+        <a href="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/">Comentarios</a>
     
 
         </footer>
@@ -785,7 +1042,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjagxm1i90006a3566thb4n2o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjaid1zus0004mf56a2y7vmqj" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -853,7 +1110,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comments</a>
+        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comentarios</a>
     
 
         </footer>
@@ -914,7 +1171,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/" data-id="cjagxm1i70004a3567hsdtx0s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/" data-id="cjaid1zur0003mf56562fbxum" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -982,7 +1239,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/">Comments</a>
+        <a href="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/">Comentarios</a>
     
 
         </footer>
@@ -1040,7 +1297,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/" data-id="cjagxm1i50002a3565ytqxz0d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/" data-id="cjaid1zuq0002mf567tc7h025" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1108,7 +1365,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/">Comments</a>
+        <a href="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/">Comentarios</a>
     
 
         </footer>
@@ -1167,7 +1424,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/" data-id="cjagxm1i30001a356tawh6uu2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/" data-id="cjaid1zuo0001mf568wmuari4" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1235,131 +1492,7 @@
 
             
     
-        <a href="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-2013-08-13-NSArray、NSDictionary以及NSSet的区别" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/">NSArray、NSDictionary以及NSSet的区别</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/">
-            <time datetime="2013-08-13T13:03:23.000Z" itemprop="datePublished">2013-08-13</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>NSArray:用于对象有序集合,存储的元素在一个整块的内存中按序排列;<br>NSDictionary:用于键值映射;<br>NSSet:用于对象无序集合,散列存储(哈希);</p>
-<p>NSArray比NSSet的平均效率低.<br>1.NSArray,本质上是一个数组，根据index查找元素是相当快的,但它查找某个指定的元素效率不是很高。如某个元素所对应的index=100,那么要找到该元素,就必然遍历了此元素之前的100个元素。<br>对于NSSet,因为它的组织结构是hash，所以它能够在常数时间里找到对应的元素。哈希表就是一种以键-值存储数据的结构,我们只要输入待查找的值即key，即可查找到其对应的值。<br>2.NSet元素的单一性,即同一个对象在NSSet中只存在一份;同一个对象在NSArray中可以存在多份。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line"> </div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;arrayM=%@&quot;,arrayM);</div><div class="line"> </div><div class="line"> NSMutableSet *setM=[NSMutableSet set];</div><div class="line"> </div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;setM=%@&quot;,setM);</div><div class="line"> </div><div class="line">  arrayM=(</div><div class="line">  Aries58,</div><div class="line">  Aries58</div><div class="line">  )</div><div class="line">  setM=&#123;(</div><div class="line">  Aries58</div><div class="line">  )&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/" data-id="cjagxm1hz0000a3567dv0ynsn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2013/08/13/2013-08-13-NSArray、NSDictionary以及NSSet的区别/">Comments</a>
+        <a href="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2013/12/08/2013-12-08-递归算法应用/">Comentarios</a>
     
 
         </footer>
@@ -1370,7 +1503,7 @@
 
 
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Anterior</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Siguiente  &raquo;</a>
     </nav>
 </section>
             
@@ -1378,7 +1511,7 @@
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
+        <h3 class="widget-title">Recientes</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -1486,9 +1619,9 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
+        <h3 class="widget-title">Archivos</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1499,7 +1632,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
+        <h3 class="widget-title">Links</h3>
         <div class="widget">
             <ul>
                 

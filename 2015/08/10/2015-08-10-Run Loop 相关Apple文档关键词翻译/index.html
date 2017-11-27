@@ -3,30 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>利用Runtime实现自动化归档 | 上善若水,道法自然</title>
+    <title>Run Loop 相关Apple文档关键词翻译 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。
-创建NSObject分类 .h文件
-1234@interface NSObject (Extention)@end
-.m文件
-1234567891011121314151617181920212223242526272829303132333435363738394">
+    <meta name="description" content="1.fundamental infrastructure基础设施2.incoming events传入的事件3.startup process启动过程4.Anatomy剖析5.control statements控制语句6.actual loop实际循环7.Input sources 输入源8.scheduled time计划时间9.Timer sources计时器源10.handler rout">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用Runtime实现自动化归档">
-<meta property="og:url" content="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/index.html">
+<meta property="og:title" content="Run Loop 相关Apple文档关键词翻译">
+<meta property="og:url" content="http://www.ariest.net/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。
-创建NSObject分类 .h文件
-1234@interface NSObject (Extention)@end
-.m文件
-1234567891011121314151617181920212223242526272829303132333435363738394">
-<meta property="og:updated_time" content="2017-04-04T08:33:15.000Z">
+<meta property="og:description" content="1.fundamental infrastructure基础设施2.incoming events传入的事件3.startup process启动过程4.Anatomy剖析5.control statements控制语句6.actual loop实际循环7.Input sources 输入源8.scheduled time计划时间9.Timer sources计时器源10.handler rout">
+<meta property="og:updated_time" content="2017-11-27T15:40:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用Runtime实现自动化归档">
-<meta name="twitter:description" content="Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。
-创建NSObject分类 .h文件
-1234@interface NSObject (Extention)@end
-.m文件
-1234567891011121314151617181920212223242526272829303132333435363738394">
+<meta name="twitter:title" content="Run Loop 相关Apple文档关键词翻译">
+<meta name="twitter:description" content="1.fundamental infrastructure基础设施2.incoming events传入的事件3.startup process启动过程4.Anatomy剖析5.control statements控制语句6.actual loop实际循环7.Input sources 输入源8.scheduled time计划时间9.Timer sources计时器源10.handler rout">
     
 
     
@@ -221,7 +209,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2016-04-05-利用Runtime实现自动化归档" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2015-08-10-Run Loop 相关Apple文档关键词翻译" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -229,7 +217,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            利用Runtime实现自动化归档
+            Run Loop 相关Apple文档关键词翻译
         </h1>
     
 
@@ -238,8 +226,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/05/2016-04-05-利用Runtime实现自动化归档/">
-            <time datetime="2016-04-05T11:03:53.000Z" itemprop="datePublished">2016-04-05</time>
+        <a href="/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/">
+            <time datetime="2015-08-10T12:50:23.000Z" itemprop="datePublished">2015-08-10</time>
         </a>
     </div>
 
@@ -254,11 +242,7 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Runtime是一套底层的C语言API,可以进行一些非常底层的操作,程序运行过程中, 其实最终都是转成了runtime的C语言代码。</p>
-<p>创建NSObject分类 .h文件</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@interface NSObject (Extention)</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<p>.m文件</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#import &lt;objc/message.h&gt;</span></div><div class="line"></div><div class="line">@interface NSObject ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation NSObject (Extension)</div><div class="line"></div><div class="line">+(NSArray *)memberNamesOfClass&#123;</div><div class="line">    </div><div class="line">    unsigned int count=<span class="number">0</span>;</div><div class="line">    </div><div class="line">    <span class="comment">#类中所有成员变量</span></div><div class="line">    Ivar *ivars=class_copyIvarList(<span class="keyword">self</span>, &amp;count);</div><div class="line">    </div><div class="line">    NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (int i=<span class="number">0</span>; i&lt;count; i++) &#123;</div><div class="line">        </div><div class="line">        Ivar ivar=ivars[i];</div><div class="line">        </div><div class="line">        <span class="comment">#=&gt;成员属性名</span></div><div class="line">        NSString *name=[NSString <span class="symbol">stringWithUTF8String:</span>ivar_getName(ivar)];</div><div class="line">        </div><div class="line">        NSString *key=[name <span class="symbol">substringFromIndex:</span><span class="number">0</span>];</div><div class="line">        </div><div class="line">        [arrayM <span class="symbol">addObject:</span>key];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">#=&gt;C语言手动释放</span></div><div class="line">    free(ivars);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> arrayM;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#=&gt; 归档</span></div><div class="line">- (void)<span class="symbol">encodeWithCoder:</span>(NSCoder *)encode</div><div class="line">&#123;</div><div class="line">    NSArray *memberNames=[<span class="keyword">self</span>.<span class="keyword">class</span> memberNamesOfClass];</div><div class="line">    </div><div class="line">        <span class="keyword">for</span> (NSString *key <span class="keyword">in</span> memberNames) &#123;</div><div class="line">        </div><div class="line">        id value=[<span class="keyword">self</span> <span class="symbol">valueForKey:</span>key];</div><div class="line">        </div><div class="line">        [encode <span class="symbol">encodeObject:</span>value <span class="symbol">forKey:</span>key];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#=&gt;解档</span></div><div class="line">-(instancetype)<span class="symbol">initWithCoder:</span>(NSCoder *)decode</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span>=[<span class="keyword">self</span> init];</div><div class="line">    </div><div class="line">    NSArray *memberNames=[<span class="keyword">self</span>.<span class="keyword">class</span> memberNamesOfClass];</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (NSString *key <span class="keyword">in</span> memberNames) &#123;</div><div class="line">        </div><div class="line">        id value=[decode <span class="symbol">decodeObjectForKey:</span>key];</div><div class="line">        </div><div class="line">        [<span class="keyword">self</span> <span class="symbol">setValue:</span>value <span class="symbol">forKey:</span>key];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p>1.fundamental infrastructure基础设施<br>2.incoming events传入的事件<br>3.startup process启动过程<br>4.Anatomy剖析<br>5.control statements控制语句<br>6.actual loop实际循环<br>7.Input sources 输入源<br>8.scheduled time计划时间<br>9.Timer sources计时器源<br>10.handler routine处理程序<br>11.filter out过滤掉<br>12.discriminate区别<br>13.tear down拆除<br>14.serialized连载<br>15.alleviating缓解<br>16.queued排队<br>17.preset time预设时间<br>18.successive 连续的<br>19.key strokes击键<br>20.circumventing规避<br>21.loop disrupts循环中断<br>22.retrieve取回<br>23.allotted time分配时间<br>24.timeout value超时值<br>25.skeleton骨架<br>26.In essence在本质上<br>27.recursively递归<br>28.nested 嵌套<br>29.counterpart副本<br>30.cancellation routine取消程序<br>31.scheduler调度<br>32.hand off切换到<br>33.maintain references to 保持对…引用<br>34.preceding figure 上图<br>35.preclude妨碍 避免<br>36.contextual information上下文信息<br>37.vends售货、发布<br>38.unregister注销<br>39.timer fired定时器触发<br>40.triggers an exception触发异常<br>41.readiness准备就绪<br>42.incorporate合并<br>43.informal protocol非正式协议<br>44.by convention按照惯例<br>45.traverse遍历<br>46.drilling down向下钻<br>47.collection operator集合运算符<br>48.illustrates说明<br>49.Suppose假设<br>50.interest rate利率 balance余额<br>51.is akin to 类似于<br>52.mutually exclusive相互排斥<br>53.ongoing state 持续状态<br>54.syntactic语法<br>55.lexical scope词汇范围<br>56.distinct独特<br>57.asynchronous invocation异步调用<br>58.figure out弄清楚<br>59.task-scheduling mechanisms任务调度机制<br>60.along with以及<br>61.progress indicator进度指示器<br>62.halt暂停<br>63.discrete chunks离散块<br>64.with respect to相对于<br>65.spawn产生<br>66.in all likelihood所有可能性<br>67.result in导致<br>68.be responsible for负责</p>
 
         
         </div>
@@ -269,7 +253,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/" data-id="cjaid1zvc000mmf56w73uh6re" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/" data-id="cjaid1zuz000cmf56i80znipp" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -337,7 +321,7 @@
 
             
     
-        <a href="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/">Comentarios</a>
+        <a href="http://www.ariest.net/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/">Comentarios</a>
     
 
         </footer>
@@ -346,19 +330,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2015/09/05/2015-09-05-优秀程序员必备之如何在Github、Coding或Git@OSC上进行个人或公司代码托管部署/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
-                    NSURLSession实现网络请求和下载任务
+                    优秀程序员必备之如何在Github、Coding或Git@OSC上进行个人或公司代码托管部署
                 
             </div>
         </a>
     
     
-        <a href="/2016/03/01/2016-03-01-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2015/08/03/2015-08-03-自定义NSOperation实现图片下载/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title">通过ReactiveCocoa结合MVVM设计模式进行网络亲请求</div>
+            <div class="article-nav-title">自定义NSOperation实现图片下载</div>
         </a>
     
 </nav>
@@ -537,9 +521,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/';
+            this.page.url = 'http://www.ariest.net/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/';
         
-        this.page.identifier = '2016-04-05-利用Runtime实现自动化归档';
+        this.page.identifier = '2015-08-10-Run Loop 相关Apple文档关键词翻译';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
