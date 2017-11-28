@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                34
+                36
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -206,6 +206,135 @@
 
             
             <section id="main">
+    <article id="post-2016-04-15-KCV" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/04/15/2016-04-15-KCV/">KCV</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/04/15/2016-04-15-KCV/">
+            <time datetime="2016-04-15T11:03:53.000Z" itemprop="datePublished">2016-04-15</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>1.利用KVC可以随意修改一个对象的属性或者成员变量(并且私有的也可以修改)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@implementation Person</div><div class="line">&#123;</div><div class="line">    @private</div><div class="line">    double _height;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)printHeight</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;height是%f&quot;,_height);</div><div class="line">&#125;</div><div class="line"></div><div class="line"> [p setValue:@&quot;jack&quot; forKeyPath:@&quot;_name&quot;];</div><div class="line">  NSLog(@&quot;%@&quot;, p.name);</div><div class="line"></div><div class="line"> [p setValue:@10.5 forKey:@&quot;height&quot;];</div><div class="line"> [p printHeight];</div></pre></td></tr></table></figure>
+<p>2.forKeyPath包含了forKey功能，以后使用forKeyPath就可以了；<br>  forKeyPath中可以利用.运算符，就可以一层一层往下查找对象的属性；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[p setValue:@&quot;hashiqi&quot; forKeyPath:@&quot;dog.name&quot;];</div><div class="line">[p setValue:@&quot;猪骨&quot; forKeyPath:@&quot;dog.bone.type&quot;];</div><div class="line">[p.dog setValue:@&quot;猪骨&quot; forKeyPath:@&quot;bone.type&quot;];</div><div class="line">[p.dog.bone setValue:@&quot;猪骨&quot; forKeyPath:@&quot;type&quot;];</div><div class="line"></div><div class="line">[p setValue:@&quot;hashiqi&quot; forKey:@&quot;dog.name&quot;]; // 写法错误</div></pre></td></tr></table></figure>
+<ol>
+<li>取出books数组中每一个元素的name属性值，放到一个新的数组中返回；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">NSArray *names = [p valueForKeyPath:@&quot;books.name&quot;];</div><div class="line">[p valueForKeyPath:@&quot;dog.name&quot;];</div><div class="line">NSLog(@&quot;%@&quot;, names);</div><div class="line"></div><div class="line">#计算数组中所有书的平均价格</div><div class="line">NSNumber *avgNumber =[p valueForKeyPath:@&quot;books.@avg.price&quot;];</div><div class="line"> </div><div class="line">#计算数组中所有书的总价格 </div><div class="line">NSNumber *sumNumber = [p valueForKeyPath:@&quot;books.@sum.price&quot;];</div><div class="line">NSLog(@&quot;%@&quot;, sumNumber);</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2016/04/15/2016-04-15-KCV/" data-id="cjaiynjju000pr656yxsbe50w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2016/04/15/2016-04-15-KCV/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2016/04/15/2016-04-15-KCV/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2016-04-05-利用Runtime实现自动化归档" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -254,7 +383,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/" data-id="cjaiy0r5e000nnu568vg8ligv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2016/04/05/2016-04-05-利用Runtime实现自动化归档/" data-id="cjaiynjju000or656akfdzp19" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -382,7 +511,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2016/03/01/2016-03-01-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/" data-id="cjaiy0r5d000mnu56uym49akn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2016/03/01/2016-03-01-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/" data-id="cjaiynjjt000nr656pyalyxw6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -510,7 +639,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/12/08/2015-12-08-AppleWatch与iPhone之间的通信/" data-id="cjaiy0r5c000knu56885mxhit" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/12/08/2015-12-08-AppleWatch与iPhone之间的通信/" data-id="cjaiynjjs000mr656nydcebor" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -641,7 +770,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/10/20/2015-10-20-Swift之单例写法/" data-id="cjaiy0r5d000lnu56o6s3nmrk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/10/20/2015-10-20-Swift之单例写法/" data-id="cjaiynjjr000lr6567rtpym4d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -764,7 +893,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/09/05/2015-09-05-优秀程序员必备之如何在Github、Coding或Git@OSC上进行个人或公司代码托管部署/" data-id="cjaiy0r5b000jnu56kz7kkar1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/09/05/2015-09-05-优秀程序员必备之如何在Github、Coding或Git@OSC上进行个人或公司代码托管部署/" data-id="cjaiynjjp000jr656h63st5a3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -886,7 +1015,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/" data-id="cjaiy0r5b000inu563rfl0klj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/" data-id="cjaiynjjq000kr656x8h41jgn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1018,7 +1147,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/08/03/2015-08-03-自定义NSOperation实现图片下载/" data-id="cjaiy0r5a000hnu567lilbjix" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/08/03/2015-08-03-自定义NSOperation实现图片下载/" data-id="cjaiynjjo000ir65645pqyo75" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1157,7 +1286,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/" data-id="cjaiy0r59000fnu56de0qmf2a" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/" data-id="cjaiynjjo000hr656iqcer5cp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1235,7 +1364,7 @@
 
 
 
-    <article id="post-2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1243,7 +1372,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/">iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData</a>
+            <a class="article-title" href="/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/">iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData</a>
         </h1>
     
 
@@ -1252,7 +1381,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/">
+        <a href="/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/">
             <time datetime="2015-06-15T02:08:23.000Z" itemprop="datePublished">2015-06-15</time>
         </a>
     </div>
@@ -1306,7 +1435,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/" data-id="cjaiy0r59000gnu56n8upsg6x" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/" data-id="cjaiynjjn000gr656vi9y09j9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1374,202 +1503,7 @@
 
             
     
-        <a href="http://www.ariest.net/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-2015-05-08-GCD 相关Apple文档关键词翻译" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译/">GCD 相关Apple文档关键词翻译</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译/">
-            <time datetime="2015-05-08T14:08:33.000Z" itemprop="datePublished">2015-05-08</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <ol>
-<li>parallel invocation 并行调用</li>
-<li>dramatically 显著地</li>
-<li>eliminates 消除</li>
-<li>grab  抓</li>
-<li>encapsulate 封装</li>
-<li>serial queue 串行队列</li>
-<li>concurrent queue并行队列</li>
-<li>synchronize同步</li>
-<li>arbitrary随意的</li>
-<li>interdependencies相互依赖</li>
-<li>contend for争夺</li>
-<li>minimize最小化</li>
-<li>refactor重构</li>
-<li>rearchitect重新构建</li>
-<li>mechanisms机制</li>
-<li>algorithm算法</li>
-<li>minimal latency最小延迟</li>
-<li>performance penalty性能消耗</li>
-<li>indeterminate不定</li>
-<li>impose强加</li>
-<li>mutex互斥</li>
-<li>equivalent相等，相当的</li>
-<li>not any more than = no more than 大体相等,只不过,仅仅</li>
-<li>not more than 少于,不多于,不超过</li>
-<li>iterations迭代,重</li>
-<li>reentrant折返</li>
-<li>thread-based、lock-based、queue-based、dispatch-based、loop-based</li>
-<li>thread-communication线程通信</li>
-<li>discerningly有见识的</li>
-<li>low overhead低开销</li>
-<li>warrant保证</li>
-<li>striding(stride) 跨越 striding for 大步前进 stride value 步幅值</li>
-<li>specify to指定为</li>
-<li>proportional 成比例的</li>
-<li>inline一致</li>
-<li>metric though度量标准</li>
-<li>Thread joins线程连接 joinable thread可连接的线程</li>
-<li>semantics语义</li>
-<li>simultaneously同时</li>
-<li>finite number有限数量</li>
-<li>semaphores 信号灯</li>
-<li>In turn反过来</li>
-<li>restrict 限制</li>
-<li>In contrast相反</li>
-<li>trap into陷入</li>
-<li>underlying底层</li>
-<li>monitor processes监视进程</li>
-<li>trigger 触发、触发器</li>
-<li>Compatibility兼容性</li>
-<li>mutate objects改变对象</li>
-<li>Consequently所以</li>
-<li>suppress压制</li>
-<li>in conjunction with和什么结合</li>
-<li>reclaimed回收</li>
-<li>process periodic event处理定期事件</li>
-<li>event handler事件处理器</li>
-<li>notably特别是</li>
-<li>manipulate操纵</li>
-<li>illegal instruction非法指令</li>
-<li>different phases of 不同阶段</li>
-<li>backlogged积压</li>
-<li>coalescing scheme合并方案</li>
-<li>designated 特定的</li>
-<li>code snippet代码片段</li>
-<li>scope范围</li>
-<li>external ownership外部所有权</li>
-<li>autonomous自主性</li>
-<li>graphics-intensive图形密集型</li>
-<li>interval timers间隔定时器</li>
-<li>leeway余地</li>
-<li>nanosecond纳秒</li>
-<li>accommodate容纳、迁就</li>
-</ol>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译/" data-id="cjaiy0r58000enu564yj2iokg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译/">Comments</a>
+        <a href="http://www.ariest.net/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/">Comments</a>
     
 
         </footer>
@@ -1698,7 +1632,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 

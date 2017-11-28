@@ -3,29 +3,27 @@
 <head>
     <meta charset="utf-8">
     
-    <title>GCD详解 | 上善若水,道法自然</title>
+    <title>NSOpertaion和GCD区别 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="GCD基本思想就是将任务放到队列中执行,任务表示执行什么操作,队列表示用来存放任务。GCD会自动将队列中的任务取出,放到对应的线程中执行。任务的取出遵循FIFO原则:先进先出,后进后出。
-执行任务的方式有2种:同步和异步同步:只能在当前线程中执行任务,不具备开启新线程的能力。异步:可以在新线程中执行任务,具备开启新线程的能力。
-同步方式执行任务:
-1234dispatch_sync(dispatc">
+    <meta name="description" content="GCD总结
+dispatch_sync : 同步，不具备开启线程的能力dispatch_async : 异步，具备开启线程的能力
+并发队列 ：多个任务可以同时执行串行队列 ：一个任务执行完后，再执行下一个任务
+// 获得全局的并发队列dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GCD详解">
-<meta property="og:url" content="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/index.html">
+<meta property="og:title" content="NSOpertaion和GCD区别">
+<meta property="og:url" content="http://www.ariest.net/2015/05/23/2015-05-23-NSOpertaion和GCD区别/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="GCD基本思想就是将任务放到队列中执行,任务表示执行什么操作,队列表示用来存放任务。GCD会自动将队列中的任务取出,放到对应的线程中执行。任务的取出遵循FIFO原则:先进先出,后进后出。
-执行任务的方式有2种:同步和异步同步:只能在当前线程中执行任务,不具备开启新线程的能力。异步:可以在新线程中执行任务,具备开启新线程的能力。
-同步方式执行任务:
-1234dispatch_sync(dispatc">
-<meta property="og:image" content="http://aries58.com/images/004.png">
-<meta property="og:updated_time" content="2017-04-04T08:31:54.000Z">
+<meta property="og:description" content="GCD总结
+dispatch_sync : 同步，不具备开启线程的能力dispatch_async : 异步，具备开启线程的能力
+并发队列 ：多个任务可以同时执行串行队列 ：一个任务执行完后，再执行下一个任务
+// 获得全局的并发队列dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,">
+<meta property="og:updated_time" content="2017-11-28T01:45:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GCD详解">
-<meta name="twitter:description" content="GCD基本思想就是将任务放到队列中执行,任务表示执行什么操作,队列表示用来存放任务。GCD会自动将队列中的任务取出,放到对应的线程中执行。任务的取出遵循FIFO原则:先进先出,后进后出。
-执行任务的方式有2种:同步和异步同步:只能在当前线程中执行任务,不具备开启新线程的能力。异步:可以在新线程中执行任务,具备开启新线程的能力。
-同步方式执行任务:
-1234dispatch_sync(dispatc">
-<meta name="twitter:image" content="http://aries58.com/images/004.png">
+<meta name="twitter:title" content="NSOpertaion和GCD区别">
+<meta name="twitter:description" content="GCD总结
+dispatch_sync : 同步，不具备开启线程的能力dispatch_async : 异步，具备开启线程的能力
+并发队列 ：多个任务可以同时执行串行队列 ：一个任务执行完后，再执行下一个任务
+// 获得全局的并发队列dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,">
     
 
     
@@ -220,7 +218,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2014-08-25-GCD详解" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2015-05-23-NSOpertaion和GCD区别" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -228,7 +226,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            GCD详解
+            NSOpertaion和GCD区别
         </h1>
     
 
@@ -237,8 +235,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/08/25/2014-08-25-GCD详解/">
-            <time datetime="2014-08-25T13:18:23.000Z" itemprop="datePublished">2014-08-25</time>
+        <a href="/2015/05/23/2015-05-23-NSOpertaion和GCD区别/">
+            <time datetime="2015-05-23T14:08:33.000Z" itemprop="datePublished">2015-05-23</time>
         </a>
     </div>
 
@@ -253,33 +251,51 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>GCD基本思想就是将任务放到队列中执行,任务表示执行什么操作,队列表示用来存放任务。GCD会自动将队列中的任务取出,放到对应的线程中执行。任务的取出遵循FIFO原则:先进先出,后进后出。</p>
-<p>执行任务的方式有2种:同步和异步<br>同步:只能在当前线程中执行任务,不具备开启新线程的能力。<br>异步:可以在新线程中执行任务,具备开启新线程的能力。</p>
-<p>同步方式执行任务:</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);</div><div class="line"></div><div class="line"><span class="comment">#queue：队列</span></div><div class="line"><span class="comment">#block：任务</span></div></pre></td></tr></table></figure>
-<p>异步方式执行任务</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dispatch_async(dispatch_queue_t queue, dispatch_block_t block);</div><div class="line"></div><div class="line"><span class="comment">#queue：队列</span></div><div class="line"><span class="comment">#block：任务</span></div></pre></td></tr></table></figure>
-<p>##队列类型:并发队列和串行队列<br>并发队列:可以让多个任务同时执行。<br>串行队列:任务一个接着一个执行。</p>
-<p>并发队列:</p>
-<p>GCD默认已经提供了全局的并发队列,供整个应用使用,不需要手动创建。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#获得全局并发队列</span></div><div class="line">dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>); </div><div class="line"></div><div class="line"><span class="comment">#全局并发队列的优先级</span></div><div class="line"><span class="comment">#define DISPATCH_QUEUE_PRIORITY_HIGH 2 // 高</span></div><div class="line"><span class="comment">#define DISPATCH_QUEUE_PRIORITY_DEFAULT 0 // 默认（中）</span></div><div class="line"><span class="comment">#define DISPATCH_QUEUE_PRIORITY_LOW (-2) // 低</span></div><div class="line"><span class="comment">#define DISPATCH_QUEUE_PRIORITY_BACKGROUND INT16_MIN // 后</span></div></pre></td></tr></table></figure>
-<p>串行队列:</p>
-<p>GCD获得串行队列有2种途径:<br>1.使用dispatch_queue_create函数创建串行队列</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">dispatch_queue_t queue = dispatch_queue_create(<span class="string">"com.aries58.queue"</span>, NULL);</div><div class="line"></div><div class="line"><span class="comment">#非ARC环境 需要手动释放创建的队列</span></div><div class="line">dispatch_release(queue);</div></pre></td></tr></table></figure>
-<p>2.使用主队列<br>主队列是GCD自带的一种特殊的串行队列,放到主队列中的任务,都会放到主线程中执行。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">dispatch_queue_t queue = dispatch_get_main_queue();</div></pre></td></tr></table></figure>
-<p><img src="http://aries58.com/images/004.png" alt="004 icon"></p>
-<p>线程间通信:</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">dispatch_async(</div><div class="line"></div><div class="line">dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</div><div class="line">      <span class="comment">#执行耗时的异步操作...</span></div><div class="line">      </div><div class="line">      dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">         </div><div class="line">         <span class="comment">#回到主线程，执行UI刷新操作</span></div><div class="line">        &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>延时操作:</p>
-<p>1.调用NSObject的方法</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[<span class="keyword">self</span> <span class="symbol">performSelector:</span>@selector(run) <span class="symbol">withObject:</span><span class="literal">nil</span> <span class="symbol">afterDelay:</span><span class="number">2.0</span>];</div></pre></td></tr></table></figure>
-<p>2.使用GCD函数</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</div><div class="line">    </div><div class="line">    <span class="comment"># 2秒后执行这里的代码... 在哪个线程执行，跟队列类型有关</span></div><div class="line">    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>一次性代码<br>dispatch_once函数能保证某段代码在程序运行过程中只执行一次</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">static dispatch_once_t onceToken;</div><div class="line"></div><div class="line">dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">    <span class="comment"># 只执行1次的代码(这里面默认是线程安全的)</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>组队列:</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">dispatch_group_t group =  dispatch_group_create();</div><div class="line"></div><div class="line">dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</div><div class="line">    <span class="comment">#执行第1个耗时的异步操作</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</div><div class="line">    <span class="comment"># 执行第2个耗时的异步操作</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">dispatch_group_notify(group, dispatch_get_main_queue(), ^&#123;</div><div class="line">    <span class="comment"># 等前面的异步操作都执行完毕后，回到主线程...</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+            <p>GCD总结</p>
+<p>dispatch_sync : 同步，不具备开启线程的能力<br>dispatch_async : 异步，具备开启线程的能力</p>
+<p>并发队列 ：多个任务可以同时执行<br>串行队列 ：一个任务执行完后，再执行下一个任务</p>
+<p>// 获得全局的并发队列<br>dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</p>
+<p>Foundation :  OC<br>Core Foundation : C语言<br>Foundation和Core Foundation框架的数据类型可以互相转换的</p>
+<p>NSString <em>str = @”123”; // Foundation<br>CFStringRef str2 = (__bridge CFStringRef)str; // Core Foundation<br>NSString </em>str3 = (__bridge NSString *)str2;<br>    CFArrayRef —- NSArray<br>    CFDictionaryRef —- NSDictionary<br>    CFNumberRef —- NSNumber</p>
+<p> Core Foundation中手动创建的数据类型，都需要手动释放<br>    CFArrayRef array = CFArrayCreate(NULL, NULL, 10, NULL);<br>    CFRelease(array);</p>
+<pre><code>CGPathRef path = CGPathCreateMutable();
+CGPathRetain(path);
+
+CGPathRelease(path);
+CGPathRelease(path);
+</code></pre><p>/<em>*<br> 凡是函数名中带有create\copy\new\retain等字眼, 都应该在不需要使用这个数据的时候进行release<br> GCD的数据类型在ARC环境下不需要再做release<br> CF(Core Foundation)的数据类型在ARC\MRC环境下都需要再做release
+ </em>/</p>
+<p>//注意点<br>需要设置按钮的image和backgroundImage，建议先把按钮类型改为custom，才能保证设置成功<br>属性名不能以new开头<br>只有在init开头的构造方法中，才允许对self进行赋值<br>回到主线程的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</div><div class="line"> NSLog(@&quot;donwload---%@&quot;, [NSThread currentThread]);</div><div class="line"> // 1.子线程下载图片</div><div class="line"> NSURL *url = [NSURL URLWithString:@&quot;&quot;];</div><div class="line">        NSData *data = [NSData dataWithContentsOfURL:url];</div><div class="line">        UIImage *image = [UIImage imageWithData:data];</div><div class="line">        </div><div class="line">// 2.回到主线程设置图片</div><div class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">            NSLog(@&quot;setting---%@ %@&quot;, [NSThread currentThread], image);</div><div class="line">            [self.button setImage:image forState:UIControlStateNormal];</div><div class="line">        &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>线程延迟操作方法：<br>// 延迟执行不要用sleep，坏处：卡住当前线程<br>(1)[NSThread sleepForTimeInterval:3];</p>
+<p>// 一旦定制好延迟任务后，不会卡主当前线程<br>(2)[self performSelector:@selector(download:) withObject:@”” afterDelay:3];</p>
+<p>(3) // 3秒后回到主线程 执行block中的代码<br>dispatch_queue_t queue=dispatch_get_main_queue();<br>dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), queue, ^{<br>        NSLog(@”——task——%@”, [NSThread currentThread]);<br>    });</p>
+<p>// 3秒后自动开启新线程 执行block中的代码<br>    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br>    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), queue, ^{<br>        NSLog(@”——task——%@”, [NSThread currentThread]);<br>    });</p>
+<p>一次性代码：<br>static dispatch_once_t onceToken;<br>    dispatch_once(&amp;onceToken, ^{</p>
+<p>});</p>
+<p>需求：下载两张图片，合并两张图片，显示在一个imageView上面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">// 1.队列组</div><div class="line">    dispatch_group_t group = dispatch_group_create();</div><div class="line">    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</div><div class="line">    </div><div class="line">    // 2.下载图片1</div><div class="line"> __block UIImage *image1 = nil;</div><div class="line">dispatch_group_async(group, queue, ^&#123;</div><div class="line">        NSURL *url1 = [NSURL URLWithString:@&quot; &quot;];</div><div class="line">     NSData *data1 = [NSData dataWithContentsOfURL:url1];</div><div class="line">      image1 = [UIImage imageWithData:data1];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    // 3.下载图片2</div><div class="line">    __block UIImage *image2 = nil;</div><div class="line">    dispatch_group_async(group, queue, ^&#123;</div><div class="line">        NSURL *url2 = [NSURL URLWithString:@&quot; &quot;];</div><div class="line">        NSData *data2 = [NSData dataWithContentsOfURL:url2];</div><div class="line">        image2 = [UIImage imageWithData:data2];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    // 4.合并图片 (保证执行完组里面的所有任务之后，再执行notify函数里面的block)</div><div class="line">    dispatch_group_notify(group, queue, ^&#123;</div><div class="line">        </div><div class="line">// 开启一个位图上下文</div><div class="line">UIGraphicsBeginImageContextWithOptions(image1.size, NO, 0.0);</div><div class="line">        </div><div class="line">       // 绘制第1张图片</div><div class="line">        CGFloat image1W = image1.size.width;</div><div class="line">        CGFloat image1H = image1.size.height;</div><div class="line">        [image1 drawInRect:CGRectMake(0, 0, image1W, image1H)];</div><div class="line">        </div><div class="line">        // 绘制第2张图片</div><div class="line">        CGFloat image2W = image2.size.width * 0.5;</div><div class="line">        CGFloat image2H = image2.size.height * 0.5;</div><div class="line">        CGFloat image2Y = image1H - image2H;</div><div class="line">        [image2 drawInRect:CGRectMake(0, image2Y, image2W, image2H)];</div><div class="line">        </div><div class="line">        // 得到上下文中的图片</div><div class="line">        UIImage *fullImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">        // 结束上下文</div><div class="line">        UIGraphicsEndImageContext();</div><div class="line">        </div><div class="line">        // 5.回到主线程显示图片</div><div class="line">  dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">            self.imageView.image = fullImage;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>回到主线程的方法：</p>
+<p>(1)[self performSelectorOnMainThread:@selector(download) withObject:nil waitUntilDone:NO];</p>
+<p>(2)dispatch_async(dispatch_get_main_queue(), ^{</p>
+<p> });</p>
+<p>(3) [[NSOperationQueue mainQueue] addOperationWithBlock:^{</p>
+<p>}];</p>
+<p>NSOperation和NSOperationQueue实现多线程的具体步骤：<br>1.先将需要执行的操作封装到一个NSOperation对象中<br>2.然后将NSOperation对象添加到NSOperationQueue中<br>3.系统会自动将NSOperationQueue中的NSOperation取出来<br>4.将取出的NSOperation封装的操作放到一条新线程中执行</p>
+<p>NSOperation的子类<br>NSOperation是个抽象类，并不具备封装操作的能力，必须使用它的子类<br>使用NSOperation子类的方式有3种：<br>1.NSInvocationOperation<br>2.NSBlockOperation<br>3.自定义子类继承NSOperation,实现内部相应的方法</p>
+<p>注意点：<br>操作对象默认在主线程中执行，只有添加到队列中才会开启新的线程。即默认情况下，如果操作没有放到队列中queue中，都是同步执行。只有将NSOperation放到一个NSOperationQueue中,才会异步执行操作 </p>
+<p>NSOpertaionQueue用GCD构建封装的，是GCD的高级抽象。</p>
+<p>其次，我们要区别两者的不同</p>
+<p>GCD仅仅支持FIFO队列，而NSOperationQueue中的队列可以被重新设置优先级，从而实现不同操作的执行顺序调整。<br>GCD不支持异步操作之间的依赖关系设置。如果某个操作的依赖另一个操作的数据（生产者-消费者模型是其中之一），使用NSOperationQueue能够按照正确的顺序执行操作。GCD则没有内建的依赖关系支持。<br>NSOperationQueue支持KVO，意味着我们可以观察任务的执行状态。</p>
+<p>了解以上不同，我们可以从以下角度来定义原则</p>
+<ol>
+<li><p>性能<br>GCD更接近底层，而NSOperationQueue则更高级抽象，所以GCD在追求性能的底层操作来说，是速度最快的。这取决于使用Instruments进行代码性能分析，如有必要的话</p>
+</li>
+<li><p>从异步操作之间的事务性，顺序行，依赖关系。GCD需要自己写更多的代码来实现，而NSOperationQueue已经内建了这些支持</p>
+</li>
+<li><p>如果异步操作的过程需要更多的被交互和UI呈现出来，NSOperationQueue会是一个更好的选择。底层代码中，任务之间不太互相依赖，而需要更高的并发能力，GCD则更有优势</p>
+</li>
+</ol>
 
         
         </div>
@@ -290,7 +306,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cjaiynjjf0008r656x4wk31as" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/05/23/2015-05-23-NSOpertaion和GCD区别/" data-id="cjaiynjjm000fr656a3mj7s3b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -358,7 +374,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/">Comments</a>
+        <a href="http://www.ariest.net/2015/05/23/2015-05-23-NSOpertaion和GCD区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/05/23/2015-05-23-NSOpertaion和GCD区别/">Comments</a>
     
 
         </footer>
@@ -367,19 +383,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Objective-C中hitTest之底层实现原理
+                    iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData
                 
             </div>
         </a>
     
     
-        <a href="/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">GCD之同步异步与串行并行队列详解</div>
+            <div class="article-nav-title">GCD 相关Apple文档关键词翻译</div>
         </a>
     
 </nav>
@@ -558,9 +574,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/';
+            this.page.url = 'http://www.ariest.net/2015/05/23/2015-05-23-NSOpertaion和GCD区别/';
         
-        this.page.identifier = '2014-08-25-GCD详解';
+        this.page.identifier = '2015-05-23-NSOpertaion和GCD区别';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

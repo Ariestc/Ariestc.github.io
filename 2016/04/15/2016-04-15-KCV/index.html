@@ -3,18 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData | 上善若水,道法自然</title>
+    <title>KCV | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="IOS的数据存储方式1.plist (NSArray\NSDictionary)；2.Prefrence(偏好设置\NSUserDefaults)；NSUserDefaults只支持： NSString, NSNumber, NSDate, NSArray, NSDictionary.3.NSCoding(NSKeyArchiver\NSKeyedUnarchive)；4.SQLite3:数据库、">
+    <meta name="description" content="1.利用KVC可以随意修改一个对象的属性或者成员变量(并且私有的也可以修改)
+12345678910111213141516@implementation Person&amp;#123;    @private    double _height;&amp;#125;-(void)printHeight&amp;#123;    NSLog(@&amp;quot;height是%f&amp;quot;,_height);&amp;#125;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData">
-<meta property="og:url" content="http://www.ariest.net/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/index.html">
+<meta property="og:title" content="KCV">
+<meta property="og:url" content="http://www.ariest.net/2016/04/15/2016-04-15-KCV/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="IOS的数据存储方式1.plist (NSArray\NSDictionary)；2.Prefrence(偏好设置\NSUserDefaults)；NSUserDefaults只支持： NSString, NSNumber, NSDate, NSArray, NSDictionary.3.NSCoding(NSKeyArchiver\NSKeyedUnarchive)；4.SQLite3:数据库、">
-<meta property="og:updated_time" content="2017-11-28T01:27:38.000Z">
+<meta property="og:description" content="1.利用KVC可以随意修改一个对象的属性或者成员变量(并且私有的也可以修改)
+12345678910111213141516@implementation Person&amp;#123;    @private    double _height;&amp;#125;-(void)printHeight&amp;#123;    NSLog(@&amp;quot;height是%f&amp;quot;,_height);&amp;#125;">
+<meta property="og:updated_time" content="2017-11-28T01:37:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData">
-<meta name="twitter:description" content="IOS的数据存储方式1.plist (NSArray\NSDictionary)；2.Prefrence(偏好设置\NSUserDefaults)；NSUserDefaults只支持： NSString, NSNumber, NSDate, NSArray, NSDictionary.3.NSCoding(NSKeyArchiver\NSKeyedUnarchive)；4.SQLite3:数据库、">
+<meta name="twitter:title" content="KCV">
+<meta name="twitter:description" content="1.利用KVC可以随意修改一个对象的属性或者成员变量(并且私有的也可以修改)
+12345678910111213141516@implementation Person&amp;#123;    @private    double _height;&amp;#125;-(void)printHeight&amp;#123;    NSLog(@&amp;quot;height是%f&amp;quot;,_height);&amp;#125;">
     
 
     
@@ -157,7 +160,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                34
+                36
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -209,7 +212,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2016-04-15-KCV" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -217,7 +220,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData
+            KCV
         </h1>
     
 
@@ -226,8 +229,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/">
-            <time datetime="2015-06-15T02:08:23.000Z" itemprop="datePublished">2015-06-15</time>
+        <a href="/2016/04/15/2016-04-15-KCV/">
+            <time datetime="2016-04-15T11:03:53.000Z" itemprop="datePublished">2016-04-15</time>
         </a>
     </div>
 
@@ -242,34 +245,14 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>IOS的数据存储方式<br>1.plist (NSArray\NSDictionary)；<br>2.Prefrence(偏好设置\NSUserDefaults)；<br>NSUserDefaults只支持： NSString, NSNumber, NSDate, NSArray, NSDictionary.<br>3.NSCoding(NSKeyArchiver\NSKeyedUnarchive)；<br>4.SQLite3:数据库、纯C语言、轻量级；(移动端)<br>SQLite是一款轻型的嵌入式数据库；<br>它占用资源非常的低，在嵌入式设备中，可能只需要几百K的内存就够了<br>5.Core Data：数据库，基于SQLite3，OC版本，重量级；</p>
-<p>数据库管理软件：Navicat<br>数据库(Database)：是按照数据结构来组织、存储和管理数据的仓库。<br>数据库可以分为2大种类：关系型数据库(主流)和对象型数据库。</p>
-<p>数据库是如何存储数据？<br>数据库的存储结构和Excel很像，以表(table)为单位</p>
-<p>数据库存储数据的步骤：<br>1.新建一张表(table)<br>2.添加多个字段(column，列，属性)<br>3.添加多行记录(row，record，每行存放多个字段对应的值)</p>
-<p>SQLite将数据划分为以下几种存储类型(实际上SQLite是无类型的)：<br>1.integer ：整型值<br>2.real :浮点值<br>3.text:文本字符串<br>4.blob:二进制数据(比如文件)</p>
-<p>SQL语句(structure query language) 结构化查询语言：<br>SQL是一种对关系型数据库中得数据进行定义和操作的语言，使用SQL语言编写出来的句子\代码，就是SQL语句，执行CRUD操作。</p>
-<p>SQL语句的特点<br>不区分大小写（比如数据库认为user和UsEr是一样的）<br>每条语句都必须以分号 ; 结尾<br>SQL中的常用关键字有<br>select、insert、update、delete、from、create、where、desc、order、by、group、table、alter、view、index等等<br>数据库中不可以使用关键字来命名表、字段</p>
-<p>SQL语句的种类：<br>1.数据定义语句（DDL：Data Definition Language）<br>包括create和drop等操作<br>在数据库中创建新表或删除表（create table或 drop table）</p>
-<p>2.数据操作语句（DML：Data Manipulation Language）<br>包括insert、update、delete等操作<br>上面的3种操作分别用于添加、修改、删除表中的数据</p>
-<p>3.数据查询语句（DQL：Data Query Language）<br>可以用于查询获得表中的数据<br>关键字select是DQL（也是所有SQL）用得最多的操作<br>其他DQL常用的关键字有where，order by，group by和having</p>
-<p>创表 create table<br>格式<br>create table 表名 (字段名1 字段类型1, 字段名2 字段类型2, …) ;<br>create table if not exists 表名 (字段名1 字段类型1, 字段名2 字段类型2, …) ;示例<br>create table t_student (id integer, name text, age inetger, score real) ;</p>
-<p>删表 drop table<br>格式<br>drop table 表名 ;<br>drop table if exists 表名 ;<br>示例<br>drop table t_student ;</p>
-<p>插入数据 insert<br>格式<br>insert into 表名 (字段1, 字段2, …) values (字段1的值, 字段2的值, …) ;<br>示例<br>insert into t_student (name, age) values (‘mj’, 10) ;<br>注意:数据库中的字符串内容应该用单引号‘ ’ 括住</p>
-<p>更新数据 update<br>格式<br>update 表名 set 字段1 = 字段1的值, 字段2 = 字段2的值, … ;<br>示例<br>update  t_student  set  name = ‘jack’, age = 20 ;<br>注意:上面的示例会将t_student表中所有记录的name都改为jack，age都改为20</p>
-<p>删除数据delete<br>格式<br>delete from 表名 ;<br>示例<br>delete from t_student ;<br>注意:上面的示例会将t_student表中所有记录都删掉</p>
-<p>条件语句的常见格式<br>where 字段 = 某个值 ;   // 不能用两个 =<br>where 字段 is 某个值 ;   // is 相当于 =<br>where 字段 != 某个值 ;<br>where 字段 is not 某个值 ;   // is not 相当于 !=<br>where 字段 &gt; 某个值 ;<br>where 字段1 = 某个值 and 字段2 &gt; 某个值 ;  // and相当于C语言中的 &amp;&amp;<br>where 字段1 = 某个值 or 字段2 = 某个值 ;  //  or 相当于C语言中的 ||</p>
-<p>条件语句：<br>示例<br>将t_student表中年龄大于10 并且 姓名不等于jack的记录，年龄都改为 5<br>update t_student set age = 5 where age &gt; 10 and name != ‘jack’ ;</p>
-<p>删除t_student表中年龄小于等于10 或者 年龄大于30的记录<br>delete from t_student where age &lt;= 10 or age &gt; 30</p>
-<p>update t_student set score = age where name = ‘jack’ ;<br>将t_student表中名字等于jack的记录，score字段的值 都改为 age字段的值</p>
-<p>DQL语句:<br>格式<br>select 字段1, 字段2, … from 表名 ;<br>select <em> from 表名;   //  查询所有的字段<br>示例<br>select name, age from t_student ;<br>select </em> from t_student ;<br>select * from t_student where age &gt; 10 ;  //  条件查询</p>
-<p>起别名:<br>格式(字段和表都可以起别名)<br>select 字段1 别名 , 字段2 别名 , … from 表名 别名 ;<br>select 字段1 别名, 字段2 as 别名, … from 表名 as 别名 ;<br>select 别名.字段1, 别名.字段2, … from 表名 别名 ;<br>示例<br>select name myname, age myage from t_student ;<br>给name起个叫做myname的别名，给age起个叫做myage的别名<br>select s.name, s.age from t_student s ;<br>给t_student表起个别名叫做s，利用s来引用表中的字段</p>
-<p>计算记录的数量：<br>格式<br>select count (字段) from 表名;<br>select count ( <em> ) from 表名 ;<br>示例<br>select count (age) from t_student ;<br>select count ( </em> ) from t_student where score &gt;= 60;</p>
-<p>排序:<br>查询出来的结果可以用order by进行排序<br>select <em> from t_student order by 字段 ;<br>select </em> from t_student order by age ;<br>默认是按照升序排序（由小到大），也可以变为降序（由大到小）<br>select <em> from t_student order by age desc ;  //降序<br>select </em> from t_student order by age asc ;   // 升序（默认）<br>也可以用多个字段进行排序<br>select * from t_student order by age asc, height desc ;<br>先按照年龄排序（升序），年龄相等就按照身高排序（降序）</p>
-<p>limit:<br>格式<br>select <em> from 表名 limit 数值1, 数值2 ;<br>示例<br>select </em> from t_student limit 4, 8 ;<br>可以理解为：跳过最前面4条语句，然后取8条记录<br>select <em> from t_student limit 7 ;<br>相当于select </em> from t_student limit 0, 7 ;<br>表示取最前面的7条记录</p>
-<p>简单约束:<br>建表时可以给特定的字段设置一些约束条件，常见的约束有<br>not null ：规定字段的值不能为null<br>unique ：规定字段的值必须唯一<br>default ：指定字段的默认值<br>（建议：尽量给字段设定严格的约束，以保证数据的规范性）<br>示例<br>create table t_student (id integer, name text not null unique, age integer not null default 1) ;<br>name字段不能为null，并且唯一<br>age字段不能为null，并且默认为1</p>
-<p>主键约束：<br>在创表的时候用primary key声明一个主键<br>create table t_student (id integer primary key, name text, age integer) ;<br>integer类型的id作为t_student表的主键<br>主键字段<br>只要声明为primary key，就说明是一个主键字段<br>主键字段默认就包含了not null 和 unique 两个约束<br>如果想要让主键自动增长（必须是integer类型），应该增加autoincrement<br>create table t_student (id integer primary key autoincrement, name text, age integer) ;</p>
-<p>外键约束:<br>利用外键约束可以用来建立表与表之间的联系<br>外键的一般情况是：一张表的某个字段，引用着另一张表的主键字段<br>新建一个外键<br>create table t_student (id integer primary key autoincrement, name text, age integer, class_id integer, constraint fk_student_class foreign key (class_id) references t_class (id));<br>t_student表中有一个叫做fk_t_student_class_id_t_class_id的外键<br>这个外键的作用是用t_student表中的class_id字段引用t_class表的id字段</p>
-<p>表连接查询:<br>表连接的类型<br>内连接：inner join 或者 join  （显示的是左右表都有完整字段值的记录）<br>左外连接：left outer join （保证左表数据的完整性）<br>示例<br>查询0316iOS班的所有学生<br>select s.name,s.age from t_student s, t_class c where s.class_id = c.id and c.name = ‘0316iOS’;</p>
+            <p>1.利用KVC可以随意修改一个对象的属性或者成员变量(并且私有的也可以修改)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@implementation Person</div><div class="line">&#123;</div><div class="line">    @private</div><div class="line">    double _height;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)printHeight</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;height是%f&quot;,_height);</div><div class="line">&#125;</div><div class="line"></div><div class="line"> [p setValue:@&quot;jack&quot; forKeyPath:@&quot;_name&quot;];</div><div class="line">  NSLog(@&quot;%@&quot;, p.name);</div><div class="line"></div><div class="line"> [p setValue:@10.5 forKey:@&quot;height&quot;];</div><div class="line"> [p printHeight];</div></pre></td></tr></table></figure>
+<p>2.forKeyPath包含了forKey功能，以后使用forKeyPath就可以了；<br>  forKeyPath中可以利用.运算符，就可以一层一层往下查找对象的属性；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[p setValue:@&quot;hashiqi&quot; forKeyPath:@&quot;dog.name&quot;];</div><div class="line">[p setValue:@&quot;猪骨&quot; forKeyPath:@&quot;dog.bone.type&quot;];</div><div class="line">[p.dog setValue:@&quot;猪骨&quot; forKeyPath:@&quot;bone.type&quot;];</div><div class="line">[p.dog.bone setValue:@&quot;猪骨&quot; forKeyPath:@&quot;type&quot;];</div><div class="line"></div><div class="line">[p setValue:@&quot;hashiqi&quot; forKey:@&quot;dog.name&quot;]; // 写法错误</div></pre></td></tr></table></figure>
+<ol>
+<li>取出books数组中每一个元素的name属性值，放到一个新的数组中返回；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">NSArray *names = [p valueForKeyPath:@&quot;books.name&quot;];</div><div class="line">[p valueForKeyPath:@&quot;dog.name&quot;];</div><div class="line">NSLog(@&quot;%@&quot;, names);</div><div class="line"></div><div class="line">#计算数组中所有书的平均价格</div><div class="line">NSNumber *avgNumber =[p valueForKeyPath:@&quot;books.@avg.price&quot;];</div><div class="line"> </div><div class="line">#计算数组中所有书的总价格 </div><div class="line">NSNumber *sumNumber = [p valueForKeyPath:@&quot;books.@sum.price&quot;];</div><div class="line">NSLog(@&quot;%@&quot;, sumNumber);</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -280,7 +263,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/" data-id="cjaiy0r59000gnu56n8upsg6x" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2016/04/15/2016-04-15-KCV/" data-id="cjaiynjju000pr656yxsbe50w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -348,7 +331,7 @@
 
             
     
-        <a href="http://www.ariest.net/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/">Comments</a>
+        <a href="http://www.ariest.net/2016/04/15/2016-04-15-KCV/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2016/04/15/2016-04-15-KCV/">Comments</a>
     
 
         </footer>
@@ -357,19 +340,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    使用CocoaPods管理开源框架及安装详细步骤
+                    NSURLSession实现网络请求和下载任务
                 
             </div>
         </a>
     
     
-        <a href="/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/04/05/2016-04-05-利用Runtime实现自动化归档/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">GCD 相关Apple文档关键词翻译</div>
+            <div class="article-nav-title">利用Runtime实现自动化归档</div>
         </a>
     
 </nav>
@@ -506,7 +489,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -548,9 +531,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2015/06/15/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本/';
+            this.page.url = 'http://www.ariest.net/2016/04/15/2016-04-15-KCV/';
         
-        this.page.identifier = '2015-06-23-使用CocoaPods管理开源框架及安装详细步骤的副本';
+        this.page.identifier = '2016-04-15-KCV';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
