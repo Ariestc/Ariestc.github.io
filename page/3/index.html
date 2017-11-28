@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                36
+                37
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -206,6 +206,155 @@
 
             
             <section id="main">
+    <article id="post-2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/">iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/">
+            <time datetime="2015-06-15T02:08:23.000Z" itemprop="datePublished">2015-06-15</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>IOS的数据存储方式<br>1.plist (NSArray\NSDictionary)；<br>2.Prefrence(偏好设置\NSUserDefaults)；<br>NSUserDefaults只支持： NSString, NSNumber, NSDate, NSArray, NSDictionary.<br>3.NSCoding(NSKeyArchiver\NSKeyedUnarchive)；<br>4.SQLite3:数据库、纯C语言、轻量级；(移动端)<br>SQLite是一款轻型的嵌入式数据库；<br>它占用资源非常的低，在嵌入式设备中，可能只需要几百K的内存就够了<br>5.Core Data：数据库，基于SQLite3，OC版本，重量级；</p>
+<p>数据库管理软件：Navicat<br>数据库(Database)：是按照数据结构来组织、存储和管理数据的仓库。<br>数据库可以分为2大种类：关系型数据库(主流)和对象型数据库。</p>
+<p>数据库是如何存储数据？<br>数据库的存储结构和Excel很像，以表(table)为单位</p>
+<p>数据库存储数据的步骤：<br>1.新建一张表(table)<br>2.添加多个字段(column，列，属性)<br>3.添加多行记录(row，record，每行存放多个字段对应的值)</p>
+<p>SQLite将数据划分为以下几种存储类型(实际上SQLite是无类型的)：<br>1.integer ：整型值<br>2.real :浮点值<br>3.text:文本字符串<br>4.blob:二进制数据(比如文件)</p>
+<p>SQL语句(structure query language) 结构化查询语言：<br>SQL是一种对关系型数据库中得数据进行定义和操作的语言，使用SQL语言编写出来的句子\代码，就是SQL语句，执行CRUD操作。</p>
+<p>SQL语句的特点<br>不区分大小写（比如数据库认为user和UsEr是一样的）<br>每条语句都必须以分号 ; 结尾<br>SQL中的常用关键字有<br>select、insert、update、delete、from、create、where、desc、order、by、group、table、alter、view、index等等<br>数据库中不可以使用关键字来命名表、字段</p>
+<p>SQL语句的种类：<br>1.数据定义语句（DDL：Data Definition Language）<br>包括create和drop等操作<br>在数据库中创建新表或删除表（create table或 drop table）</p>
+<p>2.数据操作语句（DML：Data Manipulation Language）<br>包括insert、update、delete等操作<br>上面的3种操作分别用于添加、修改、删除表中的数据</p>
+<p>3.数据查询语句（DQL：Data Query Language）<br>可以用于查询获得表中的数据<br>关键字select是DQL（也是所有SQL）用得最多的操作<br>其他DQL常用的关键字有where，order by，group by和having</p>
+<p>创表 create table<br>格式<br>create table 表名 (字段名1 字段类型1, 字段名2 字段类型2, …) ;<br>create table if not exists 表名 (字段名1 字段类型1, 字段名2 字段类型2, …) ;示例<br>create table t_student (id integer, name text, age inetger, score real) ;</p>
+<p>删表 drop table<br>格式<br>drop table 表名 ;<br>drop table if exists 表名 ;<br>示例<br>drop table t_student ;</p>
+<p>插入数据 insert<br>格式<br>insert into 表名 (字段1, 字段2, …) values (字段1的值, 字段2的值, …) ;<br>示例<br>insert into t_student (name, age) values (‘mj’, 10) ;<br>注意:数据库中的字符串内容应该用单引号‘ ’ 括住</p>
+<p>更新数据 update<br>格式<br>update 表名 set 字段1 = 字段1的值, 字段2 = 字段2的值, … ;<br>示例<br>update  t_student  set  name = ‘jack’, age = 20 ;<br>注意:上面的示例会将t_student表中所有记录的name都改为jack，age都改为20</p>
+<p>删除数据delete<br>格式<br>delete from 表名 ;<br>示例<br>delete from t_student ;<br>注意:上面的示例会将t_student表中所有记录都删掉</p>
+<p>条件语句的常见格式<br>where 字段 = 某个值 ;   // 不能用两个 =<br>where 字段 is 某个值 ;   // is 相当于 =<br>where 字段 != 某个值 ;<br>where 字段 is not 某个值 ;   // is not 相当于 !=<br>where 字段 &gt; 某个值 ;<br>where 字段1 = 某个值 and 字段2 &gt; 某个值 ;  // and相当于C语言中的 &amp;&amp;<br>where 字段1 = 某个值 or 字段2 = 某个值 ;  //  or 相当于C语言中的 ||</p>
+<p>条件语句：<br>示例<br>将t_student表中年龄大于10 并且 姓名不等于jack的记录，年龄都改为 5<br>update t_student set age = 5 where age &gt; 10 and name != ‘jack’ ;</p>
+<p>删除t_student表中年龄小于等于10 或者 年龄大于30的记录<br>delete from t_student where age &lt;= 10 or age &gt; 30</p>
+<p>update t_student set score = age where name = ‘jack’ ;<br>将t_student表中名字等于jack的记录，score字段的值 都改为 age字段的值</p>
+<p>DQL语句:<br>格式<br>select 字段1, 字段2, … from 表名 ;<br>select <em> from 表名;   //  查询所有的字段<br>示例<br>select name, age from t_student ;<br>select </em> from t_student ;<br>select * from t_student where age &gt; 10 ;  //  条件查询</p>
+<p>起别名:<br>格式(字段和表都可以起别名)<br>select 字段1 别名 , 字段2 别名 , … from 表名 别名 ;<br>select 字段1 别名, 字段2 as 别名, … from 表名 as 别名 ;<br>select 别名.字段1, 别名.字段2, … from 表名 别名 ;<br>示例<br>select name myname, age myage from t_student ;<br>给name起个叫做myname的别名，给age起个叫做myage的别名<br>select s.name, s.age from t_student s ;<br>给t_student表起个别名叫做s，利用s来引用表中的字段</p>
+<p>计算记录的数量：<br>格式<br>select count (字段) from 表名;<br>select count ( <em> ) from 表名 ;<br>示例<br>select count (age) from t_student ;<br>select count ( </em> ) from t_student where score &gt;= 60;</p>
+<p>排序:<br>查询出来的结果可以用order by进行排序<br>select <em> from t_student order by 字段 ;<br>select </em> from t_student order by age ;<br>默认是按照升序排序（由小到大），也可以变为降序（由大到小）<br>select <em> from t_student order by age desc ;  //降序<br>select </em> from t_student order by age asc ;   // 升序（默认）<br>也可以用多个字段进行排序<br>select * from t_student order by age asc, height desc ;<br>先按照年龄排序（升序），年龄相等就按照身高排序（降序）</p>
+<p>limit:<br>格式<br>select <em> from 表名 limit 数值1, 数值2 ;<br>示例<br>select </em> from t_student limit 4, 8 ;<br>可以理解为：跳过最前面4条语句，然后取8条记录<br>select <em> from t_student limit 7 ;<br>相当于select </em> from t_student limit 0, 7 ;<br>表示取最前面的7条记录</p>
+<p>简单约束:<br>建表时可以给特定的字段设置一些约束条件，常见的约束有<br>not null ：规定字段的值不能为null<br>unique ：规定字段的值必须唯一<br>default ：指定字段的默认值<br>（建议：尽量给字段设定严格的约束，以保证数据的规范性）<br>示例<br>create table t_student (id integer, name text not null unique, age integer not null default 1) ;<br>name字段不能为null，并且唯一<br>age字段不能为null，并且默认为1</p>
+<p>主键约束：<br>在创表的时候用primary key声明一个主键<br>create table t_student (id integer primary key, name text, age integer) ;<br>integer类型的id作为t_student表的主键<br>主键字段<br>只要声明为primary key，就说明是一个主键字段<br>主键字段默认就包含了not null 和 unique 两个约束<br>如果想要让主键自动增长（必须是integer类型），应该增加autoincrement<br>create table t_student (id integer primary key autoincrement, name text, age integer) ;</p>
+<p>外键约束:<br>利用外键约束可以用来建立表与表之间的联系<br>外键的一般情况是：一张表的某个字段，引用着另一张表的主键字段<br>新建一个外键<br>create table t_student (id integer primary key autoincrement, name text, age integer, class_id integer, constraint fk_student_class foreign key (class_id) references t_class (id));<br>t_student表中有一个叫做fk_t_student_class_id_t_class_id的外键<br>这个外键的作用是用t_student表中的class_id字段引用t_class表的id字段</p>
+<p>表连接查询:<br>表连接的类型<br>内连接：inner join 或者 join  （显示的是左右表都有完整字段值的记录）<br>左外连接：left outer join （保证左表数据的完整性）<br>示例<br>查询0316iOS班的所有学生<br>select s.name,s.age from t_student s, t_class c where s.class_id = c.id and c.name = ‘0316iOS’;</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/" data-id="cjaiz3g89000gua564gua0ide" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2015-05-23-NSOpertaion和GCD区别" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -244,31 +393,15 @@
 <p>并发队列 ：多个任务可以同时执行<br>串行队列 ：一个任务执行完后，再执行下一个任务</p>
 <p>// 获得全局的并发队列<br>dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</p>
 <p>Foundation :  OC<br>Core Foundation : C语言<br>Foundation和Core Foundation框架的数据类型可以互相转换的</p>
-<p>NSString <em>str = @”123”; // Foundation<br>CFStringRef str2 = (__bridge CFStringRef)str; // Core Foundation<br>NSString </em>str3 = (__bridge NSString *)str2;<br>    CFArrayRef —- NSArray<br>    CFDictionaryRef —- NSDictionary<br>    CFNumberRef —- NSNumber</p>
-<p> Core Foundation中手动创建的数据类型，都需要手动释放<br>    CFArrayRef array = CFArrayCreate(NULL, NULL, 10, NULL);<br>    CFRelease(array);</p>
-<pre><code>CGPathRef path = CGPathCreateMutable();
-CGPathRetain(path);
-
-CGPathRelease(path);
-CGPathRelease(path);
-</code></pre><p>/<em>*<br> 凡是函数名中带有create\copy\new\retain等字眼, 都应该在不需要使用这个数据的时候进行release<br> GCD的数据类型在ARC环境下不需要再做release<br> CF(Core Foundation)的数据类型在ARC\MRC环境下都需要再做release
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">NSString *str = @&quot;123&quot;; // Foundation</div><div class="line">CFStringRef str2 = (__bridge CFStringRef)str; // Core Foundation</div><div class="line">NSString *str3 = (__bridge NSString *)str2;</div><div class="line">    CFArrayRef ---- NSArray</div><div class="line">    CFDictionaryRef ---- NSDictionary</div><div class="line">    CFNumberRef ---- NSNumber</div><div class="line"></div><div class="line"> Core Foundation中手动创建的数据类型，都需要手动释放</div><div class="line">    CFArrayRef array = CFArrayCreate(NULL, NULL, 10, NULL);</div><div class="line">    CFRelease(array);</div><div class="line"></div><div class="line"></div><div class="line">    CGPathRef path = CGPathCreateMutable();</div><div class="line">    CGPathRetain(path);</div><div class="line"></div><div class="line">    CGPathRelease(path);</div><div class="line">    CGPathRelease(path);</div></pre></td></tr></table></figure>
+<p>/<em>*<br> 凡是函数名中带有create\copy\new\retain等字眼, 都应该在不需要使用这个数据的时候进行release<br> GCD的数据类型在ARC环境下不需要再做release<br> CF(Core Foundation)的数据类型在ARC\MRC环境下都需要再做release
  </em>/</p>
 <p>//注意点<br>需要设置按钮的image和backgroundImage，建议先把按钮类型改为custom，才能保证设置成功<br>属性名不能以new开头<br>只有在init开头的构造方法中，才允许对self进行赋值<br>回到主线程的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</div><div class="line"> NSLog(@&quot;donwload---%@&quot;, [NSThread currentThread]);</div><div class="line"> // 1.子线程下载图片</div><div class="line"> NSURL *url = [NSURL URLWithString:@&quot;&quot;];</div><div class="line">        NSData *data = [NSData dataWithContentsOfURL:url];</div><div class="line">        UIImage *image = [UIImage imageWithData:data];</div><div class="line">        </div><div class="line">// 2.回到主线程设置图片</div><div class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">            NSLog(@&quot;setting---%@ %@&quot;, [NSThread currentThread], image);</div><div class="line">            [self.button setImage:image forState:UIControlStateNormal];</div><div class="line">        &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>线程延迟操作方法：<br>// 延迟执行不要用sleep，坏处：卡住当前线程<br>(1)[NSThread sleepForTimeInterval:3];</p>
-<p>// 一旦定制好延迟任务后，不会卡主当前线程<br>(2)[self performSelector:@selector(download:) withObject:@”” afterDelay:3];</p>
-<p>(3) // 3秒后回到主线程 执行block中的代码<br>dispatch_queue_t queue=dispatch_get_main_queue();<br>dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), queue, ^{<br>        NSLog(@”——task——%@”, [NSThread currentThread]);<br>    });</p>
-<p>// 3秒后自动开启新线程 执行block中的代码<br>    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br>    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), queue, ^{<br>        NSLog(@”——task——%@”, [NSThread currentThread]);<br>    });</p>
-<p>一次性代码：<br>static dispatch_once_t onceToken;<br>    dispatch_once(&amp;onceToken, ^{</p>
-<p>});</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</div><div class="line"> NSLog(@&quot;donwload---%@&quot;, [NSThread currentThread]);</div><div class="line"> // 1.子线程下载图片</div><div class="line"> NSURL *url = [NSURL URLWithString:@&quot;&quot;];</div><div class="line">        NSData *data = [NSData dataWithContentsOfURL:url];</div><div class="line">        UIImage *image = [UIImage imageWithData:data];</div><div class="line">        </div><div class="line">// 2.回到主线程设置图片</div><div class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">            NSLog(@&quot;setting---%@ %@&quot;, [NSThread currentThread], image);</div><div class="line">            [self.button setImage:image forState:UIControlStateNormal];</div><div class="line">        &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">线程延迟操作方法：</div><div class="line">// 延迟执行不要用sleep，坏处：卡住当前线程</div><div class="line">(1)[NSThread sleepForTimeInterval:3];</div><div class="line"></div><div class="line">// 一旦定制好延迟任务后，不会卡主当前线程</div><div class="line">(2)[self performSelector:@selector(download:) withObject:@&quot;&quot; afterDelay:3];</div><div class="line"></div><div class="line">(3) // 3秒后回到主线程 执行block中的代码</div><div class="line">dispatch_queue_t queue=dispatch_get_main_queue();</div><div class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), queue, ^&#123;</div><div class="line">        NSLog(@&quot;------task------%@&quot;, [NSThread currentThread]);</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">// 3秒后自动开启新线程 执行block中的代码</div><div class="line">    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</div><div class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), queue, ^&#123;</div><div class="line">        NSLog(@&quot;------task------%@&quot;, [NSThread currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">一次性代码：</div><div class="line">static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>需求：下载两张图片，合并两张图片，显示在一个imageView上面</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">// 1.队列组</div><div class="line">    dispatch_group_t group = dispatch_group_create();</div><div class="line">    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</div><div class="line">    </div><div class="line">    // 2.下载图片1</div><div class="line"> __block UIImage *image1 = nil;</div><div class="line">dispatch_group_async(group, queue, ^&#123;</div><div class="line">        NSURL *url1 = [NSURL URLWithString:@&quot; &quot;];</div><div class="line">     NSData *data1 = [NSData dataWithContentsOfURL:url1];</div><div class="line">      image1 = [UIImage imageWithData:data1];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    // 3.下载图片2</div><div class="line">    __block UIImage *image2 = nil;</div><div class="line">    dispatch_group_async(group, queue, ^&#123;</div><div class="line">        NSURL *url2 = [NSURL URLWithString:@&quot; &quot;];</div><div class="line">        NSData *data2 = [NSData dataWithContentsOfURL:url2];</div><div class="line">        image2 = [UIImage imageWithData:data2];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    // 4.合并图片 (保证执行完组里面的所有任务之后，再执行notify函数里面的block)</div><div class="line">    dispatch_group_notify(group, queue, ^&#123;</div><div class="line">        </div><div class="line">// 开启一个位图上下文</div><div class="line">UIGraphicsBeginImageContextWithOptions(image1.size, NO, 0.0);</div><div class="line">        </div><div class="line">       // 绘制第1张图片</div><div class="line">        CGFloat image1W = image1.size.width;</div><div class="line">        CGFloat image1H = image1.size.height;</div><div class="line">        [image1 drawInRect:CGRectMake(0, 0, image1W, image1H)];</div><div class="line">        </div><div class="line">        // 绘制第2张图片</div><div class="line">        CGFloat image2W = image2.size.width * 0.5;</div><div class="line">        CGFloat image2H = image2.size.height * 0.5;</div><div class="line">        CGFloat image2Y = image1H - image2H;</div><div class="line">        [image2 drawInRect:CGRectMake(0, image2Y, image2W, image2H)];</div><div class="line">        </div><div class="line">        // 得到上下文中的图片</div><div class="line">        UIImage *fullImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">        // 结束上下文</div><div class="line">        UIGraphicsEndImageContext();</div><div class="line">        </div><div class="line">        // 5.回到主线程显示图片</div><div class="line">  dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">            self.imageView.image = fullImage;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
 <p>回到主线程的方法：</p>
-<p>(1)[self performSelectorOnMainThread:@selector(download) withObject:nil waitUntilDone:NO];</p>
-<p>(2)dispatch_async(dispatch_get_main_queue(), ^{</p>
-<p> });</p>
-<p>(3) [[NSOperationQueue mainQueue] addOperationWithBlock:^{</p>
-<p>}];</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">(1)[self performSelectorOnMainThread:@selector(download) withObject:nil waitUntilDone:NO];</div><div class="line"></div><div class="line">(2)dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">          </div><div class="line"> &#125;);</div><div class="line"></div><div class="line">(3) [[NSOperationQueue mainQueue] addOperationWithBlock:^&#123;</div><div class="line">    </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 <p>NSOperation和NSOperationQueue实现多线程的具体步骤：<br>1.先将需要执行的操作封装到一个NSOperation对象中<br>2.然后将NSOperation对象添加到NSOperationQueue中<br>3.系统会自动将NSOperationQueue中的NSOperation取出来<br>4.将取出的NSOperation封装的操作放到一条新线程中执行</p>
 <p>NSOperation的子类<br>NSOperation是个抽象类，并不具备封装操作的能力，必须使用它的子类<br>使用NSOperation子类的方式有3种：<br>1.NSInvocationOperation<br>2.NSBlockOperation<br>3.自定义子类继承NSOperation,实现内部相应的方法</p>
 <p>注意点：<br>操作对象默认在主线程中执行，只有添加到队列中才会开启新的线程。即默认情况下，如果操作没有放到队列中queue中，都是同步执行。只有将NSOperation放到一个NSOperationQueue中,才会异步执行操作 </p>
@@ -294,7 +427,7 @@ CGPathRelease(path);
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/05/23/2015-05-23-NSOpertaion和GCD区别/" data-id="cjaiynjjm000fr656a3mj7s3b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/05/23/2015-05-23-NSOpertaion和GCD区别/" data-id="cjaiz3g89000fua56kwzb3tvw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -489,7 +622,7 @@ CGPathRelease(path);
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译/" data-id="cjaiynjjl000er656lym97ymz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/05/08/2015-05-08-GCD 相关Apple文档关键词翻译/" data-id="cjaiz3g88000eua56upp9vnz5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -620,7 +753,7 @@ CGPathRelease(path);
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/05/05/2015-05-05-网易阿里百度iOS面试题/" data-id="cjaiynjjl000dr656sqziu0o2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/05/05/2015-05-05-网易阿里百度iOS面试题/" data-id="cjaiz3g87000dua56f560shyc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -751,7 +884,7 @@ CGPathRelease(path);
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/" data-id="cjaiynjjk000cr656y393une3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/" data-id="cjaiz3g87000cua5641kbhrdz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -877,7 +1010,7 @@ CGPathRelease(path);
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/" data-id="cjaiynjjj000br656x3cgcaml" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/" data-id="cjaiz3g86000bua56m3lnap8o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1006,7 +1139,7 @@ CGPathRelease(path);
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/" data-id="cjaiynjjh000ar6567l99zutt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/" data-id="cjaiz3g86000aua562fcugj97" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1131,7 +1264,7 @@ CGPathRelease(path);
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/" data-id="cjaiynjjg0009r656ki3luzsa" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/" data-id="cjaiz3g850009ua56xvb8v7id" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1279,7 +1412,7 @@ CGPathRelease(path);
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cjaiynjjf0008r656x4wk31as" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cjaiz3g840008ua565oi16jia" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1406,7 +1539,7 @@ CGPathRelease(path);
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" data-id="cjaiynjje0007r656fdsybumo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" data-id="cjaiz3g830007ua56amh5npk2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1475,130 +1608,6 @@ CGPathRelease(path);
             
     
         <a href="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-2014-05-10-NSArray、NSDictionary以及NSSet的区别" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">NSArray、NSDictionary以及NSSet的区别</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">
-            <time datetime="2014-05-10T13:03:23.000Z" itemprop="datePublished">2014-05-10</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>NSArray:用于对象有序集合,存储的元素在一个整块的内存中按序排列;<br>NSDictionary:用于键值映射;<br>NSSet:用于对象无序集合,散列存储(哈希);</p>
-<p>NSArray比NSSet的平均效率低.<br>1.NSArray,本质上是一个数组，根据index查找元素是相当快的,但它查找某个指定的元素效率不是很高。如某个元素所对应的index=100,那么要找到该元素,就必然遍历了此元素之前的100个元素。<br>对于NSSet,因为它的组织结构是hash，所以它能够在常数时间里找到对应的元素。哈希表就是一种以键-值存储数据的结构,我们只要输入待查找的值即key，即可查找到其对应的值。<br>2.NSet元素的单一性,即同一个对象在NSSet中只存在一份;同一个对象在NSArray中可以存在多份。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line"> </div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;arrayM=%@&quot;,arrayM);</div><div class="line"> </div><div class="line"> NSMutableSet *setM=[NSMutableSet set];</div><div class="line"> </div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;setM=%@&quot;,setM);</div><div class="line"> </div><div class="line">  arrayM=(</div><div class="line">  Aries58,</div><div class="line">  Aries58</div><div class="line">  )</div><div class="line">  setM=&#123;(</div><div class="line">  Aries58</div><div class="line">  )&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/" data-id="cjaiynjjc0005r656mtdau9o2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">Comments</a>
     
 
         </footer>
@@ -1727,7 +1736,7 @@ CGPathRelease(path);
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 

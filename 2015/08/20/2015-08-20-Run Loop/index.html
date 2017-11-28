@@ -3,21 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>NSArray、NSDictionary以及NSSet的区别 | 上善若水,道法自然</title>
+    <title>Run Loop | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="NSArray:用于对象有序集合,存储的元素在一个整块的内存中按序排列;NSDictionary:用于键值映射;NSSet:用于对象无序集合,散列存储(哈希);
-NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据index查找元素是相当快的,但它查找某个指定的元素效率不是很高。如某个元素所对应的index=100,那么要找到该元素,就必然遍历了此元素之前的100个元">
+    <meta name="description" content="1.什么是runloop1&amp;gt;字面意思: 运行循环2&amp;gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)3&amp;gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法4&amp;gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Tim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NSArray、NSDictionary以及NSSet的区别">
-<meta property="og:url" content="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/index.html">
+<meta property="og:title" content="Run Loop">
+<meta property="og:url" content="http://www.ariest.net/2015/08/20/2015-08-20-Run Loop/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="NSArray:用于对象有序集合,存储的元素在一个整块的内存中按序排列;NSDictionary:用于键值映射;NSSet:用于对象无序集合,散列存储(哈希);
-NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据index查找元素是相当快的,但它查找某个指定的元素效率不是很高。如某个元素所对应的index=100,那么要找到该元素,就必然遍历了此元素之前的100个元">
-<meta property="og:updated_time" content="2017-11-27T15:47:48.000Z">
+<meta property="og:description" content="1.什么是runloop1&amp;gt;字面意思: 运行循环2&amp;gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)3&amp;gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法4&amp;gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Tim">
+<meta property="og:image" content="http://ariest.net/sources/images/runloop.png">
+<meta property="og:updated_time" content="2017-11-28T01:57:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NSArray、NSDictionary以及NSSet的区别">
-<meta name="twitter:description" content="NSArray:用于对象有序集合,存储的元素在一个整块的内存中按序排列;NSDictionary:用于键值映射;NSSet:用于对象无序集合,散列存储(哈希);
-NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据index查找元素是相当快的,但它查找某个指定的元素效率不是很高。如某个元素所对应的index=100,那么要找到该元素,就必然遍历了此元素之前的100个元">
+<meta name="twitter:title" content="Run Loop">
+<meta name="twitter:description" content="1.什么是runloop1&amp;gt;字面意思: 运行循环2&amp;gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)3&amp;gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法4&amp;gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Tim">
+<meta name="twitter:image" content="http://ariest.net/sources/images/runloop.png">
     
 
     
@@ -212,7 +211,7 @@ NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据ind
 </aside>
 
             
-            <section id="main"><article id="post-2014-05-10-NSArray、NSDictionary以及NSSet的区别" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2015-08-20-Run Loop" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +219,7 @@ NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据ind
                 
     
         <h1 class="article-title" itemprop="name">
-            NSArray、NSDictionary以及NSSet的区别
+            Run Loop
         </h1>
     
 
@@ -229,8 +228,8 @@ NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据ind
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">
-            <time datetime="2014-05-10T13:03:23.000Z" itemprop="datePublished">2014-05-10</time>
+        <a href="/2015/08/20/2015-08-20-Run Loop/">
+            <time datetime="2015-08-20T12:50:23.000Z" itemprop="datePublished">2015-08-20</time>
         </a>
     </div>
 
@@ -245,9 +244,9 @@ NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据ind
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>NSArray:用于对象有序集合,存储的元素在一个整块的内存中按序排列;<br>NSDictionary:用于键值映射;<br>NSSet:用于对象无序集合,散列存储(哈希);</p>
-<p>NSArray比NSSet的平均效率低.<br>1.NSArray,本质上是一个数组，根据index查找元素是相当快的,但它查找某个指定的元素效率不是很高。如某个元素所对应的index=100,那么要找到该元素,就必然遍历了此元素之前的100个元素。<br>对于NSSet,因为它的组织结构是hash，所以它能够在常数时间里找到对应的元素。哈希表就是一种以键-值存储数据的结构,我们只要输入待查找的值即key，即可查找到其对应的值。<br>2.NSet元素的单一性,即同一个对象在NSSet中只存在一份;同一个对象在NSArray中可以存在多份。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line"> </div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;arrayM=%@&quot;,arrayM);</div><div class="line"> </div><div class="line"> NSMutableSet *setM=[NSMutableSet set];</div><div class="line"> </div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;setM=%@&quot;,setM);</div><div class="line"> </div><div class="line">  arrayM=(</div><div class="line">  Aries58,</div><div class="line">  Aries58</div><div class="line">  )</div><div class="line">  setM=&#123;(</div><div class="line">  Aries58</div><div class="line">  )&#125;</div></pre></td></tr></table></figure>
+            <p><img src="http://ariest.net/sources/images/runloop.png" alt="runloop icon"><br>1.什么是runloop<br>1&gt;字面意思: 运行循环<br>2&gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)<br>3&gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法<br>4&gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Timer、observer，那么就直接退出runloop</p>
+<p>2.自动释放池什么时候释放?<br>在runloop 睡眠之前kCFRunLoopBeforeWaiting</p>
+<p>3.在开发中如何使用runloop? 什么应用场景？<br>1&gt;开启一个常驻线程 即：让一个子线程不进入消亡状态，等待其他线程发来消息,处理其他事件<br>2&gt;在子线程中开启一个定时器或监控<br>3&gt;可以控制某些事件(行为、任务)或定时器在特定模式下执行<br>4&gt;可以添加observer监听runloop的状态，比如监听点击事件的处理(在所有点击事件之前做些事情)</p>
 
         
         </div>
@@ -258,7 +257,7 @@ NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据ind
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/" data-id="cjaiz3g820005ua56hfs6nzcs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/08/20/2015-08-20-Run Loop/" data-id="cjaiz3g8b000kua56azsuu9nt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -326,7 +325,7 @@ NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据ind
 
             
     
-        <a href="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">Comments</a>
+        <a href="http://www.ariest.net/2015/08/20/2015-08-20-Run Loop/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/08/20/2015-08-20-Run Loop/">Comments</a>
     
 
         </footer>
@@ -335,19 +334,19 @@ NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据ind
         
 <nav id="article-nav">
     
-        <a href="/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2015/09/05/2015-09-05-优秀程序员必备之如何在Github、Coding或Git@OSC上进行个人或公司代码托管部署/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    GCD之同步异步与串行并行队列详解
+                    优秀程序员必备之如何在Github、Coding或Git@OSC上进行个人或公司代码托管部署
                 
             </div>
         </a>
     
     
-        <a href="/2014/05/03/2014-05-20-Category及封装的好处/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Category及封装的好处</div>
+            <div class="article-nav-title">Run Loop 相关Apple文档关键词翻译</div>
         </a>
     
 </nav>
@@ -526,9 +525,9 @@ NSArray比NSSet的平均效率低.1.NSArray,本质上是一个数组，根据ind
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/';
+            this.page.url = 'http://www.ariest.net/2015/08/20/2015-08-20-Run Loop/';
         
-        this.page.identifier = '2014-05-10-NSArray、NSDictionary以及NSSet的区别';
+        this.page.identifier = '2015-08-20-Run Loop';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
