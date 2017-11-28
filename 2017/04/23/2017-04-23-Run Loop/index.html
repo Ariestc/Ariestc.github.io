@@ -3,24 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置 | 上善若水,道法自然</title>
+    <title>Run Loop | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Mac默认已安装Apache和PHP环境,只需开启即可
- 一、开启Apache sudo apachectl start 附:  sudo apachectl stop（关闭）  sudo apachectl  -k restart(重启) 开启后浏览器输入: http://localhost 回车会显示”It works!” 表示Apache开启成功
-二、开启PHP1.修改Apache配置文件">
+    <meta name="description" content="1.什么是runloop1&amp;gt;字面意思: 运行循环2&amp;gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)3&amp;gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法4&amp;gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Ti">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置">
-<meta property="og:url" content="http://www.ariest.net/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/index.html">
+<meta property="og:title" content="Run Loop">
+<meta property="og:url" content="http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="Mac默认已安装Apache和PHP环境,只需开启即可
- 一、开启Apache sudo apachectl start 附:  sudo apachectl stop（关闭）  sudo apachectl  -k restart(重启) 开启后浏览器输入: http://localhost 回车会显示”It works!” 表示Apache开启成功
-二、开启PHP1.修改Apache配置文件">
-<meta property="og:updated_time" content="2017-11-19T05:05:04.000Z">
+<meta property="og:description" content="1.什么是runloop1&amp;gt;字面意思: 运行循环2&amp;gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)3&amp;gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法4&amp;gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Ti">
+<meta property="og:image" content="http://www.ariest.net/images/runloop.png">
+<meta property="og:updated_time" content="2017-11-28T02:17:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置">
-<meta name="twitter:description" content="Mac默认已安装Apache和PHP环境,只需开启即可
- 一、开启Apache sudo apachectl start 附:  sudo apachectl stop（关闭）  sudo apachectl  -k restart(重启) 开启后浏览器输入: http://localhost 回车会显示”It works!” 表示Apache开启成功
-二、开启PHP1.修改Apache配置文件">
+<meta name="twitter:title" content="Run Loop">
+<meta name="twitter:description" content="1.什么是runloop1&amp;gt;字面意思: 运行循环2&amp;gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)3&amp;gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法4&amp;gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Ti">
+<meta name="twitter:image" content="http://www.ariest.net/images/runloop.png">
     
 
     
@@ -86,7 +82,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -105,10 +101,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +135,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -159,16 +155,16 @@
             <h2 id="name">Aries</h2>
             <h3 id="title">Moblie &amp; Web Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Beijing , China</span>
-            <a id="follow" target="_blank" href="https://github.com/ariestc/">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://github.com/ariestc/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 37
-                <span>Entradas</span>
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>Etiqueta</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -215,7 +211,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2017-04-23-Run Loop" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -223,7 +219,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置
+            Run Loop
         </h1>
     
 
@@ -232,8 +228,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/">
-            <time datetime="2017-11-17T02:56:00.000Z" itemprop="datePublished">2017-11-17</time>
+        <a href="/2017/04/23/2017-04-23-Run Loop/">
+            <time datetime="2017-04-23T12:50:23.000Z" itemprop="datePublished">2017-04-23</time>
         </a>
     </div>
 
@@ -248,13 +244,10 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p> Mac默认已安装Apache和PHP环境,只需开启即可</p>
-<p> 一、开启Apache<br> sudo apachectl start<br> 附:<br>  sudo apachectl stop（关闭）<br>  sudo apachectl  -k restart(重启)<br> 开启后浏览器输入: <a href="http://localhost" target="_blank" rel="external">http://localhost</a> 回车会显示”It works!” 表示Apache开启成功</p>
-<p>二、开启PHP<br>1.修改Apache配置文件<br> 1&gt; 打开终端输入命令: sudo vim /etc/apache2/httpd.conf<br> 2&gt; 找到#LoadModule php5_module libexec/apache2/libphp5.so删除本行前面”#”字符即可<br> 3&gt; mac下Apache默认文件夹路劲为: /Library/WebServer/Documents 在该目录下创建一个test.php文件，文件中输入如下内容: &lt;?php phpInfo(); ?&gt;<br> 浏览器输入:<a href="http://localhost/test.php" target="_blank" rel="external">http://localhost/test.php</a> 开是否显示PHPinfo页面<br> 4&gt; 若不成功 打开终端，输入命令：<br> sudo vim /etc/apache2/httpd.conf<br> 找到①DocumentRoot “/Library/WebServer/Documents”<br>    ②DocumentRoot “/Library/WebServer/Documents”</p>
-<p><directory "="" library="" webserver="" documents"="">将这两出””中的路径修改为test.php存放的路径,删除前面的”#”;<br>5&gt;浏览器输入localhost/test.php,出现PHP的info页,则表示成功。</directory></p>
-<p>三、安装MySQL<br>1&gt; 官网下载: <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">https://dev.mysql.com/downloads/mysql/</a><br>2&gt; 安装，注意安装完后会弹出对话框，务必保存临时密码到文件夹，以备后用<br>3&gt; 启动MySQL<br>系统偏好设置-&gt; MySQL<br>4&gt; 点击Start MySQL Server 启动<br>5&gt; 打开终端，输入命令：<br>/usr/local/mysql/bin/mysqladmin -u root -p’填写之前保存的临时密码’ password ‘新设置的密码’</p>
-<p>四、安装phpmyadmin<br>1&gt; 下载地址: <a href="https://www.phpmyadmin.net" target="_blank" rel="external">https://www.phpmyadmin.net</a><br>下载后更改文件夹名为: phpmyadmin 并放在/Library/WebServer/Documents/目录下<br>2&gt; 终端进入 cd /etc/apache2<br>3&gt; ls 查看文件（输入nl httpd.conf 可给此文件加上行号）<br>4&gt; vim httpd.conf（修改此文件）此步骤待确定<br>5&gt; 浏览器输入: localhost/phpMyAdmin 用户名填写: root 密码填写: 新设置的密码 登陆成功即可。</p>
-<p>五、PhpStrom环境配置<br>1&gt; Mac OS X 中没有默认的php.ini文件,有对应的模版文件php.ini.default<br>自行拷贝修改终端输入:<br>sudo cp /private/etc/php.ini.default /private/etc/php.ini<br>2&gt; 在Apache目录下创建PHP路径<br>如: /Library/WebServer/Documents/myphp<br>myphp为Apache路径下自定义创建的文件夹，用于放置php文件<br>3&gt; 修改端口号，phpstrom默认端口号为63342，而Apache端口号为80<br>Preferences-&gt;Buid,Execution<deployment-><br>添加project设置<br>Name为:Apache<br>Type为In place<br>Web sever root URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a><br>点击apply 然后点击ok<br>4&gt;点击Mappings选项<br>设置localpath为: /Library/WebServer/Documents/<br>点击apply 然后点击ok</deployment-></p>
+            <p><img src="http://www.ariest.net/images/runloop.png" alt="runloop"></p>
+<p>1.什么是runloop<br>1&gt;字面意思: 运行循环<br>2&gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)<br>3&gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法<br>4&gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Timer、observer，那么就直接退出runloop</p>
+<p>2.自动释放池什么时候释放?<br>在runloop 睡眠之前kCFRunLoopBeforeWaiting</p>
+<p>3.在开发中如何使用runloop? 什么应用场景？<br>1&gt;开启一个常驻线程 即：让一个子线程不进入消亡状态，等待其他线程发来消息,处理其他事件<br>2&gt;在子线程中开启一个定时器或监控<br>3&gt;可以控制某些事件(行为、任务)或定时器在特定模式下执行<br>4&gt;可以添加observer监听runloop的状态，比如监听点击事件的处理(在所有点击事件之前做些事情)</p>
 
         
         </div>
@@ -265,7 +258,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" data-id="cjaizcrf60010x956russhslf" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/" data-id="cjaiztle2000vzy56ga6zmbgs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -333,7 +326,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/">Comments</a>
     
 
         </footer>
@@ -342,10 +335,19 @@
         
 <nav id="article-nav">
     
+        <a href="/2017/05/13/2017-05-13-利用Runtime实现自动化归档/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    利用Runtime实现自动化归档
+                
+            </div>
+        </a>
     
-        <a href="/2017/11/15/2017-11-15-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title">Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置</div>
+    
+        <a href="/2017/03/20/2017-03-20-iOS9新特性之UIStackView/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">iOS9新特性之UIStackView</div>
         </a>
     
 </nav>
@@ -372,47 +374,9 @@
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Recientes</h3>
+        <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" class="title">Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置</a></p>
-                            <p class="item-date"><time datetime="2017-11-17T02:56:00.000Z" itemprop="datePublished">2017-11-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/11/15/2017-11-15-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/15/2017-11-15-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" class="title">Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置</a></p>
-                            <p class="item-date"><time datetime="2017-11-15T12:05:00.000Z" itemprop="datePublished">2017-11-15</time></p>
-                        </div>
-                    </li>
                 
                     <li>
                         
@@ -436,7 +400,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/04/03/2017-04-03-Aries教你在Mac上用Hexo+Github Page轻松搭建博客/" class="thumbnail">
+                            <a href="/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -447,15 +411,15 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/04/03/2017-04-03-Aries教你在Mac上用Hexo+Github Page轻松搭建博客/" class="title">Aries教你在Mac上用Hexo+Github Page轻松搭建博客</a></p>
-                            <p class="item-date"><time datetime="2017-04-03T05:46:00.000Z" itemprop="datePublished">2017-04-03</time></p>
+                            <p class="item-title"><a href="/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" class="title">Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置</a></p>
+                            <p class="item-date"><time datetime="2017-06-10T02:56:00.000Z" itemprop="datePublished">2017-06-10</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/03/20/2017-03-20-iOS9新特性之UIStackView/" class="thumbnail">
+                            <a href="/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -466,8 +430,46 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/03/20/2017-03-20-iOS9新特性之UIStackView/" class="title">iOS9新特性之UIStackView</a></p>
-                            <p class="item-date"><time datetime="2017-03-20T13:35:23.000Z" itemprop="datePublished">2017-03-20</time></p>
+                            <p class="item-title"><a href="/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" class="title">Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置</a></p>
+                            <p class="item-date"><time datetime="2017-06-03T12:05:00.000Z" itemprop="datePublished">2017-06-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/05/13/2017-05-13-利用Runtime实现自动化归档/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/05/13/2017-05-13-利用Runtime实现自动化归档/" class="title">利用Runtime实现自动化归档</a></p>
+                            <p class="item-date"><time datetime="2017-05-13T11:03:53.000Z" itemprop="datePublished">2017-05-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/23/2017-04-23-Run Loop/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/04/23/2017-04-23-Run Loop/" class="title">Run Loop</a></p>
+                            <p class="item-date"><time datetime="2017-04-23T12:50:23.000Z" itemprop="datePublished">2017-04-23</time></p>
                         </div>
                     </li>
                 
@@ -480,9 +482,9 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Archivos</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -493,7 +495,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">Links</h3>
+        <h3 class="widget-title">links</h3>
         <div class="widget">
             <ul>
                 
@@ -524,9 +526,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/';
+            this.page.url = 'http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/';
         
-        this.page.identifier = '2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置';
+        this.page.identifier = '2017-04-23-Run Loop';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

@@ -76,7 +76,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -95,10 +95,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -129,7 +129,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -149,16 +149,16 @@
             <h2 id="name">Aries</h2>
             <h3 id="title">Moblie &amp; Web Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Beijing , China</span>
-            <a id="follow" target="_blank" href="https://github.com/ariestc/">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://github.com/ariestc/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 37
-                <span>Entradas</span>
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>Etiqueta</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -206,130 +206,6 @@
 
             
             <section id="main">
-    <article id="post-2014-05-10-NSArray、NSDictionary以及NSSet的区别" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">NSArray、NSDictionary以及NSSet的区别</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">
-            <time datetime="2014-05-10T13:03:23.000Z" itemprop="datePublished">2014-05-10</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>NSArray:用于对象有序集合,存储的元素在一个整块的内存中按序排列;<br>NSDictionary:用于键值映射;<br>NSSet:用于对象无序集合,散列存储(哈希);</p>
-<p>NSArray比NSSet的平均效率低.<br>1.NSArray,本质上是一个数组，根据index查找元素是相当快的,但它查找某个指定的元素效率不是很高。如某个元素所对应的index=100,那么要找到该元素,就必然遍历了此元素之前的100个元素。<br>对于NSSet,因为它的组织结构是hash，所以它能够在常数时间里找到对应的元素。哈希表就是一种以键-值存储数据的结构,我们只要输入待查找的值即key，即可查找到其对应的值。<br>2.NSet元素的单一性,即同一个对象在NSSet中只存在一份;同一个对象在NSArray中可以存在多份。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line"> </div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;arrayM=%@&quot;,arrayM);</div><div class="line"> </div><div class="line"> NSMutableSet *setM=[NSMutableSet set];</div><div class="line"> </div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;setM=%@&quot;,setM);</div><div class="line"> </div><div class="line">  arrayM=(</div><div class="line">  Aries58,</div><div class="line">  Aries58</div><div class="line">  )</div><div class="line">  setM=&#123;(</div><div class="line">  Aries58</div><div class="line">  )&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/" data-id="cjaizcreg0005x956c84jguqq" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">Comentarios</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-2014-05-20-Category及封装的好处" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -385,7 +261,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/" data-id="cjaizcreg0006x956yqvf34ho" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/" data-id="cjaiztldm0007zy56xewbn0jz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -453,7 +329,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/">Comments</a>
     
 
         </footer>
@@ -514,7 +390,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjaizcref0004x9561rw8hg01" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjaiztldl0006zy56xatordqw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -582,7 +458,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comments</a>
     
 
         </footer>
@@ -643,7 +519,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/" data-id="cjaizcree0003x9567k98ibfl" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/" data-id="cjaiztldk0004zy56zm0r78c8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -711,7 +587,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/">Comments</a>
     
 
         </footer>
@@ -791,7 +667,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/" data-id="cjaizcrec0002x956mlkoypt9" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/" data-id="cjaiztldj0003zy56hehjc137" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -859,7 +735,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/">Comments</a>
     
 
         </footer>
@@ -918,7 +794,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/" data-id="cjaizcrea0001x956lj17yipn" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/" data-id="cjaiztldj0002zy56v99x3ns9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -986,7 +862,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/">Comments</a>
     
 
         </footer>
@@ -996,7 +872,7 @@
 
 
 
-    <article id="post-2014-03-01-冒泡算法实现数据排序" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2014-03-08-冒泡算法实现数据排序" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1004,7 +880,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/03/01/2014-03-01-冒泡算法实现数据排序/">冒泡算法实现数据排序</a>
+            <a class="article-title" href="/2014/03/08/2014-03-08-冒泡算法实现数据排序/">冒泡算法实现数据排序</a>
         </h1>
     
 
@@ -1013,8 +889,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/03/01/2014-03-01-冒泡算法实现数据排序/">
-            <time datetime="2014-03-01T10:06:23.000Z" itemprop="datePublished">2014-03-01</time>
+        <a href="/2014/03/08/2014-03-08-冒泡算法实现数据排序/">
+            <time datetime="2014-03-08T10:06:23.000Z" itemprop="datePublished">2014-03-08</time>
         </a>
     </div>
 
@@ -1044,7 +920,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/" data-id="cjaizcre60000x95644ryxio4" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/" data-id="cjaiztldh0001zy56ov6siq0s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1112,7 +988,137 @@
 
             
     
-        <a href="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/01/2014-03-01-冒泡算法实现数据排序/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">在Mac上用Hexo+Github Page轻松搭建博客</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">
+            <time datetime="2014-03-03T05:46:00.000Z" itemprop="datePublished">2014-03-03</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>1.Github Create Repository  名字使用yourname.github.io(如:Ariestc.github.io)<br>2.homebrew安装 (sudo权限下)<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></div></pre></td></tr></table></figure></p>
+<p>3.下载node.js 安装即可(node -v 和npm -v 查看是否安装成功)<br>官网下载:<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a></p>
+<pre><code class="ruby">Node.js was installed at
+/usr/local/bin/node
+
+npm was installed at
+/usr/local/bin/npm
+</code></pre>
+<p>4.Hexo下载<br>npm install -g hexo-cli (可能会出现Error: Cannot find module,原因是网络防火墙)<br>换用下面命令:<br>sudo npm cache clean -f(清除npm cache)<br>sudo npm install -g n(安装n模块)<br>sudo n stable(升级到最新版本)<br>最后使用:<br>sudo npm -g install hexo-cli<br>5.本地创建Blog文件夹 cd Blog<br>然后 hexo init<br>成功后出现“Start blogging with Hexo!”<br>6.hexo server<br>然后通过<a href="http://localhost:4000/访问即可打开hexo页面" target="_blank" rel="external">http://localhost:4000/访问即可打开hexo页面</a><br>7.gihub page 部署<br>配置_config.yml文件，完善deploy信息，在底部<br>deploy:<br>        type: git<br>        repo: <a href="https://github.com/yourname/yourname.github.io.git" target="_blank" rel="external">https://github.com/yourname/yourname.github.io.git</a><br>        branch: master<br>注意:type:、repo:、branch:后都有空格<br>8.npm install hexo-deployer-git –save<br>9.hexo deploy<br>此时可通过 <a href="http://yourname.github.io/访问" target="_blank" rel="external">http://yourname.github.io/访问</a><br>10.发布文章<br>cd Blog<br>hexo new “文章标题”<br>hexo generate<br>hexo deploy (部署到Github)<br>11.hexo clean（清除缓存文件、静态文件）<br>     hexo g(生成缓存和静态文件)<br>     hexo d(重新部署到服务器)<br>12.关于themes修改:<br>cd themes<br>然后 <a href="https://github.com/iissnan/hexo-theme-icarus.git" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-icarus.git</a> icarus<br>在Blog/_config.yml目录文件中修改theme为 icarus<br>hexo clean<br>hexo g<br>hexo d<br>13.域名绑定:<br>进入Blog/themes/icarus/souce目录<br>touch CNAME 写入域名如xxx.com<br>14.域名解析可选用DNSPod<br>终端 ping yourname.github.io 记录下IP地址 在DNSPod中填写两个记录<br>@和www<br>附:哪些步骤如有疑问可回帖。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/" data-id="cjaiztlde0000zy56vbjunbsd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">Comments</a>
     
 
         </footer>
@@ -1123,7 +1129,7 @@
 
 
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Anterior</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
     </nav>
 </section>
             
@@ -1131,47 +1137,9 @@
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Recientes</h3>
+        <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/17/2017-11-17-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" class="title">Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置</a></p>
-                            <p class="item-date"><time datetime="2017-11-17T02:56:00.000Z" itemprop="datePublished">2017-11-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/11/15/2017-11-15-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/15/2017-11-15-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" class="title">Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置</a></p>
-                            <p class="item-date"><time datetime="2017-11-15T12:05:00.000Z" itemprop="datePublished">2017-11-15</time></p>
-                        </div>
-                    </li>
                 
                     <li>
                         
@@ -1195,7 +1163,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/04/03/2017-04-03-Aries教你在Mac上用Hexo+Github Page轻松搭建博客/" class="thumbnail">
+                            <a href="/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -1206,15 +1174,15 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/04/03/2017-04-03-Aries教你在Mac上用Hexo+Github Page轻松搭建博客/" class="title">Aries教你在Mac上用Hexo+Github Page轻松搭建博客</a></p>
-                            <p class="item-date"><time datetime="2017-04-03T05:46:00.000Z" itemprop="datePublished">2017-04-03</time></p>
+                            <p class="item-title"><a href="/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" class="title">Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置</a></p>
+                            <p class="item-date"><time datetime="2017-06-10T02:56:00.000Z" itemprop="datePublished">2017-06-10</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/03/20/2017-03-20-iOS9新特性之UIStackView/" class="thumbnail">
+                            <a href="/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -1225,8 +1193,46 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/03/20/2017-03-20-iOS9新特性之UIStackView/" class="title">iOS9新特性之UIStackView</a></p>
-                            <p class="item-date"><time datetime="2017-03-20T13:35:23.000Z" itemprop="datePublished">2017-03-20</time></p>
+                            <p class="item-title"><a href="/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" class="title">Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置</a></p>
+                            <p class="item-date"><time datetime="2017-06-03T12:05:00.000Z" itemprop="datePublished">2017-06-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/05/13/2017-05-13-利用Runtime实现自动化归档/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/05/13/2017-05-13-利用Runtime实现自动化归档/" class="title">利用Runtime实现自动化归档</a></p>
+                            <p class="item-date"><time datetime="2017-05-13T11:03:53.000Z" itemprop="datePublished">2017-05-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/23/2017-04-23-Run Loop/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/04/23/2017-04-23-Run Loop/" class="title">Run Loop</a></p>
+                            <p class="item-date"><time datetime="2017-04-23T12:50:23.000Z" itemprop="datePublished">2017-04-23</time></p>
                         </div>
                     </li>
                 
@@ -1239,9 +1245,9 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Archivos</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1252,7 +1258,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">Links</h3>
+        <h3 class="widget-title">links</h3>
         <div class="widget">
             <ul>
                 
