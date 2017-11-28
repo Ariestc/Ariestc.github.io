@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="上善若水,道法自然">
 <meta property="og:description" content="1.什么是runloop1&amp;gt;字面意思: 运行循环2&amp;gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)3&amp;gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法4&amp;gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Ti">
 <meta property="og:image" content="http://www.ariest.net/images/runloop.png">
-<meta property="og:updated_time" content="2017-11-28T02:01:04.000Z">
+<meta property="og:updated_time" content="2017-11-28T02:03:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Run Loop">
 <meta name="twitter:description" content="1.什么是runloop1&amp;gt;字面意思: 运行循环2&amp;gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)3&amp;gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法4&amp;gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Ti">
@@ -244,7 +244,7 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><img src="http://www.ariest.net/images/runloop.png" alt="runloop原理图解"></p>
+            <p><img src="http://www.ariest.net/images/runloop.png" alt="runloop"></p>
 <p>1.什么是runloop<br>1&gt;字面意思: 运行循环<br>2&gt;内部是do-while循环 在这个循环内部不断的处理各种任务(如:source、timer、observer)<br>3&gt;一个线程对应一个runloop,主线程的runloop默认已经启动，子线程的runloop需要手动启动 即调用run方法<br>4&gt;runloop只能选择一个mode启动，如果当前mode中没有任何source、Timer、observer，那么就直接退出runloop</p>
 <p>2.自动释放池什么时候释放?<br>在runloop 睡眠之前kCFRunLoopBeforeWaiting</p>
 <p>3.在开发中如何使用runloop? 什么应用场景？<br>1&gt;开启一个常驻线程 即：让一个子线程不进入消亡状态，等待其他线程发来消息,处理其他事件<br>2&gt;在子线程中开启一个定时器或监控<br>3&gt;可以控制某些事件(行为、任务)或定时器在特定模式下执行<br>4&gt;可以添加observer监听runloop的状态，比如监听点击事件的处理(在所有点击事件之前做些事情)</p>
@@ -258,7 +258,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/08/20/2015-08-20-Run Loop/" data-id="cjaiz8fpu000kvq56fnonhxrd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/08/20/2015-08-20-Run Loop/" data-id="cjaizab1h000kwa56343l8ei2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
