@@ -76,7 +76,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -95,10 +95,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -129,7 +129,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -149,16 +149,16 @@
             <h2 id="name">Aries</h2>
             <h3 id="title">Moblie &amp; Web Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Beijing , China</span>
-            <a id="follow" target="_blank" href="https://github.com/ariestc/">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://github.com/ariestc/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                32
-                <span>Entradas</span>
+                34
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>Etiqueta</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -206,7 +206,7 @@
 
             
             <section id="main">
-    <article id="post-2015-02-01-Copy详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-05-05-网易阿里百度iOS面试题" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -214,7 +214,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2015/02/01/2015-02-01-Copy详解/">Copy详解</a>
+            <a class="article-title" href="/2015/05/05/2015-05-05-网易阿里百度iOS面试题/">网易阿里百度iOS面试题</a>
         </h1>
     
 
@@ -223,8 +223,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2015/02/01/2015-02-01-Copy详解/">
-            <time datetime="2015-02-01T11:13:33.000Z" itemprop="datePublished">2015-02-01</time>
+        <a href="/2015/05/05/2015-05-05-网易阿里百度iOS面试题/">
+            <time datetime="2015-05-05T14:12:33.000Z" itemprop="datePublished">2015-05-05</time>
         </a>
     </div>
 
@@ -239,17 +239,17 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>@property (copy) NSMutableArray *array;<br>此写法存在两个问题:<br>1.添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃.因为 copy 就是复制一个不可变 NSArray 的对象。<br>2.使用了 atomic 属性会严重影响性能。</p>
-<p>nonatomic与atomic:<br>nonatomic即非原子属性,不会为setter方法加锁,非线程安全,适合内存小的移动设备。<br>atomic即原子属性,为setter方法加锁,线程安全,但需要消耗大量CPU的资源。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">NSMutableArray *array=[NSMutableArray <span class="symbol">arrayWithObjects:</span>@<span class="string">"Aries58"</span>,@<span class="string">"Aris5801"</span>, <span class="literal">nil</span>];</div><div class="line">   </div><div class="line">   <span class="keyword">self</span>.mutableArray=array;</div><div class="line">   </div><div class="line">   <span class="comment">#-[__NSArrayI removeObjectAtIndex:]: unrecognized selector sent to instance 0x7f9eb2c3ced0</span></div><div class="line"></div><div class="line">   [<span class="keyword">self</span>.mutableArray <span class="symbol">removeObjectAtIndex:</span><span class="number">0</span>];</div></pre></td></tr></table></figure>
-<p>互斥锁(线程同步技术):<br>锁定1份代码只能用一把锁,用多把锁是无效的。<br>优点:能有效防止因多线程抢夺资源造成的数据安全问题。<br>缺点:需要消耗大量的CPU资源。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@synchronized(锁对象) &#123;</div><div class="line">    </div><div class="line">    <span class="comment">#需要锁定的代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在非集合类对象中：对immutable对象进行copy操作,是指针复制,mutableCopy是内容复制。<br>               对mutable对象进行copy和mutableCopy都是内容复制。</p>
-<p>浅复制: [immutableObject copy]<br>深复制: [immutableObject mutableCopy]<br>       [mutableObject copy]<br>       [mutableObject mutableCopy]</p>
-<p>非集合类对象copy</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)test02&#123;</div><div class="line">    </div><div class="line">    NSMutableString *string=[NSMutableString <span class="symbol">stringWithString:</span>@<span class="string">"Aries58"</span>];</div><div class="line">    </div><div class="line">    NSString *stringCopy=[string copy];</div><div class="line">    <span class="comment">#NSString *stringCopy=[string mutableCopy];</span></div><div class="line">    <span class="comment">#NSString *stringCopy=string;</span></div><div class="line">    </div><div class="line">    [string <span class="symbol">appendString:</span>@<span class="string">"Successful"</span>];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"string=%@"</span>,string);</div><div class="line">    NSLog(@<span class="string">"stringCopy=%@"</span>,stringCopy);</div><div class="line"></div><div class="line">         string=Aries58Successful</div><div class="line">         stringCopy=Aries58</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>集合类对象copy</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)test04&#123;</div><div class="line">    </div><div class="line">    NSMutableArray *array=[NSMutableArray <span class="symbol">arrayWithObjects:</span>[NSMutableString <span class="symbol">stringWithString:</span>@<span class="string">"Aries58"</span>],@<span class="string">"Aries5802"</span>,@<span class="string">"Aries5803"</span>, <span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    NSArray *copyArray=[array copy];</div><div class="line">    </div><div class="line">    NSMutableArray *mCopyArray=[array mutableCopy];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"array=%p"</span>,array);</div><div class="line">    NSLog(@<span class="string">"copyArray=%p"</span>,copyArray);</div><div class="line">    NSLog(@<span class="string">"mCopyArray=%p"</span>,mCopyArray);</div><div class="line">    </div><div class="line">              array=<span class="number">0x7fe532e069d0</span></div><div class="line">          copyArray=<span class="number">0x7fe532e0bd80</span></div><div class="line">         mCopyArray=<span class="number">0x7fe532e0d9b0</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)test03&#123;</div><div class="line">    </div><div class="line">    NSArray *array=@[@[@<span class="string">"Aries58"</span>,@<span class="string">"Aries5801"</span>],@[@<span class="string">"Aries5802"</span>,@<span class="string">"Aries5803"</span>]];</div><div class="line">    </div><div class="line">    NSArray *copyArray=[array copy];</div><div class="line">    </div><div class="line">    NSMutableArray *mCopyArray=[array mutableCopy];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"array=%p"</span>,array);</div><div class="line">    NSLog(@<span class="string">"copyArray=%p"</span>,copyArray);</div><div class="line">    NSLog(@<span class="string">"mCopyArray=%p"</span>,mCopyArray);</div><div class="line">    </div><div class="line">    </div><div class="line">              array=<span class="number">0x7f8131c3d360</span></div><div class="line">          copyArray=<span class="number">0x7f8131c3d360</span></div><div class="line">         mCopyArray=<span class="number">0x7f8131c03bf0</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p>一、基础<br>1.DFS和BFS的区别及其使用场景<br>2.通知中心和代理的区别<br>3.weak和strong的区别 +3<br>4.什么时候使用到weak?<br>5.引用循环(retain cycle)是怎样产生的？<br>6.Cocoa 有哪些消息传递机制？<br>delegation，Notification，KVO，block，Target-Action<br>7.简述ViewController的生命周期<br>8.什么是RestFul API</p>
+<p>二、中等</p>
+<p>1.谈谈Swift和Objective-C的优缺点 +2<br>2.n 的阶乘末尾有几个0？<br>方法一：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)test&#123;</div><div class="line">    </div><div class="line">    int ret=<span class="number">0</span> ;</div><div class="line">    int j=<span class="number">0</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (int i=<span class="number">1</span>; i &lt;= N; i++) &#123;</div><div class="line">        </div><div class="line">        j=i;</div><div class="line">        <span class="keyword">while</span> (j % <span class="number">5</span> == <span class="number">0</span>) &#123;</div><div class="line">            </div><div class="line">            ret++; </div><div class="line">            j /= <span class="number">5</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"ret=%d"</span>,ret);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(void)test02</div><div class="line">&#123;</div><div class="line">    int ret=<span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (N) &#123;</div><div class="line">        </div><div class="line">        ret += N/<span class="number">5</span>;</div><div class="line">        N /= <span class="number">5</span>;</div><div class="line">    &#125;</div><div class="line">    NSLog(@<span class="string">"ret=%d"</span>,ret);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.iOS 环境下一共有几种多线程编程技术？<br>NSThread、GCD、NSOperation、<br>4.现在有一张大图，想让用户下载到一半能取消下载，你应该用哪种多线程方法来实现？<br>5.weak和<strong>unsafe_unretained的区别，</strong>unsafe_unretained的使用场景<br>6.Block里引用到self的话一定要用weak self吗？<br>7.简述Runloop的原理<br>8.NSTimer只能在主线程上运行吗？<br>9.UIView在什么时候会调用drawRect:，当我调用setNeedsDisplay后，视图会立刻刷新吗？不会的话是在什么时候刷新？<br>loadView和viewDidLoad方法之后调用drawRect,<br>10.loadView和viewDidLoad的区别<br>viewDidLoad用于初始化，加载时用到的,不论是从xib中加载视图，还是从loadview生成视图，都会被调用。loadView 此方法在控制器的view为nil的时候被调用。<br>11.简述Autolayout布局系统的原理<br>12.id和NSObject的区别<br>13.用 CocoaPods 的时候，如果一个库依赖AFNetwork 1.1，另一个库依赖AFNetwork 2.0，能够安装吗？冲突是如何解决的？</p>
+<p>三、高等</p>
+<p>1.如何用GCD来实现NSOperation的取消？</p>
+<p>四、开放性问题</p>
+<p>1.用过什么开源框架，读过它们的源码吗？<br>2.这个项目你遇到过什么难题，是如何解决的？ +3</p>
+
         
         </div>
         <footer class="article-footer">
@@ -259,7 +259,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/" data-id="cjaix1ore000bi656wnzhwux8" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2015/05/05/2015-05-05-网易阿里百度iOS面试题/" data-id="cjaiy0r57000dnu5636dzezbq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -327,7 +327,138 @@
 
             
     
-        <a href="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/">Comentarios</a>
+        <a href="http://www.ariest.net/2015/05/05/2015-05-05-网易阿里百度iOS面试题/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/05/05/2015-05-05-网易阿里百度iOS面试题/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2015-02-01-Copy详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/02/01/2015-02-01-Copy详解/">Copy详解</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/02/01/2015-02-01-Copy详解/">
+            <time datetime="2015-02-01T11:13:33.000Z" itemprop="datePublished">2015-02-01</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>@property (copy) NSMutableArray *array;<br>此写法存在两个问题:<br>1.添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃.因为 copy 就是复制一个不可变 NSArray 的对象。<br>2.使用了 atomic 属性会严重影响性能。</p>
+<p>nonatomic与atomic:<br>nonatomic即非原子属性,不会为setter方法加锁,非线程安全,适合内存小的移动设备。<br>atomic即原子属性,为setter方法加锁,线程安全,但需要消耗大量CPU的资源。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">NSMutableArray *array=[NSMutableArray <span class="symbol">arrayWithObjects:</span>@<span class="string">"Aries58"</span>,@<span class="string">"Aris5801"</span>, <span class="literal">nil</span>];</div><div class="line">   </div><div class="line">   <span class="keyword">self</span>.mutableArray=array;</div><div class="line">   </div><div class="line">   <span class="comment">#-[__NSArrayI removeObjectAtIndex:]: unrecognized selector sent to instance 0x7f9eb2c3ced0</span></div><div class="line"></div><div class="line">   [<span class="keyword">self</span>.mutableArray <span class="symbol">removeObjectAtIndex:</span><span class="number">0</span>];</div></pre></td></tr></table></figure>
+<p>互斥锁(线程同步技术):<br>锁定1份代码只能用一把锁,用多把锁是无效的。<br>优点:能有效防止因多线程抢夺资源造成的数据安全问题。<br>缺点:需要消耗大量的CPU资源。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@synchronized(锁对象) &#123;</div><div class="line">    </div><div class="line">    <span class="comment">#需要锁定的代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在非集合类对象中：对immutable对象进行copy操作,是指针复制,mutableCopy是内容复制。<br>               对mutable对象进行copy和mutableCopy都是内容复制。</p>
+<p>浅复制: [immutableObject copy]<br>深复制: [immutableObject mutableCopy]<br>       [mutableObject copy]<br>       [mutableObject mutableCopy]</p>
+<p>非集合类对象copy</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)test02&#123;</div><div class="line">    </div><div class="line">    NSMutableString *string=[NSMutableString <span class="symbol">stringWithString:</span>@<span class="string">"Aries58"</span>];</div><div class="line">    </div><div class="line">    NSString *stringCopy=[string copy];</div><div class="line">    <span class="comment">#NSString *stringCopy=[string mutableCopy];</span></div><div class="line">    <span class="comment">#NSString *stringCopy=string;</span></div><div class="line">    </div><div class="line">    [string <span class="symbol">appendString:</span>@<span class="string">"Successful"</span>];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"string=%@"</span>,string);</div><div class="line">    NSLog(@<span class="string">"stringCopy=%@"</span>,stringCopy);</div><div class="line"></div><div class="line">         string=Aries58Successful</div><div class="line">         stringCopy=Aries58</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>集合类对象copy</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)test04&#123;</div><div class="line">    </div><div class="line">    NSMutableArray *array=[NSMutableArray <span class="symbol">arrayWithObjects:</span>[NSMutableString <span class="symbol">stringWithString:</span>@<span class="string">"Aries58"</span>],@<span class="string">"Aries5802"</span>,@<span class="string">"Aries5803"</span>, <span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    NSArray *copyArray=[array copy];</div><div class="line">    </div><div class="line">    NSMutableArray *mCopyArray=[array mutableCopy];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"array=%p"</span>,array);</div><div class="line">    NSLog(@<span class="string">"copyArray=%p"</span>,copyArray);</div><div class="line">    NSLog(@<span class="string">"mCopyArray=%p"</span>,mCopyArray);</div><div class="line">    </div><div class="line">              array=<span class="number">0x7fe532e069d0</span></div><div class="line">          copyArray=<span class="number">0x7fe532e0bd80</span></div><div class="line">         mCopyArray=<span class="number">0x7fe532e0d9b0</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)test03&#123;</div><div class="line">    </div><div class="line">    NSArray *array=@[@[@<span class="string">"Aries58"</span>,@<span class="string">"Aries5801"</span>],@[@<span class="string">"Aries5802"</span>,@<span class="string">"Aries5803"</span>]];</div><div class="line">    </div><div class="line">    NSArray *copyArray=[array copy];</div><div class="line">    </div><div class="line">    NSMutableArray *mCopyArray=[array mutableCopy];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"array=%p"</span>,array);</div><div class="line">    NSLog(@<span class="string">"copyArray=%p"</span>,copyArray);</div><div class="line">    NSLog(@<span class="string">"mCopyArray=%p"</span>,mCopyArray);</div><div class="line">    </div><div class="line">    </div><div class="line">              array=<span class="number">0x7f8131c3d360</span></div><div class="line">          copyArray=<span class="number">0x7f8131c3d360</span></div><div class="line">         mCopyArray=<span class="number">0x7f8131c03bf0</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/" data-id="cjaiy0r55000cnu56scoy2py5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/">Comments</a>
     
 
         </footer>
@@ -385,7 +516,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/" data-id="cjaix1ord000ai656nvkt3pii" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/" data-id="cjaiy0r53000bnu56b2h2qyc3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -453,7 +584,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/">Comments</a>
     
 
         </footer>
@@ -514,7 +645,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/" data-id="cjaix1orc0009i656l28jij3k" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/" data-id="cjaiy0r52000anu56pesv2hx4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -582,7 +713,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/">Comments</a>
     
 
         </footer>
@@ -639,7 +770,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/" data-id="cjaix1orb0008i6562rei683a" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/" data-id="cjaiy0r510009nu56ywp4mauz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -707,7 +838,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/">Comments</a>
     
 
         </footer>
@@ -787,7 +918,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cjaix1ora0007i6565be6p25b" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cjaiy0r500008nu56s40phxl9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -855,7 +986,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/">Comments</a>
     
 
         </footer>
@@ -914,7 +1045,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" data-id="cjaix1ora0006i6565zz9wzrk" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" data-id="cjaiy0r500007nu569c6a4xbh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -982,7 +1113,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/">Comments</a>
     
 
         </footer>
@@ -1038,7 +1169,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/" data-id="cjaix1or90005i656pwr9hj10" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/" data-id="cjaiy0r4y0005nu568cxomkf5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1106,7 +1237,140 @@
 
             
     
-        <a href="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2014-05-20-Category及封装的好处" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/05/03/2014-05-20-Category及封装的好处/">Category及封装的好处</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/05/03/2014-05-20-Category及封装的好处/">
+            <time datetime="2014-05-03T13:08:23.000Z" itemprop="datePublished">2014-05-03</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>category三种叫法：分类 类别 类目；</p>
+<p>分类作用：在不改变原来类内容基础上，可以为类增加一些方法</p>
+<p>分类使用注意：<br>1.分类只能增加方法，不能增加成员变量<br>2.分类方法实现中可以访问原来类中声明的成员变量<br>3.分类可以重新实现原来类中的方法，但是会覆盖原来的方法，会导致原来的方法没法在使用<br>4.方法调用的优先级：分类（最后参与编译的分类优先）-&gt; 原来类 -&gt; 父类</p>
+<p>给NSString增加一个类方法：计算某个字符串中阿拉伯数字的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+(int)numberCountOfString:(NSString *)str;</div><div class="line">&#123;</div><div class="line">	#定义变量计算数字的个数</div><div class="line">	int count=0;</div><div class="line"></div><div class="line">	for(int i=0;i&lt;str.length;i++)</div><div class="line">	&#123;</div><div class="line">		unichar c=[str characterAtIndex:i];</div><div class="line">		if(c&gt;=&apos;0&apos; &amp;&amp; c&lt;=&apos;9&apos;)</div><div class="line">		&#123;</div><div class="line">			count++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>给NSString增加一个对象方法：计算当前字符串中阿拉伯数字的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-(int)numberCount</div><div class="line">&#123;</div><div class="line">	int count=0;</div><div class="line">	for(int i&lt;0;i&lt;self.length;i++)</div><div class="line">	&#123;</div><div class="line">		unichar c=[self characterAtIndex:i];</div><div class="line">		if(c&gt;=&apos;0&apos;&amp;&amp;c&lt;=&apos;9&apos;)</div><div class="line">		&#123;</div><div class="line">			count++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int count=[@&quot;aries58&quot; numberCount];</div></pre></td></tr></table></figure>
+<p>封装的好处：<br>1.过滤不合理的值；<br>2.屏蔽内部的赋值过程<br>3.让外界不必关注内部的细节</p>
+<p>Set方法：<br>作用：提供一个方法给外界设置成员变量值，可以在方法里面对参数进行相应过滤。<br>命名规范：<br>1.方法名必须以set开头；<br>2.set后面跟上成员变量的名称，成员变量的首字母必须大写<br>3.返回值一定是void<br>4.一定要接受一个参数，而且参数类型跟成员变量类型一致<br>5.形参的名称不能跟成员变量名一样</p>
+<p>get方法<br>作用：返回对象内部的成员变量<br>命名规范：<br>1.肯定有返回值，返回值类型肯定与成员变量类型一致<br>2.方法名跟成员变量名一样<br>3.不需要接收任何参数</p>
+<p>成员变量的命名规范：一定要以下划线_开头<br>作用：<br>1.让成员变量和get方法的名称区分开<br>2.可以跟局部变量区分开，一看到下划线开头的变量，一般都是成员变量</p>
+<p>OC是在运行过程中才会检测对象有没有实现相应地方法<br>一旦运行过程中出错，就会出现闪退</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/" data-id="cjaiy0r4z0006nu56zwwqjv4p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/">Comments</a>
     
 
         </footer>
@@ -1149,7 +1413,8 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>在非ARC的环境下,initWithFormat是实例化方法,通过[[NSString alloc] initWithFormat:@””]调用<br>,但是必须通过手动添加release来释放内存;<br>而stringWithFormat是类方法,通过[NSString stringWithFormat:@””]调用,不用手动添加release,内存管理是autorelease.</p>
+            <p>在非ARC的环境下,initWithFormat是实例化方法,通过[[NSString alloc] initWithFormat:@””]调用,但是必须通过手动添加release来释放内存;</p>
+<p>而stringWithFormat是类方法,通过[NSString stringWithFormat:@””]调用,不用手动添加release,内存管理是autorelease.</p>
 <p>在ARC的环境下,两者相同。</p>
 <p>以下是在非ARC情况下的例子:</p>
 <p><img src="http://aries58.com/images/001.png" alt="001 icon"></p>
@@ -1166,7 +1431,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjaix1or70004i6563fur4l89" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjaiy0r4w0004nu56789p5sak" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1234,284 +1499,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comentarios</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-2014-04-25-改进冒泡算法之快速排序" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/04/25/2014-04-25-改进冒泡算法之快速排序/">改进冒泡算法之快速排序</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/04/25/2014-04-25-改进冒泡算法之快速排序/">
-            <time datetime="2014-04-25T11:06:23.000Z" itemprop="datePublished">2014-04-25</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列</p>
-<p>元素交换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void swap(int array[],int i,int j)</div><div class="line">&#123;</div><div class="line">    int temp=array[i];</div><div class="line">    array[i]=array[j];</div><div class="line">    array[j]=temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>划分过程 第一个元素当枢轴 分成2个有效子序列</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">int partition(int array[],int low,int high)</div><div class="line">&#123;</div><div class="line">    int pv=array[low];</div><div class="line">    </div><div class="line">    <span class="keyword">while</span> (low &lt; high)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">while</span> ((low &lt; high) &amp;&amp; (array[high] &gt;= pv))</div><div class="line">        &#123;</div><div class="line">            <span class="comment">#比基准大 本来就在右边 所以high前移动</span></div><div class="line">            high--;</div><div class="line">        &#125;</div><div class="line">        swap(array, low, high);</div><div class="line">        </div><div class="line">        <span class="keyword">while</span> ((low&lt;high) &amp;&amp; (array[low] &lt;= pv))</div><div class="line">        &#123;</div><div class="line">            low++;</div><div class="line">        &#125;</div><div class="line">        swap(array, low, high);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">#返回枢轴位置</span></div><div class="line">    <span class="keyword">return</span> low;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">void QSort(int array[],int low,int high)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (low &lt; high)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">#选一个pv值 把数据分别放在pv值得左右两边 并把pivot位置返回出来</span></div><div class="line">        int pivot=partition(array, low, high);</div><div class="line">        </div><div class="line">        <span class="comment">#对子序列1排序</span></div><div class="line">        QSort(array, low, pivot-<span class="number">1</span>);</div><div class="line">        <span class="comment">#对子序列2排序</span></div><div class="line">        QSort(array, pivot+<span class="number">1</span>, high);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>快速排序</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">void QuickSort(int array[],int len)</div><div class="line">&#123;</div><div class="line">    QSort(array, <span class="number">0</span>, len-<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    int a[]=&#123;<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>&#125;;</div><div class="line">    </div><div class="line">    int count=sizeof(a)/sizeof(int);</div><div class="line">    </div><div class="line">    QuickSort(a,count);</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (int i=<span class="number">0</span>; i&lt;count; i++)</div><div class="line">    &#123;</div><div class="line">        printf(<span class="string">"result=%d\n"</span>,a[i]);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    printf(<span class="string">"Hello, World!\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/" data-id="cjaix1or60003i656tv8waawg" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/">Comentarios</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-2014-04-03-多态与继承那些事儿" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/04/25/2014-04-03-多态与继承那些事儿/">多态与继承那些事儿、</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/04/25/2014-04-03-多态与继承那些事儿/">
-            <time datetime="2014-04-25T11:06:23.000Z" itemprop="datePublished">2014-04-25</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>多态:<br>  是建立在继承的基础上，没有继承就没有多态。多态是指父类指针指向子类对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Dog *d=[Dog new];</div><div class="line"></div><div class="line">Animal *a=[Dog new];</div></pre></td></tr></table></figure>
-<p>如果参数中使用的是父类类型，可以传入父类、子类对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">    void feed(Animal *a)</div><div class="line">    &#123;</div><div class="line">        [a eat];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    Animal *aa=[Animal new];</div><div class="line">    feed(aa);</div><div class="line"></div><div class="line">    Dog *dd=[Dog new];</div><div class="line">    feed(dd);</div><div class="line"></div><div class="line">    Cat *cc=[Cat new];</div><div class="line">    feed(cc);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>多态的局限性：父类类型的变量，不能用来调用子类的方法，必须强制转为子类类型变量后，才能直接调用子类特有的方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Animal *aa=[Dog new];</div><div class="line"></div><div class="line">Dog *dd=(Dog *)aa;</div><div class="line"></div><div class="line">[dd run];</div></pre></td></tr></table></figure>
-<p>继承:</p>
-<p>继承的使用场合：</p>
-<ol>
-<li>当两个类拥有相同属性和方法的时候，就可以将相同的东西抽取到一个父类中</li>
-<li>当A类完全拥有B类中部分属性和方法，可以考虑让B类继承A类(非任何情况下)</li>
-</ol>
-<p>继承：A是B<br>组合：A拥有</p>
-<p>继承的好处：</p>
-<ol>
-<li>抽取重复的代码</li>
-<li>建立了类之间的关系</li>
-<li>子类可以拥有父类中的所有成员变量和方法</li>
-</ol>
-<p>继承的坏处：<br>1.耦合性太强  继承会创建新的类 </p>
-<p>注意：<br>父类必须声明在子类的前面<br>子类和父类不能有相同名称的成员变量；<br>调用某个方法时，优先去当前中找，如果找不到，去父类中找；<br>方法实现可以相同；</p>
-<p>重写：子类重新实现父类中得某个方法，覆盖父类以前的做法；</p>
-<p>super的作用：</p>
-<ol>
-<li>直接调用父类中得某个方法</li>
-<li>super处在对象方法中，那么就会调用父类的对象方法；<br>super处在类方法中，那么就会调用父类的类方法。<br>使用场合：子类重写父类的方法时想保留父类的一些行为</li>
-</ol>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/" data-id="cjaix1or50002i6562ktgvfan" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comments</a>
     
 
         </footer>
@@ -1522,7 +1510,7 @@
 
 
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Anterior</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Siguiente  &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -1530,7 +1518,7 @@
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Recientes</h3>
+        <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -1638,9 +1626,9 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Archivos</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1651,7 +1639,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">Links</h3>
+        <h3 class="widget-title">links</h3>
         <div class="widget">
             <ul>
                 
