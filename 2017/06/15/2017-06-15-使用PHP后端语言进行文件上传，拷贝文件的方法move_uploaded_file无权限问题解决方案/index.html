@@ -3,27 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别 | 上善若水,道法自然</title>
+    <title>使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="在非ARC的环境下,initWithFormat是实例化方法,通过[[NSString alloc] initWithFormat:@””]调用,但是必须通过手动添加release来释放内存;
-而stringWithFormat是类方法,通过[NSString stringWithFormat:@””]调用,不用手动添加release,内存管理是autorelease.
-在ARC的环境下,两者相同">
+    <meta name="description" content="1.打开终端查看httpd的owner,只有owner才有写权限:ps aux | grep httpd
+如:
+_www               725   0.0  0.1  2489180   5632   ??  S     4:49下午   0:00.04 /usr/sbin/httpd -D FOREGROUND_www               402   0.0  0.1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别">
-<meta property="og:url" content="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/index.html">
+<meta property="og:title" content="使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案">
+<meta property="og:url" content="http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="在非ARC的环境下,initWithFormat是实例化方法,通过[[NSString alloc] initWithFormat:@””]调用,但是必须通过手动添加release来释放内存;
-而stringWithFormat是类方法,通过[NSString stringWithFormat:@””]调用,不用手动添加release,内存管理是autorelease.
-在ARC的环境下,两者相同">
-<meta property="og:image" content="http://aries58.com/images/001.png">
-<meta property="og:image" content="http://aries58.com/images/002.png">
-<meta property="og:updated_time" content="2017-11-28T01:11:30.000Z">
+<meta property="og:description" content="1.打开终端查看httpd的owner,只有owner才有写权限:ps aux | grep httpd
+如:
+_www               725   0.0  0.1  2489180   5632   ??  S     4:49下午   0:00.04 /usr/sbin/httpd -D FOREGROUND_www               402   0.0  0.1">
+<meta property="og:updated_time" content="2017-12-16T10:56:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别">
-<meta name="twitter:description" content="在非ARC的环境下,initWithFormat是实例化方法,通过[[NSString alloc] initWithFormat:@””]调用,但是必须通过手动添加release来释放内存;
-而stringWithFormat是类方法,通过[NSString stringWithFormat:@””]调用,不用手动添加release,内存管理是autorelease.
-在ARC的环境下,两者相同">
-<meta name="twitter:image" content="http://aries58.com/images/001.png">
+<meta name="twitter:title" content="使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案">
+<meta name="twitter:description" content="1.打开终端查看httpd的owner,只有owner才有写权限:ps aux | grep httpd
+如:
+_www               725   0.0  0.1  2489180   5632   ??  S     4:49下午   0:00.04 /usr/sbin/httpd -D FOREGROUND_www               402   0.0  0.1">
     
 
     
@@ -218,7 +215,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -226,7 +223,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别
+            使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案
         </h1>
     
 
@@ -235,8 +232,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">
-            <time datetime="2014-05-03T13:08:23.000Z" itemprop="datePublished">2014-05-03</time>
+        <a href="/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/">
+            <time datetime="2017-06-15T10:40:00.000Z" itemprop="datePublished">2017-06-15</time>
         </a>
     </div>
 
@@ -251,14 +248,16 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>在非ARC的环境下,initWithFormat是实例化方法,通过[[NSString alloc] initWithFormat:@””]调用,但是必须通过手动添加release来释放内存;</p>
-<p>而stringWithFormat是类方法,通过[NSString stringWithFormat:@””]调用,不用手动添加release,内存管理是autorelease.</p>
-<p>在ARC的环境下,两者相同。</p>
-<p>以下是在非ARC情况下的例子:</p>
-<p><img src="http://aries58.com/images/001.png" alt="001 icon"></p>
-<p>是通过initWithFormat初始化NSString, 返回的是alloc申请内存的NSString实例,需手动release。</p>
-<p><img src="http://aries58.com/images/002.png" alt="002 icon"></p>
-<p>stringWithFormat是返回autorelease的NSString实例,不用手动release,在自动释放池中自动释放。</p>
+            <p> 1.打开终端查看httpd的owner,只有owner才有写权限:<br>ps aux | grep httpd</p>
+<p>如:</p>
+<p>_www               725   0.0  0.1  2489180   5632   ??  S     4:49下午   0:00.04 /usr/sbin/httpd -D FOREGROUND<br>_www               402   0.0  0.1  2488668   4836   ??  S     4:29下午   0:00.06 /usr/sbin/httpd -D FOREGROUND</p>
+<p>2.把上传文件夹的owner改为httpd的owner</p>
+<p>sudo chown _www /Library/WebServer/Documents/myphp/uploads</p>
+<p>修改前:<br>drwxr-xr-x   2 wangl  wheel    68 12 16 17:23 uploads</p>
+<p>修改后:<br>drwxr-xr-x   2 _www   wheel    68 12 16 17:23 uploads</p>
+<p>3.开启文件夹owner的写权限<br>sudo chmod -R 0755 /Applications/MAMP/htdocs/learnPhp/upload/</p>
+<p>如：<br>-rwxr-xr-x    (755) 只有所有者才有读，写，执行的权限，组群和其他人只有读和执行的权限</p>
+<p>常见权限代号:<br>-rw——-    (600) 只有所有者才有读和写的权限<br>-rw-r–r–    (644) 只有所有者才有读和写的权限，组群和其他人只有读的权限<br>-rwx——    (700) 只有所有者才有读，写，执行的权限<br>-rwxr-xr-x    (755) 只有所有者才有读，写，执行的权限，组群和其他人只有读和执行的权限<br>-rwx–x–x    (711) 只有所有者才有读，写，执行的权限，组群和其他人只有执行的权限<br>-rw-rw-rw-    (666) 每个人都有读写的权限<br>-rwxrwxrwx    (777) 每个人都有读写和执行的权限</p>
 
         
         </div>
@@ -269,7 +268,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjb98a92m0006mx56q707u4bx" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/" data-id="cjb98a9390010mx569mjcdowv" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -337,7 +336,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/">Comentarios</a>
     
 
         </footer>
@@ -346,19 +345,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2014/05/03/2014-05-20-Category及封装的好处/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/08/30/2017-08-30-KVO底层实现/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
-                    Category及封装的好处
+                    KVO底层实现
                 
             </div>
         </a>
     
     
-        <a href="/2014/04/25/2014-04-25-改进冒泡算法之快速排序/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title">改进冒泡算法之快速排序</div>
+            <div class="article-nav-title">Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置</div>
         </a>
     
 </nav>
@@ -537,9 +536,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/';
+            this.page.url = 'http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/';
         
-        this.page.identifier = '2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别';
+        this.page.identifier = '2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

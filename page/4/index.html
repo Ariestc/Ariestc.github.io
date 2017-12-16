@@ -76,7 +76,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -95,10 +95,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -129,7 +129,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
     </div>
 
                 </td>
@@ -149,16 +149,16 @@
             <h2 id="name">Aries</h2>
             <h3 id="title">Moblie &amp; Web Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Beijing , China</span>
-            <a id="follow" target="_blank" href="https://github.com/ariestc/">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://github.com/ariestc/">SEGUIR</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                37
-                <span>posts</span>
+                38
+                <span>Entradas</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>tag</span>
+                <span>Etiqueta</span>
             </div>
         </div>
         
@@ -206,7 +206,7 @@
 
             
             <section id="main">
-    <article id="post-2014-05-20-Category及封装的好处" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2014-05-10-NSArray、NSDictionary以及NSSet的区别" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -214,7 +214,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/03/2014-05-20-Category及封装的好处/">Category及封装的好处</a>
+            <a class="article-title" href="/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">NSArray、NSDictionary以及NSSet的区别</a>
         </h1>
     
 
@@ -223,8 +223,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/05/03/2014-05-20-Category及封装的好处/">
-            <time datetime="2014-05-03T13:08:23.000Z" itemprop="datePublished">2014-05-03</time>
+        <a href="/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">
+            <time datetime="2014-05-10T13:03:23.000Z" itemprop="datePublished">2014-05-10</time>
         </a>
     </div>
 
@@ -239,18 +239,9 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>category三种叫法：分类 类别 类目；</p>
-<p>分类作用：在不改变原来类内容基础上，可以为类增加一些方法</p>
-<p>分类使用注意：<br>1.分类只能增加方法，不能增加成员变量<br>2.分类方法实现中可以访问原来类中声明的成员变量<br>3.分类可以重新实现原来类中的方法，但是会覆盖原来的方法，会导致原来的方法没法在使用<br>4.方法调用的优先级：分类（最后参与编译的分类优先）-&gt; 原来类 -&gt; 父类</p>
-<p>给NSString增加一个类方法：计算某个字符串中阿拉伯数字的个数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+(int)numberCountOfString:(NSString *)str;</div><div class="line">&#123;</div><div class="line">	#定义变量计算数字的个数</div><div class="line">	int count=0;</div><div class="line"></div><div class="line">	for(int i=0;i&lt;str.length;i++)</div><div class="line">	&#123;</div><div class="line">		unichar c=[str characterAtIndex:i];</div><div class="line">		if(c&gt;=&apos;0&apos; &amp;&amp; c&lt;=&apos;9&apos;)</div><div class="line">		&#123;</div><div class="line">			count++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>给NSString增加一个对象方法：计算当前字符串中阿拉伯数字的个数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-(int)numberCount</div><div class="line">&#123;</div><div class="line">	int count=0;</div><div class="line">	for(int i&lt;0;i&lt;self.length;i++)</div><div class="line">	&#123;</div><div class="line">		unichar c=[self characterAtIndex:i];</div><div class="line">		if(c&gt;=&apos;0&apos;&amp;&amp;c&lt;=&apos;9&apos;)</div><div class="line">		&#123;</div><div class="line">			count++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int count=[@&quot;aries58&quot; numberCount];</div></pre></td></tr></table></figure>
-<p>封装的好处：<br>1.过滤不合理的值；<br>2.屏蔽内部的赋值过程<br>3.让外界不必关注内部的细节</p>
-<p>Set方法：<br>作用：提供一个方法给外界设置成员变量值，可以在方法里面对参数进行相应过滤。<br>命名规范：<br>1.方法名必须以set开头；<br>2.set后面跟上成员变量的名称，成员变量的首字母必须大写<br>3.返回值一定是void<br>4.一定要接受一个参数，而且参数类型跟成员变量类型一致<br>5.形参的名称不能跟成员变量名一样</p>
-<p>get方法<br>作用：返回对象内部的成员变量<br>命名规范：<br>1.肯定有返回值，返回值类型肯定与成员变量类型一致<br>2.方法名跟成员变量名一样<br>3.不需要接收任何参数</p>
-<p>成员变量的命名规范：一定要以下划线_开头<br>作用：<br>1.让成员变量和get方法的名称区分开<br>2.可以跟局部变量区分开，一看到下划线开头的变量，一般都是成员变量</p>
-<p>OC是在运行过程中才会检测对象有没有实现相应地方法<br>一旦运行过程中出错，就会出现闪退</p>
+            <p>NSArray:用于对象有序集合,存储的元素在一个整块的内存中按序排列;<br>NSDictionary:用于键值映射;<br>NSSet:用于对象无序集合,散列存储(哈希);</p>
+<p>NSArray比NSSet的平均效率低.<br>1.NSArray,本质上是一个数组，根据index查找元素是相当快的,但它查找某个指定的元素效率不是很高。如某个元素所对应的index=100,那么要找到该元素,就必然遍历了此元素之前的100个元素。<br>对于NSSet,因为它的组织结构是hash，所以它能够在常数时间里找到对应的元素。哈希表就是一种以键-值存储数据的结构,我们只要输入待查找的值即key，即可查找到其对应的值。<br>2.NSet元素的单一性,即同一个对象在NSSet中只存在一份;同一个对象在NSArray中可以存在多份。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *arrayM=[NSMutableArray array];</div><div class="line"> </div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> [arrayM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;arrayM=%@&quot;,arrayM);</div><div class="line"> </div><div class="line"> NSMutableSet *setM=[NSMutableSet set];</div><div class="line"> </div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> [setM addObject:@&quot;Aries58&quot;];</div><div class="line"> </div><div class="line"> NSLog(@&quot;setM=%@&quot;,setM);</div><div class="line"> </div><div class="line">  arrayM=(</div><div class="line">  Aries58,</div><div class="line">  Aries58</div><div class="line">  )</div><div class="line">  setM=&#123;(</div><div class="line">  Aries58</div><div class="line">  )&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -261,7 +252,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/" data-id="cjaizwp0v00071j5617dyi27m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/" data-id="cjb98a92j0005mx56rr0xrdca" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -329,7 +320,140 @@
 
             
     
-        <a href="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/">Comments</a>
+        <a href="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">Comentarios</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2014-05-20-Category及封装的好处" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/05/03/2014-05-20-Category及封装的好处/">Category及封装的好处</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/05/03/2014-05-20-Category及封装的好处/">
+            <time datetime="2014-05-03T13:08:23.000Z" itemprop="datePublished">2014-05-03</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>category三种叫法：分类 类别 类目；</p>
+<p>分类作用：在不改变原来类内容基础上，可以为类增加一些方法</p>
+<p>分类使用注意：<br>1.分类只能增加方法，不能增加成员变量<br>2.分类方法实现中可以访问原来类中声明的成员变量<br>3.分类可以重新实现原来类中的方法，但是会覆盖原来的方法，会导致原来的方法没法在使用<br>4.方法调用的优先级：分类（最后参与编译的分类优先）-&gt; 原来类 -&gt; 父类</p>
+<p>给NSString增加一个类方法：计算某个字符串中阿拉伯数字的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+(int)numberCountOfString:(NSString *)str;</div><div class="line">&#123;</div><div class="line">	#定义变量计算数字的个数</div><div class="line">	int count=0;</div><div class="line"></div><div class="line">	for(int i=0;i&lt;str.length;i++)</div><div class="line">	&#123;</div><div class="line">		unichar c=[str characterAtIndex:i];</div><div class="line">		if(c&gt;=&apos;0&apos; &amp;&amp; c&lt;=&apos;9&apos;)</div><div class="line">		&#123;</div><div class="line">			count++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>给NSString增加一个对象方法：计算当前字符串中阿拉伯数字的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-(int)numberCount</div><div class="line">&#123;</div><div class="line">	int count=0;</div><div class="line">	for(int i&lt;0;i&lt;self.length;i++)</div><div class="line">	&#123;</div><div class="line">		unichar c=[self characterAtIndex:i];</div><div class="line">		if(c&gt;=&apos;0&apos;&amp;&amp;c&lt;=&apos;9&apos;)</div><div class="line">		&#123;</div><div class="line">			count++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int count=[@&quot;aries58&quot; numberCount];</div></pre></td></tr></table></figure>
+<p>封装的好处：<br>1.过滤不合理的值；<br>2.屏蔽内部的赋值过程<br>3.让外界不必关注内部的细节</p>
+<p>Set方法：<br>作用：提供一个方法给外界设置成员变量值，可以在方法里面对参数进行相应过滤。<br>命名规范：<br>1.方法名必须以set开头；<br>2.set后面跟上成员变量的名称，成员变量的首字母必须大写<br>3.返回值一定是void<br>4.一定要接受一个参数，而且参数类型跟成员变量类型一致<br>5.形参的名称不能跟成员变量名一样</p>
+<p>get方法<br>作用：返回对象内部的成员变量<br>命名规范：<br>1.肯定有返回值，返回值类型肯定与成员变量类型一致<br>2.方法名跟成员变量名一样<br>3.不需要接收任何参数</p>
+<p>成员变量的命名规范：一定要以下划线_开头<br>作用：<br>1.让成员变量和get方法的名称区分开<br>2.可以跟局部变量区分开，一看到下划线开头的变量，一般都是成员变量</p>
+<p>OC是在运行过程中才会检测对象有没有实现相应地方法<br>一旦运行过程中出错，就会出现闪退</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/" data-id="cjb98a92n0007mx56yzv541xb" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/">Comentarios</a>
     
 
         </footer>
@@ -390,7 +514,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjaizwp0t00051j564jj9nozm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjb98a92m0006mx56q707u4bx" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -458,7 +582,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comments</a>
+        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comentarios</a>
     
 
         </footer>
@@ -519,7 +643,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/" data-id="cjaizwp0s00041j56og1im5b7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/" data-id="cjb98a92h0004mx56tgwuu2a4" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -587,7 +711,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/">Comments</a>
+        <a href="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-25-改进冒泡算法之快速排序/">Comentarios</a>
     
 
         </footer>
@@ -667,7 +791,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/" data-id="cjaizwp0r00031j567hrli9kq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/" data-id="cjb98a92g0003mx56f8iy2hx8" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -735,7 +859,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/">Comments</a>
+        <a href="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/">Comentarios</a>
     
 
         </footer>
@@ -794,7 +918,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/" data-id="cjaizwp0p00021j56et1tjfbq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/" data-id="cjb98a92g0002mx56xjxdf2wk" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -862,7 +986,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/">Comments</a>
+        <a href="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/">Comentarios</a>
     
 
         </footer>
@@ -920,7 +1044,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/" data-id="cjaizwp0n00011j56izd795w2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/" data-id="cjb98a92e0001mx5667sb7nqg" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -988,7 +1112,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/">Comments</a>
+        <a href="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/">Comentarios</a>
     
 
         </footer>
@@ -1050,7 +1174,7 @@ npm was installed at
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/" data-id="cjaizwp0k00001j565xmix3tz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/" data-id="cjb98a92b0000mx56ammmuh50" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1118,7 +1242,7 @@ npm was installed at
 
             
     
-        <a href="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">Comments</a>
+        <a href="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">Comentarios</a>
     
 
         </footer>
@@ -1129,7 +1253,7 @@ npm was installed at
 
 
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Anterior</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
     </nav>
 </section>
             
@@ -1137,7 +1261,7 @@ npm was installed at
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
+        <h3 class="widget-title">Recientes</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -1182,6 +1306,25 @@ npm was installed at
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/" class="title">使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案</a></p>
+                            <p class="item-date"><time datetime="2017-06-15T10:40:00.000Z" itemprop="datePublished">2017-06-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" class="thumbnail">
     
     
@@ -1217,25 +1360,6 @@ npm was installed at
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/05/13/2017-05-13-利用Runtime实现自动化归档/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/05/13/2017-05-13-利用Runtime实现自动化归档/" class="title">利用Runtime实现自动化归档</a></p>
-                            <p class="item-date"><time datetime="2017-05-13T11:03:53.000Z" itemprop="datePublished">2017-05-13</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1245,9 +1369,9 @@ npm was installed at
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
+        <h3 class="widget-title">Archivos</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1258,7 +1382,7 @@ npm was installed at
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
+        <h3 class="widget-title">Links</h3>
         <div class="widget">
             <ul>
                 
