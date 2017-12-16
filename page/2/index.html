@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                38
+                39
                 <span>Entradas</span>
             </div>
             <div class="article-info-block">
@@ -206,6 +206,128 @@
 
             
             <section id="main">
+    <article id="post-2016-10-18-iOS9新特性值多任务管理iCarousel" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/10/18/2016-10-18-iOS9新特性值多任务管理iCarousel/">iOS9新特性值多任务管理iCarousel</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/10/18/2016-10-18-iOS9新特性值多任务管理iCarousel/">
+            <time datetime="2016-10-18T07:04:23.000Z" itemprop="datePublished">2016-10-18</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>iCarousel的使用其实很简单，就当这个是一个UICollectionView来使用，但是不需要自己写那个复杂的自定义布局就可以实现很好的翻页效果，而且性能也很高，内部cell都是复用的，更重要的是扩展性很高，本文的例子就是针对iCarousel的自定义扩展类型的一个简单应用。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    CGFloat cardWidth=[UIScreen mainScreen].bounds.size.width*<span class="number">5.0</span>f/<span class="number">7.0</span>f;</div><div class="line">    <span class="keyword">self</span>.cardSize=CGSizeMake(cardWidth, cardWidth*<span class="number">16.0</span>f/<span class="number">9.0</span>f);</div><div class="line">    <span class="keyword">self</span>.view.backgroundColor=[UIColor orangeColor];</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.carousel=[[iCarousel alloc] <span class="symbol">initWithFrame:</span>[UIScreen mainScreen].bounds];</div><div class="line">    [<span class="keyword">self</span>.view <span class="symbol">addSubview:</span><span class="keyword">self</span>.carousel];</div><div class="line">    </div><div class="line">    <span class="comment">#设置代理 数据源</span></div><div class="line">    <span class="keyword">self</span>.carousel.delegate=<span class="keyword">self</span>;</div><div class="line">    <span class="keyword">self</span>.carousel.dataSource=<span class="keyword">self</span>;</div><div class="line">    </div><div class="line">    <span class="comment">#自定义类型</span></div><div class="line"><span class="comment">#    self.carousel.type=iCarouselTypeCustom;</span></div><div class="line">    <span class="keyword">self</span>.carousel.type=iCarouselTypeRotary;</div><div class="line">    <span class="keyword">self</span>.carousel.bounceDistance=<span class="number">0</span>.<span class="number">2</span>f;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(NSInteger)<span class="symbol">numberOfItemsInCarousel:</span>(iCarousel *)carousel</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">8</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(CGFloat)<span class="symbol">carouselItemWidth:</span>(iCarousel *)carousel</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.cardSize.width;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UIView *)<span class="symbol">carousel:</span>(iCarousel *)carousel <span class="symbol">viewForItemAtIndex:</span>(NSInteger)index <span class="symbol">reusingView:</span>(UIView *)view</div><div class="line">&#123;</div><div class="line">    UIView *cardView=view;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (!cardView) &#123;</div><div class="line">        </div><div class="line">        cardView=[[UIView alloc] <span class="symbol">initWithFrame:</span>CGRectMake(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.cardSize.width, <span class="keyword">self</span>.cardSize.height)];</div><div class="line">        </div><div class="line">        UIImageView *imageView=[[UIImageView alloc] <span class="symbol">initWithFrame:</span>cardView.bounds];</div><div class="line">        [cardView <span class="symbol">addSubview:</span>imageView];</div><div class="line">        imageView.contentMode=UIViewContentModeScaleAspectFill;</div><div class="line">        imageView.image=[UIImage <span class="symbol">imageNamed:</span>[NSString <span class="symbol">stringWithFormat:</span>@<span class="string">"%ld"</span>,index+<span class="number">1</span>]];</div><div class="line">        </div><div class="line">        cardView.layer.shadowPath=[UIBezierPath <span class="symbol">bezierPathWithRoundedRect:</span>imageView.frame <span class="symbol">cornerRadius:</span><span class="number">5.0</span>f].CGPath;</div><div class="line">        cardView.layer.shadowRadius=<span class="number">3.0</span>f;</div><div class="line">        cardView.layer.shadowColor=[UIColor whiteColor].CGColor;</div><div class="line">        cardView.layer.shadowOpacity=<span class="number">0</span>.<span class="number">5</span>f;</div><div class="line">        </div><div class="line">        CAShapeLayer *layer=[CAShapeLayer layer];</div><div class="line">        layer.frame=imageView.bounds;</div><div class="line">        layer.path=[UIBezierPath <span class="symbol">bezierPathWithRoundedRect:</span>imageView.bounds <span class="symbol">cornerRadius:</span><span class="number">5.0</span>f].CGPath;</div><div class="line">        imageView.layer.mask=layer;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cardView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(CGFloat)<span class="symbol">scaleByOffset:</span>(CGFloat)offset</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> offset * <span class="number">0</span>.<span class="number">04</span>f +<span class="number">1.0</span>f;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(CGFloat)<span class="symbol">translationByOffset:</span>(CGFloat)offset</div><div class="line">&#123;</div><div class="line">    CGFloat a=<span class="number">5.0</span>f/<span class="number">4.0</span>f;</div><div class="line">    CGFloat b=<span class="number">5.0</span>f/<span class="number">8.0</span>f;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (offset &gt;= a/b) &#123;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> <span class="number">2.0</span>f;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>/(a-b*offset)-<span class="number">1</span>/a;</div><div class="line">&#125;</div><div class="line"><span class="comment">#iCarousel会itemView都居中重叠放置 当scrollOffset变化时 计算每个itemView的offset 并通过此函数来对每个itemView进行形变 而产生滑动的效果</span></div><div class="line">-(CATransform3D)<span class="symbol">carousel:</span>(iCarousel *)carousel <span class="symbol">itemTransformForOffset:</span>(CGFloat)offset <span class="symbol">baseTransform:</span>(CATransform3D)transform</div><div class="line">&#123;</div><div class="line">    CGFloat scale=[<span class="keyword">self</span> <span class="symbol">scaleByOffset:</span>offset];</div><div class="line">    CGFloat translation=[<span class="keyword">self</span> <span class="symbol">translationByOffset:</span>offset];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> CATransform3DScale(CATransform3DTranslate(transform, translation*<span class="keyword">self</span>.cardSize.width, <span class="number">0</span>, offset), scale, scale, <span class="number">1.0</span>f);</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)<span class="symbol">carouselDidScroll:</span>(iCarousel *)carousel</div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span> (UIView *view <span class="keyword">in</span>  carousel.visibleItemViews) &#123;</div><div class="line">        </div><div class="line">        CGFloat offset=[carousel <span class="symbol">offsetForItemAtIndex:</span>[carousel <span class="symbol">indexOfItemView:</span>view]];</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (offset &lt; -<span class="number">3.0</span>) &#123;</div><div class="line">            </div><div class="line">            view.alpha=<span class="number">0</span>.0f;</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(offset &lt; -<span class="number">2.0</span>f)</div><div class="line">        &#123;</div><div class="line">        </div><div class="line">            view.alpha=offset +<span class="number">3.0</span>f;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">        </div><div class="line">            view.alpha=<span class="number">1.0</span>f;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2016/10/18/2016-10-18-iOS9新特性值多任务管理iCarousel/" data-id="cjb98s2mz000s1g56ljcqlc5x" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2016/10/18/2016-10-18-iOS9新特性值多任务管理iCarousel/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2016/10/18/2016-10-18-iOS9新特性值多任务管理iCarousel/">Comentarios</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2016-09-05-使用Realm进行增删改查" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -250,7 +372,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2016/09/05/2016-09-05-使用Realm进行增删改查/" data-id="cjb98a92y000pmx56jhojw922" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2016/09/05/2016-09-05-使用Realm进行增删改查/" data-id="cjb98s2my000q1g56up85y3q8" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -373,7 +495,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2016/08/03/2016-08-03-Swift之计算属性与存储属性/" data-id="cjb98a92z000qmx56k3gz0hbf" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2016/08/03/2016-08-03-Swift之计算属性与存储属性/" data-id="cjb98s2my000r1g56wsuntcrn" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -502,7 +624,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/" data-id="cjb98a92y000omx569yhxdjlr" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/" data-id="cjb98s2mx000p1g56q3p0eml8" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -631,7 +753,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2016/04/15/2016-04-15-KCV/" data-id="cjb98a92z000rmx56br3gauzx" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2016/04/15/2016-04-15-KCV/" data-id="cjb98s2mx000o1g56uor07usg" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -759,7 +881,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/12/08/2015-12-08-AppleWatch与iPhone之间的通信/" data-id="cjb98a92x000nmx56y3x03kkg" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2015/12/08/2015-12-08-AppleWatch与iPhone之间的通信/" data-id="cjb98s2mw000n1g56cq3391j4" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -890,7 +1012,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/10/20/2015-10-20-Swift之单例写法/" data-id="cjb98a92w000lmx56u57nc27h" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2015/10/20/2015-10-20-Swift之单例写法/" data-id="cjb98s2mv000k1g56hcwh6h4e" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1013,7 +1135,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/09/05/2015-09-05-优秀程序员必备之如何在Github、Coding或Git@OSC上进行个人或公司代码托管部署/" data-id="cjb98a92v000kmx568hxyftox" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2015/09/05/2015-09-05-优秀程序员必备之如何在Github、Coding或Git@OSC上进行个人或公司代码托管部署/" data-id="cjb98s2mu000j1g56bq6timd5" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1135,7 +1257,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/" data-id="cjb98a92w000mmx56b1tvp9e1" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2015/08/10/2015-08-10-Run Loop 相关Apple文档关键词翻译/" data-id="cjb98s2mw000m1g56pp0gytui" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1267,7 +1389,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/08/03/2015-08-03-自定义NSOperation实现图片下载/" data-id="cjb98a92v000jmx560b11eh0t" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2015/08/03/2015-08-03-自定义NSOperation实现图片下载/" data-id="cjb98s2mv000l1g56jsa6ymut" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1336,145 +1458,6 @@
             
     
         <a href="http://www.ariest.net/2015/08/03/2015-08-03-自定义NSOperation实现图片下载/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/08/03/2015-08-03-自定义NSOperation实现图片下载/">Comentarios</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-2015-06-23-使用CocoaPods管理开源框架及安装详细步骤" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/">使用CocoaPods管理开源框架及安装详细步骤</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/">
-            <time datetime="2015-06-23T02:08:23.000Z" itemprop="datePublished">2015-06-23</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>众所周知，我们在进行项目开发时,经常会使用到成熟的第三方框架,手动拖入到工程不仅会增加包的大小,而且不利于及时更新。CocoaPods可以很好的解决这两方面的缺陷,以下是安装CocoPods的详细步骤:</p>
-<h3 id="一、修改为Ruby淘宝路径"><a href="#一、修改为Ruby淘宝路径" class="headerlink" title="一、修改为Ruby淘宝路径"></a>一、修改为Ruby淘宝路径</h3><p>1.查看Ruby环境（）<br>ruby –version<br>附:<br> 升级Ruby环境，首先需要安装rvm<br>1&gt; curl -L get.rvm.io | bash -s stable<br>2&gt; source ~/.bashrc<br>3&gt; source ~/.bash_profile<br>4&gt; 查看rvm版本<br>  rvm -v<br>  (1.29.3 (latest))<br>5&gt; 列出ruby可安装的版本<br>  rvm list known<br>6&gt; 安装一个ruby版本<br>  rvm install 2.4.1</p>
-<p>2.移除本来的Ruby路径<br>gem sources –remove  <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a></p>
-<p>3.添加淘宝镜像<br>gem sources –a <a href="https://ruby.taobao.org" target="_blank" rel="external">https://ruby.taobao.org</a> (此处需要注意的是iOS9之前路径为 <a href="http://ruby.taobao.org" target="_blank" rel="external">http://ruby.taobao.org</a> iOS9之后需要修改)</p>
-<p>4.检查镜像是否正确<br>gem sources –l</p>
-<h3 id="二、安装CocoaPods"><a href="#二、安装CocoaPods" class="headerlink" title="二、安装CocoaPods"></a>二、安装CocoaPods</h3><p>1.输入以下命令后,输入管理员密码,等待安装。<br>sudo gem install cocoapods</p>
-<h3 id="三、创建Podfile文件"><a href="#三、创建Podfile文件" class="headerlink" title="三、创建Podfile文件"></a>三、创建Podfile文件</h3><p>1.进入到项目目录下 cd 项目目录</p>
-<p>2.初始化CocoaPods环境(会自动创建Podfile文件)<br>pod init</p>
-<p>3.然后编辑Podfile文件<br>vim Podfile<br>(注意：在文件中写入需要导入的库，以及三方库的版本 如果不写版本，会默认最新版<br>)<br>按下i键，进入编辑状态</p>
-<p>然后在target do与end之间写入需要导入的库</p>
-<p>例如：pod ‘AFNetworking’, ‘~&gt; 2.1.0’ </p>
-<p>5.输入完以后，按下Esc键退出编辑状态，然后输入 :wq 命令，保存并退出</p>
-<h3 id="四、通过Pod导入库"><a href="#四、通过Pod导入库" class="headerlink" title="四、通过Pod导入库"></a>四、通过Pod导入库</h3><p>1.在导入以前，最好先输入以下命令，重新检测下新的三方库。在以后需要更新的时候，也最好先输入下面这个命令<br>pod setup</p>
-<p>2.输入以下命令开始导入<br>pod install</p>
-<p>3.打开工程并使用<br>以后打开工程的时候，去打开project.xcworkspace<br>如下方式使用框架： #import<afnetworking></afnetworking></p>
-<p>4.更新工程中的pod<br>比如现在需要导入一个新的库SDWebImage，那么需要修改Podfile。<br>输入命令<br>vim Podfile<br>同之前编辑Podfile步骤一样</p>
-<p>输入下面命令，更新Pod。如果很久没更新过了，先输入pod setup<br>pod update</p>
-<h3 id="五、通过-import-“”-导入设置"><a href="#五、通过-import-“”-导入设置" class="headerlink" title="五、通过#import “” 导入设置"></a>五、通过#import “” 导入设置</h3><p>在buid setting -&gt; user header searth path -&gt; ${SRCROOT} 为recursive</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/" data-id="cjb98a92u000imx56tpl28l6b" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/">Comentarios</a>
     
 
         </footer>
@@ -1603,7 +1586,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">Archivos</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
