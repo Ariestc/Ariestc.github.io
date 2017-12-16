@@ -3,14 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2014 | 上善若水,道法自然</title>
+    <title>AFNetworking常见的错误解决方法和HTTP请求错误原因 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="上善若水,道法自然">
-<meta property="og:url" content="http://www.ariest.net/archives/2014/page/2/index.html">
+    <meta name="description" content="一、请求数据1&amp;gt; 404 (参数错误 或服务器没开)2&amp;gt; Code=-1016Error Domain=com.alamofire.error.serialization.response Code=-1016 “Request failed: unacceptable content-type: text/html” UserInfo={NSLocalizedDescription=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AFNetworking常见的错误解决方法和HTTP请求错误原因">
+<meta property="og:url" content="http://www.ariest.net/2016/06/10/2016-06-10-AFNetworking常见的错误解决方法和HTTP请求错误原因/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
+<meta property="og:description" content="一、请求数据1&amp;gt; 404 (参数错误 或服务器没开)2&amp;gt; Code=-1016Error Domain=com.alamofire.error.serialization.response Code=-1016 “Request failed: unacceptable content-type: text/html” UserInfo={NSLocalizedDescription=">
+<meta property="og:updated_time" content="2017-12-16T12:39:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="上善若水,道法自然">
+<meta name="twitter:title" content="AFNetworking常见的错误解决方法和HTTP请求错误原因">
+<meta name="twitter:description" content="一、请求数据1&amp;gt; 404 (参数错误 或服务器没开)2&amp;gt; Code=-1016Error Domain=com.alamofire.error.serialization.response Code=-1016 “Request failed: unacceptable content-type: text/html” UserInfo={NSLocalizedDescription=">
     
 
     
@@ -205,96 +209,171 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2014</h1>
-            </div>
+            <section id="main"><article id="post-2016-06-10-AFNetworking常见的错误解决方法和HTTP请求错误原因" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2014/03/20/2014-03-20-递归算法应用/">递归算法应用</a>
+        <h1 class="article-title" itemprop="name">
+            AFNetworking常见的错误解决方法和HTTP请求错误原因
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/03/20/2014-03-20-递归算法应用/">
-            <time datetime="2014-03-20T12:26:47.000Z" itemprop="datePublished">2014-03-20</time>
+        <a href="/2016/06/10/2016-06-10-AFNetworking常见的错误解决方法和HTTP请求错误原因/">
+            <time datetime="2016-06-10T12:26:53.000Z" itemprop="datePublished">2016-06-10</time>
         </a>
     </div>
 
 
-                    
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                        
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2014/03/08/2014-03-08-冒泡算法实现数据排序/">冒泡算法实现数据排序</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>一、请求数据<br>1&gt; 404 (参数错误 或服务器没开)<br>2&gt; Code=-1016<br>Error Domain=com.alamofire.error.serialization.response Code=-1016 “Request failed: unacceptable content-type: text/html” UserInfo={NSLocalizedDescription=Request failed: unacceptable content-type: text/html,</p>
+<p>默认只支持text/json，application/json，text/javascript内容类型<br>手动在AFNetworking-&gt;Serialization-&gt;AFURLResponseSerialization.文件下大概228行添加text/html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.acceptableContentTypes = [NSSet setWithObjects:@&quot;application/json&quot;, @&quot;text/json&quot;, @&quot;text/javascript&quot;,@&quot;text/html&quot;, nil];</div></pre></td></tr></table></figure>
+<p>3&gt; Code=3840<br>error=Error Domain=NSCocoaErrorDomain Code=3840 “JSON text did not start with array or object and option to allow fragments not set.” UserInfo={NSDebugDescription=JSON text did not start with array or object and option to allow fragments not set.}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mgr.requestSerializer = [AFHTTPRequestSerializer serializer];</div><div class="line">mgr.responseSerializer = [AFHTTPResponseSerializer serializer];</div></pre></td></tr></table></figure>
+<p>4&gt;500+ 500 (服务器问题)</p>
+<p>HTTP请求错误大全</p>
+<p>1xx - 信息提示<br>这些状态代码表示临时的响应。客户端在收到常规响应之前，应准备接收一个或多个 1xx 响应。<br>100 - 继续<br>101 - 切换协议</p>
+<p>2xx - 成功<br>这类状态代码表明服务器成功地接受了客户端请求。<br>200 - 确定。客户端请求已成功<br>201 - 已创建<br>202 - 已接受<br>203 - 非权威性信息<br>204 - 无内容<br>205 - 重置内容<br>206 - 部分内容</p>
+<p>3xx - 重定向<br>客户端浏览器必须采取更多操作来实现请求。例如，浏览器可能不得不请求服务器上的不同的页面，或通过代理服务器重复该请求。<br>302 - 对象已移动。<br>304 - 未修改。<br>307 - 临时重定向。</p>
+<p>4xx - 客户端错误<br>发生错误，客户端似乎有问题。例如，客户端请求不存在的页面，客户端未提供有效的身份验证信息。<br>400 - 错误的请求<br>401 - 访问被拒绝<br> · 401.1 - 登录失败。<br> · 401.2 - 服务器配置导致登录失败。<br> · 401.3 - 由于 ACL 对资源的限制而未获得授权。<br> · 401.4 - 筛选器授权失败。<br> · 401.5 - ISAPI/CGI 应用程序授权失败。<br> · 401.7 – 访问被 Web 服务器上的 URL 授权策略拒绝。这个错误代码为 IIS 6.0 所专用。<br>403 - 禁止访问<br> · 403.1 - 执行访问被禁止。<br> · 403.2 - 读访问被禁止。<br> · 403.3 - 写访问被禁止。<br> · 403.4 - 要求 SSL。<br> · 403.5 - 要求 SSL 128。<br> · 403.6 - IP 地址被拒绝。<br> · 403.7 - 要求客户端证书。<br> · 403.8 - 站点访问被拒绝。<br> · 403.9 - 用户数过多。<br> · 403.10 - 配置无效。<br> · 403.11 - 密码更改。<br> · 403.12 - 拒绝访问映射表。<br> · 403.13 - 客户端证书被吊销。<br> · 403.14 - 拒绝目录列表。<br> · 403.15 - 超出客户端访问许可。<br> · 403.16 - 客户端证书不受信任或无效。<br> · 403.17 - 客户端证书已过期或尚未生效。<br> · 403.18 - 在当前的应用程序池中不能执行所请求的 URL。这个错误代码为 IIS 6.0 所专用。<br> · 403.19 - 不能为这个应用程序池中的客户端执行 CGI。这个错误代码为 IIS 6.0 所专用。<br> · 403.20 - Passport 登录失败。这个错误代码为 IIS 6.0 所专用。<br>404 - 没有找到文件或目录<br> · 404.1 - 无法在所请求的端口上访问 Web 站点。<br> · 404.2 - Web 服务扩展锁定策略阻止本请求。<br> · 404.3 - MIME 映射策略阻止本请求。<br>405 - 用来访问本页面的 HTTP 谓词不被允许（方法不被允许）<br>406 - 客户端浏览器不接受所请求页面的 MIME 类型<br>407 - 要求进行代理身份验证<br>412 - 前提条件失败<br>413 – 请求实体太大<br>414 - 请求 URI 太长<br>415 – 不支持的媒体类型<br>416 – 所请求的范围无法满足<br>417 – 执行失败<br>423 – 锁定的错误</p>
+<p>5xx - 服务器端错误<br>服务器由于遇到错误而不能完成该请求。<br>500 - 内部服务器错误<br> · 500.12 - 应用程序正忙于在 Web 服务器上重新启动。<br> · 500.13 - Web 服务器太忙。<br> · 500.15 - 不允许直接请求 Global.asa。<br> · 500.16 – UNC 授权凭据不正确。这个错误代码为 IIS 6.0 所专用。<br> · 500.18 – URL 授权存储不能打开。这个错误代码为 IIS 6.0 所专用。<br> · 500.100 - 内部 ASP 错误。<br>501 - 页眉值指定了未实现的配置<br>502 - Web 服务器用作网关或代理服务器时收到了无效响应。502.1 - CGI 应用程序超时<br>502.2 - CGI 应用程序出错。application<br>503 - 服务不可用。这个错误代码为 IIS 6.0 所专用<br>504 - 网关超时<br>505 - HTTP 版本不受支持</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/03/08/2014-03-08-冒泡算法实现数据排序/">
-            <time datetime="2014-03-08T10:06:23.000Z" itemprop="datePublished">2014-03-08</time>
-        </a>
-    </div>
-
-
-                    
-                    
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">在Mac上用Hexo+Github Page轻松搭建博客</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">
-            <time datetime="2014-03-03T05:46:00.000Z" itemprop="datePublished">2014-03-03</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-                    
-                </div>
-            </div>
-        </div>
-    
+
 </div>
 
-    <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2014/">&laquo; Prev</a><a class="page-number" href="/archives/2014/">1</a><span class="page-number current">2</span>
-    </nav>
+    <a data-url="http://www.ariest.net/2016/06/10/2016-06-10-AFNetworking常见的错误解决方法和HTTP请求错误原因/" data-id="cjb9cgx01000qwn56qv49cfv4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2016/06/10/2016-06-10-AFNetworking常见的错误解决方法和HTTP请求错误原因/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2016/06/10/2016-06-10-AFNetworking常见的错误解决方法和HTTP请求错误原因/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/08/03/2016-08-03-Swift之计算属性与存储属性/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Swift之计算属性与存储属性
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">NSURLSession实现网络请求和下载任务</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -453,11 +532,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://www.ariest.net/2016/06/10/2016-06-10-AFNetworking常见的错误解决方法和HTTP请求错误原因/';
+        
+        this.page.identifier = '2016-06-10-AFNetworking常见的错误解决方法和HTTP请求错误原因';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
