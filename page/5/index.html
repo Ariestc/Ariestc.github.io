@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2017/5 | 上善若水,道法自然</title>
+    <title>上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta property="og:type" content="website">
 <meta property="og:title" content="上善若水,道法自然">
-<meta property="og:url" content="http://www.ariest.net/archives/2017/05/index.html">
+<meta property="og:url" content="http://www.ariest.net/page/5/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="上善若水,道法自然">
@@ -205,66 +205,140 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2017</h1>
-            </div>
+            <section id="main">
+    <article id="post-2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
         <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/">iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads</a>
+            <a class="article-title" href="/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">在Mac上用Hexo+Github Page轻松搭建博客</a>
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/">
-            <time datetime="2017-05-18T11:09:53.000Z" itemprop="datePublished">2017-05-18</time>
+        <a href="/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">
+            <time datetime="2014-03-03T05:46:00.000Z" itemprop="datePublished">2014-03-03</time>
         </a>
     </div>
 
 
-                    
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                        
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/05/13/2017-05-13-利用Runtime实现自动化归档的副本/">利用Runtime实现自动化归档</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>1.Github Create Repository  名字使用yourname.github.io(如:Ariestc.github.io)<br>2.homebrew安装 (sudo权限下)<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></div></pre></td></tr></table></figure></p>
+<p>3.下载node.js 安装即可(node -v 和npm -v 查看是否安装成功)<br>官网下载:<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a></p>
+<pre><code class="ruby">Node.js was installed at
+/usr/local/bin/node
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/05/13/2017-05-13-利用Runtime实现自动化归档的副本/">
-            <time datetime="2017-05-13T11:03:53.000Z" itemprop="datePublished">2017-05-13</time>
-        </a>
-    </div>
+npm was installed at
+/usr/local/bin/npm
+</code></pre>
+<p>4.Hexo下载<br>npm install -g hexo-cli (可能会出现Error: Cannot find module,原因是网络防火墙)<br>换用下面命令:<br>sudo npm cache clean -f(清除npm cache)<br>sudo npm install -g n(安装n模块)<br>sudo n stable(升级到最新版本)<br>最后使用:<br>sudo npm -g install hexo-cli<br>5.本地创建Blog文件夹 cd Blog<br>然后 hexo init<br>成功后出现“Start blogging with Hexo!”<br>6.hexo server<br>然后通过<a href="http://localhost:4000/访问即可打开hexo页面" target="_blank" rel="external">http://localhost:4000/访问即可打开hexo页面</a><br>7.gihub page 部署<br>配置_config.yml文件，完善deploy信息，在底部<br>deploy:<br>        type: git<br>        repo: <a href="https://github.com/yourname/yourname.github.io.git" target="_blank" rel="external">https://github.com/yourname/yourname.github.io.git</a><br>        branch: master<br>注意:type:、repo:、branch:后都有空格<br>8.npm install hexo-deployer-git –save<br>9.hexo deploy<br>此时可通过 <a href="http://yourname.github.io/访问" target="_blank" rel="external">http://yourname.github.io/访问</a><br>10.发布文章<br>cd Blog<br>hexo new “文章标题”<br>hexo generate<br>hexo deploy (部署到Github)<br>11.hexo clean（清除缓存文件、静态文件）<br>     hexo g(生成缓存和静态文件)<br>     hexo d(重新部署到服务器)<br>12.关于themes修改:<br>cd themes<br>然后 <a href="https://github.com/iissnan/hexo-theme-icarus.git" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-icarus.git</a> icarus<br>在Blog/_config.yml目录文件中修改theme为 icarus<br>hexo clean<br>hexo g<br>hexo d<br>13.域名绑定:<br>进入Blog/themes/icarus/souce目录<br>touch CNAME 写入域名如xxx.com<br>14.域名解析可选用DNSPod<br>终端 ping yourname.github.io 记录下IP地址 在DNSPod中填写两个记录<br>@和www<br>附:哪些步骤如有疑问可回帖。</p>
 
-
-                    
-                    
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/" data-id="cjbabzfd30000lm56c8r8x8xq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
 </section>
             
                 <aside id="sidebar">
