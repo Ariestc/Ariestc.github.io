@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>冒泡算法实现数据排序 | 上善若水,道法自然</title>
+    <title>利用JavaScript实现快速排序算法及步骤详解 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="冒泡排序算法的运作如下:比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
-元素交换123456void swap(int array[],int i,int j)&amp;#123;">
+    <meta name="description" content="javascript实现快速排序算法:
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546    function quickSort(array) &amp;#123;    // 交换元素位置    function swap(array, i, k) &amp;#123;        var">
 <meta property="og:type" content="article">
-<meta property="og:title" content="冒泡算法实现数据排序">
-<meta property="og:url" content="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/index.html">
+<meta property="og:title" content="利用JavaScript实现快速排序算法及步骤详解">
+<meta property="og:url" content="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="冒泡排序算法的运作如下:比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
-元素交换123456void swap(int array[],int i,int j)&amp;#123;">
-<meta property="og:updated_time" content="2017-11-28T02:13:26.000Z">
+<meta property="og:description" content="javascript实现快速排序算法:
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546    function quickSort(array) &amp;#123;    // 交换元素位置    function swap(array, i, k) &amp;#123;        var">
+<meta property="og:updated_time" content="2017-12-17T09:05:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="冒泡算法实现数据排序">
-<meta name="twitter:description" content="冒泡排序算法的运作如下:比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
-元素交换123456void swap(int array[],int i,int j)&amp;#123;">
+<meta name="twitter:title" content="利用JavaScript实现快速排序算法及步骤详解">
+<meta name="twitter:description" content="javascript实现快速排序算法:
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546    function quickSort(array) &amp;#123;    // 交换元素位置    function swap(array, i, k) &amp;#123;        var">
     
 
     
@@ -83,7 +83,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -102,10 +102,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -136,7 +136,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -156,16 +156,16 @@
             <h2 id="name">Aries</h2>
             <h3 id="title">Moblie &amp; Web Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Beijing , China</span>
-            <a id="follow" target="_blank" href="https://github.com/ariestc/">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://github.com/ariestc/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                43
-                <span>Entradas</span>
+                44
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>Etiqueta</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -212,7 +212,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2014-03-08-冒泡算法实现数据排序" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2014-04-28-利用JavaScript实现快速排序算法及步骤详解" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +220,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            冒泡算法实现数据排序
+            利用JavaScript实现快速排序算法及步骤详解
         </h1>
     
 
@@ -229,8 +229,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/03/08/2014-03-08-冒泡算法实现数据排序/">
-            <time datetime="2014-03-08T10:06:23.000Z" itemprop="datePublished">2014-03-08</time>
+        <a href="/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/">
+            <time datetime="2014-04-28T09:01:23.000Z" itemprop="datePublished">2014-04-28</time>
         </a>
     </div>
 
@@ -245,11 +245,27 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>冒泡排序算法的运作如下:<br>比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
-<p>元素交换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void swap(int array[],int i,int j)</div><div class="line">&#123;</div><div class="line">    int temp=array[i];</div><div class="line">    array[i]=array[j];</div><div class="line">    array[j]=temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>冒泡排序: 相邻元素进行比较<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">void BubbleSort(int array[],int len)</div><div class="line">&#123;</div><div class="line">    int exchange=<span class="number">1</span>;</div><div class="line">    <span class="comment">#exchange为标记 0表示已排好序 1表示未排好序</span></div><div class="line">    <span class="keyword">for</span> (int i=<span class="number">0</span>; (i&lt;len) &amp;&amp; exchange; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">#已经排序完毕</span></div><div class="line">        exchange=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (int j=len-<span class="number">1</span>; j&gt;i; j--)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (array[j] &lt; array[j-<span class="number">1</span>])</div><div class="line">            &#123;</div><div class="line">                swap(array, j, j-<span class="number">1</span>);</div><div class="line">                <span class="comment">#此处代码有执行 说明未排好序</span></div><div class="line">                exchange=<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>main函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    #冒泡排序</div><div class="line">    int a[]=&#123;3,1,5,2,8&#125;;</div><div class="line">    int count=sizeof(a)/sizeof(int);</div><div class="line">    BubbleSort(a, count);</div><div class="line">    for (int i=0; i&lt;count; i++)</div><div class="line">    &#123;</div><div class="line">        printf(&quot;result=%d\n&quot;,*(a+i));</div><div class="line">    &#125;</div><div class="line">    printf(&quot;Hello, World!\n&quot;);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p>javascript实现快速排序算法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">    function quickSort(array) &#123;</div><div class="line"></div><div class="line">    // 交换元素位置</div><div class="line">    function swap(array, i, k) &#123;</div><div class="line">        var temp = array[i];</div><div class="line">        array[i] = array[k];</div><div class="line">        array[k] = temp;</div><div class="line">    &#125;</div><div class="line">    // 数组分区，左小右大</div><div class="line">    function partition(array, left, right) &#123;</div><div class="line">        var storeIndex = left;        </div><div class="line">        var pivot = array[right]; // 直接选最右边的元素为基准元素</div><div class="line">        for (var i = left; i &lt; right; i++) &#123;</div><div class="line">            if (array[i] &lt; pivot) &#123;</div><div class="line">                swap(array, storeIndex, i);</div><div class="line">                storeIndex++; // 交换位置后，storeIndex 自增 1，代表下一个可能要交换的位置</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        swap(array, right, storeIndex); // 最后将基准元素放置正确位置上</div><div class="line">        return storeIndex;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function sort(array, left, right) &#123;</div><div class="line">        console.log(&quot;原始left=&quot;+left+&quot;---原始right=&quot;+right);</div><div class="line">        if (left &gt; right) &#123;</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        var storeIndex = partition(array, left, right);</div><div class="line">        </div><div class="line">        //基准元素左边排序</div><div class="line">        sort(array, left, storeIndex - 1);</div><div class="line">        </div><div class="line">        //基准元素右边排序</div><div class="line">        sort(array, storeIndex + 1, right);</div><div class="line">        </div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    sort(array, 0, array.length - 1);</div><div class="line"></div><div class="line">    return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr=[3,7,8,5,2,1,9,5,4];</div><div class="line"></div><div class="line">console.log(quickSort(arr));</div></pre></td></tr></table></figure>
+<p>步骤详解:</p>
+<p>原始顺序: 3 7 8 5 2 1 9 5 4</p>
+<p>说明: 序列一与序列二独立运行</p>
+<p>pivot=4(最右边的元素为基准元素)</p>
+<p>storeIndex=1; i=4时<br>3 2 8 5 7 1 9 5 4</p>
+<p>stroeIndex=2; i=5时<br>3 2 1 5 7 8 9 5 4</p>
+<p>stroeIndex=3; i=8时循环结束</p>
+<p>交换 array[8]与array[3]值<br>3 2 1 4 7 8 9 5 5<br>返回stroeIndex=3</p>
+<p>序列一(基准元素左边):<br>sort(array, 0,2)<br>left=0; right=2;<br>partition(array,0,2); 此时 pivot=1</p>
+<p>stroeIndex=0；i=2时跳出循环</p>
+<p>交换 array[2]与array[0]值<br>1 2 3 4 7 8 9 5 5<br>返回stroeIndex=0<br>sort(array, 0,2)此函数结束</p>
+<p>序列二(基准元素左边):<br>sort(array, 4,8)<br>partition(array,4,8); 此时 pivot=5</p>
+<p>stroeIndex=4；i=8是循环结束</p>
+<p>交换 array[8]与array[4]值<br>1 2 3 4 5 8 9 5 7<br>返回stroeIndex=4</p>
+<p>sort(array,5,8)<br>partition(array,5,8); 此时 pivot=7</p>
+<p>stroeIndex=5; i=7时<br>1 2 3 4 5 5 9 8 7</p>
+<p>stroeIndex=6；i=8循环结束<br>交换 array[8]与array[6]值<br>1 2 3 4 5 5 7 8 9<br>返回stroeIndex=6</p>
+<p>sort(array,7,8)<br>sort(array,8,8)<br>sort(array,9,8)此函数结束</p>
+<p>返回最终结果: array<br>1 2 3 4 5 5 9 8 7</p>
 
         
         </div>
@@ -260,7 +276,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/" data-id="cjbaq46100004tp56f0txaa1m" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/" data-id="cjbasoy8m0006dr56rrybzxbj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -328,7 +344,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/">Comments</a>
     
 
         </footer>
@@ -337,19 +353,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2014/03/20/2014-03-20-递归算法应用/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más nuevo</strong>
+        <a href="/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    递归算法应用
+                    Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别
                 
             </div>
         </a>
     
     
-        <a href="/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title">在Mac上用Hexo+Github Page轻松搭建博客</div>
+        <a href="/2014/04/25/2014-04-25-利用C语言实现快速排序算法/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">利用C语言实现快速排序算法</div>
         </a>
     
 </nav>
@@ -376,7 +392,7 @@
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Recientes</h3>
+        <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -484,9 +500,9 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Archivos</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -497,7 +513,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">Links</h3>
+        <h3 class="widget-title">links</h3>
         <div class="widget">
             <ul>
                 
@@ -528,9 +544,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/';
+            this.page.url = 'http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/';
         
-        this.page.identifier = '2014-03-08-冒泡算法实现数据排序';
+        this.page.identifier = '2014-04-28-利用JavaScript实现快速排序算法及步骤详解';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

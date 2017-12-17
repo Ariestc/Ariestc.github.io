@@ -3,14 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2016/12 | 上善若水,道法自然</title>
+    <title>使用C语言实现冒泡排序算法 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="上善若水,道法自然">
-<meta property="og:url" content="http://www.ariest.net/archives/2016/12/index.html">
+    <meta name="description" content="冒泡排序算法的运作如下:比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+元素交换123456void swap(int array[],int i,int j)&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用C语言实现冒泡排序算法">
+<meta property="og:url" content="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
+<meta property="og:description" content="冒泡排序算法的运作如下:比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+元素交换123456void swap(int array[],int i,int j)&amp;#123;">
+<meta property="og:updated_time" content="2017-12-17T13:02:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="上善若水,道法自然">
+<meta name="twitter:title" content="使用C语言实现冒泡排序算法">
+<meta name="twitter:description" content="冒泡排序算法的运作如下:比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+元素交换123456void swap(int array[],int i,int j)&amp;#123;">
     
 
     
@@ -205,40 +212,164 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-2014-03-08-使用C语言实现冒泡排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/12/16/2016-12-16-iOS动画之CABasicAnimation/">iOS动画之CABasicAnimation</a>
+        <h1 class="article-title" itemprop="name">
+            使用C语言实现冒泡排序算法
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/12/16/2016-12-16-iOS动画之CABasicAnimation/">
-            <time datetime="2016-12-16T13:18:23.000Z" itemprop="datePublished">2016-12-16</time>
+        <a href="/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/">
+            <time datetime="2014-03-08T10:06:23.000Z" itemprop="datePublished">2014-03-08</time>
         </a>
     </div>
 
 
-                    
-                    
-                </div>
-            </div>
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>冒泡排序算法的运作如下:<br>比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
+<p>元素交换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void swap(int array[],int i,int j)</div><div class="line">&#123;</div><div class="line">    int temp=array[i];</div><div class="line">    array[i]=array[j];</div><div class="line">    array[j]=temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>冒泡排序: 相邻元素进行比较<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">void BubbleSort(int array[],int len)</div><div class="line">&#123;</div><div class="line">    int exchange=<span class="number">1</span>;</div><div class="line">    <span class="comment">#exchange为标记 0表示已排好序 1表示未排好序</span></div><div class="line">    <span class="keyword">for</span> (int i=<span class="number">0</span>; (i&lt;len) &amp;&amp; exchange; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">#已经排序完毕</span></div><div class="line">        exchange=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (int j=len-<span class="number">1</span>; j&gt;i; j--)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (array[j] &lt; array[j-<span class="number">1</span>])</div><div class="line">            &#123;</div><div class="line">                swap(array, j, j-<span class="number">1</span>);</div><div class="line">                <span class="comment">#此处代码有执行 说明未排好序</span></div><div class="line">                exchange=<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>main函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    #冒泡排序</div><div class="line">    int a[]=&#123;3,1,5,2,8&#125;;</div><div class="line">    int count=sizeof(a)/sizeof(int);</div><div class="line">    BubbleSort(a, count);</div><div class="line">    for (int i=0; i&lt;count; i++)</div><div class="line">    &#123;</div><div class="line">        printf(&quot;result=%d\n&quot;,*(a+i));</div><div class="line">    &#125;</div><div class="line">    printf(&quot;Hello, World!\n&quot;);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/" data-id="cjbasoy8j0002dr56yn4yu7gm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    使用C语言实现插入排序算法及步骤详解
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">在Mac上用Hexo+Github Page轻松搭建博客</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -397,11 +528,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/';
+        
+        this.page.identifier = '2014-03-08-使用C语言实现冒泡排序算法';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();

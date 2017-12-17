@@ -76,7 +76,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -95,10 +95,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -129,7 +129,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -149,16 +149,16 @@
             <h2 id="name">Aries</h2>
             <h3 id="title">Moblie &amp; Web Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Beijing , China</span>
-            <a id="follow" target="_blank" href="https://github.com/ariestc/">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://github.com/ariestc/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                43
-                <span>Entradas</span>
+                44
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>Etiqueta</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -255,7 +255,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/" data-id="cjbaq460z0003tp561z9cjyel" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/" data-id="cjbasoy8k0003dr56dirq2igy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -323,7 +323,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/">Comments</a>
     
 
         </footer>
@@ -333,7 +333,7 @@
 
 
 
-    <article id="post-2014-03-08-冒泡算法实现数据排序" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2014-03-10-使用C语言实现插入排序算法及步骤详解" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -341,7 +341,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/03/08/2014-03-08-冒泡算法实现数据排序/">冒泡算法实现数据排序</a>
+            <a class="article-title" href="/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/">使用C语言实现插入排序算法及步骤详解</a>
         </h1>
     
 
@@ -350,7 +350,146 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/03/08/2014-03-08-冒泡算法实现数据排序/">
+        <a href="/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/">
+            <time datetime="2014-03-10T13:01:23.000Z" itemprop="datePublished">2014-03-10</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>插入排序基本思想:<br>1.每次将一个待排序元素的先记录,从第一个元素开始，该元素可以认为已经被排序<br>2.取出下一个元素，在已经排序的元素序列中从后向前扫描<br>3.如果该元素（已排序）大于新元素，将该元素移到下一位置<br>4.重复步骤3，直到找到已排序的元素小于或者等于新元素的位置<br>5.将新元素插入到该位置后<br>6.重复步骤2~5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line"></div><div class="line">void insertSort(int *arr, int len)</div><div class="line"> &#123;</div><div class="line">      int i,j,temp;</div><div class="line">  </div><div class="line">     for (i = 1 ; i &lt; len ; i++ )</div><div class="line">    &#123;</div><div class="line">          temp = arr[i];//temp为要插入的元素</div><div class="line">  </div><div class="line">          for (j = i; j &gt; 0 &amp;&amp; arr[j-1] &gt; temp ; j--) //查找要插入的位置，循环结束则找到插入的位置</div><div class="line">        &#123;</div><div class="line">            arr[j] = arr[j-1];//移动元素的位置，给插入的元素使用</div><div class="line">        &#125;</div><div class="line"> </div><div class="line">         arr[j] = temp;//插入需要插入的元素</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line">int main(int argc, char const *argv[])</div><div class="line">&#123;</div><div class="line">    int a[]=&#123;3,2,5,8,9,6&#125;;</div><div class="line"></div><div class="line">    int length=sizeof(a)/sizeof(int);</div><div class="line"></div><div class="line">     //快速排序  </div><div class="line">    insertSort(a, length);  </div><div class="line"></div><div class="line">    //打印输出  </div><div class="line">    for(int i = 0; i &lt; length; i ++)  </div><div class="line">    &#123;  </div><div class="line">        printf(&quot;%d &quot;,a[i]);  </div><div class="line">    &#125;  </div><div class="line">    printf(&quot;\n&quot;); </div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>步骤详解:</p>
+<p>原始值: 3 2 5 8 9 6</p>
+<p>第一次外循环<br>i=1<br>temp=arr[1]=2</p>
+<p>arr[1]=3<br>3 3 5 8 9 6</p>
+<p>j–后j=0<br>arr[0]=2<br>2 3 5 8 9 6</p>
+<p>第二次外循环<br>i++ i=2<br>temp=arr[2]=5</p>
+<p>j=2<br>arr[2]=5<br>2 3 5 8 9 6</p>
+<p>第三次外循环<br>i=3<br>temp=arr[3]=8;</p>
+<p>j=3<br>arr[3]=8<br>2 3 5 8 9 6</p>
+<p>第四次外循环<br>i=4<br>temp=arr[4]=9</p>
+<p>j=4<br>arr[4]=9<br>2 3 5 8 9 6</p>
+<p>第五次外循环<br>i=5<br>temp=arr[5]=6;</p>
+<p>j=5<br>arr[5]=9<br>2 3 5 8 9 9</p>
+<p>j=4<br>arr[4]=arr[3]=8<br>2 3 5 8 8 9</p>
+<p>j=3<br>arr[3]=6<br>2 3 5 6 8 9</p>
+<p>i=6时退出外循环<br>最终结果:<br>2 3 5 6 8 9</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/" data-id="cjbasoy8h0001dr56ou0j1c7u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2014-03-08-使用C语言实现冒泡排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/">使用C语言实现冒泡排序算法</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/">
             <time datetime="2014-03-08T10:06:23.000Z" itemprop="datePublished">2014-03-08</time>
         </a>
     </div>
@@ -381,7 +520,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/" data-id="cjbaq46100004tp56f0txaa1m" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/" data-id="cjbasoy8j0002dr56yn4yu7gm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -449,7 +588,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/08/2014-03-08-冒泡算法实现数据排序/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/">Comments</a>
     
 
         </footer>
@@ -511,7 +650,7 @@ npm was installed at
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/" data-id="cjbaq460r0000tp56khlphevo" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/" data-id="cjbasoy8c0000dr56fkf09wwg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -579,7 +718,7 @@ npm was installed at
 
             
     
-        <a href="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">Comentarios</a>
+        <a href="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/">Comments</a>
     
 
         </footer>
@@ -590,7 +729,7 @@ npm was installed at
 
 
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
     </nav>
 </section>
             
@@ -598,7 +737,7 @@ npm was installed at
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Recientes</h3>
+        <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -706,9 +845,9 @@ npm was installed at
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Archivos</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -719,7 +858,7 @@ npm was installed at
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">Links</h3>
+        <h3 class="widget-title">links</h3>
         <div class="widget">
             <ul>
                 
