@@ -5,21 +5,24 @@
     
     <title>TCP协议三次握手与四次挥手 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="###TCP的特性TCP提供一种面向连接的、可靠的字节流服务在一个TCP连接中，仅有两方进行彼此通信。广播和多播不能用于TCPTCP使用校验和，确认和重传机制来保证可靠传输TCP给数据分节进行排序，并使用累积确认保证数据的顺序不变和非重复TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制
-所谓三次握手(Three-way Handshake)，是指建立一个 TCP 连接时，需">
+    <meta name="description" content="TCP的特性
+TCP提供一种面向连接的、可靠的字节流服务在一个TCP连接中，仅有两方进行彼此通信。广播和多播不能用于TCPTCP使用校验和，确认和重传机制来保证可靠传输TCP给数据分节进行排序，并使用累积确认保证数据的顺序不变和非重复TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制
+所谓三次握手(Three-way Handshake)，是指建立一个 TCP 连接时，需要客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP协议三次握手与四次挥手">
 <meta property="og:url" content="http://www.ariest.net/2014/10/08/2014-10-08-TCP协议三次握手与四次挥手/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="###TCP的特性TCP提供一种面向连接的、可靠的字节流服务在一个TCP连接中，仅有两方进行彼此通信。广播和多播不能用于TCPTCP使用校验和，确认和重传机制来保证可靠传输TCP给数据分节进行排序，并使用累积确认保证数据的顺序不变和非重复TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制
-所谓三次握手(Three-way Handshake)，是指建立一个 TCP 连接时，需">
+<meta property="og:description" content="TCP的特性
+TCP提供一种面向连接的、可靠的字节流服务在一个TCP连接中，仅有两方进行彼此通信。广播和多播不能用于TCPTCP使用校验和，确认和重传机制来保证可靠传输TCP给数据分节进行排序，并使用累积确认保证数据的顺序不变和非重复TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制
+所谓三次握手(Three-way Handshake)，是指建立一个 TCP 连接时，需要客">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1219253-108863fd622133ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1219253-4249ec46e1965e44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-12-17T05:28:03.000Z">
+<meta property="og:updated_time" content="2017-12-17T05:31:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP协议三次握手与四次挥手">
-<meta name="twitter:description" content="###TCP的特性TCP提供一种面向连接的、可靠的字节流服务在一个TCP连接中，仅有两方进行彼此通信。广播和多播不能用于TCPTCP使用校验和，确认和重传机制来保证可靠传输TCP给数据分节进行排序，并使用累积确认保证数据的顺序不变和非重复TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制
-所谓三次握手(Three-way Handshake)，是指建立一个 TCP 连接时，需">
+<meta name="twitter:description" content="TCP的特性
+TCP提供一种面向连接的、可靠的字节流服务在一个TCP连接中，仅有两方进行彼此通信。广播和多播不能用于TCPTCP使用校验和，确认和重传机制来保证可靠传输TCP给数据分节进行排序，并使用累积确认保证数据的顺序不变和非重复TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制
+所谓三次握手(Three-way Handshake)，是指建立一个 TCP 连接时，需要客">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1219253-108863fd622133ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
     
 
@@ -248,9 +251,10 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>###TCP的特性<br>TCP提供一种面向连接的、可靠的字节流服务<br>在一个TCP连接中，仅有两方进行彼此通信。广播和多播不能用于TCP<br>TCP使用校验和，确认和重传机制来保证可靠传输<br>TCP给数据分节进行排序，并使用累积确认保证数据的顺序不变和非重复<br>TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制</p>
+            <p>TCP的特性</p>
+<p>TCP提供一种面向连接的、可靠的字节流服务<br>在一个TCP连接中，仅有两方进行彼此通信。广播和多播不能用于TCP<br>TCP使用校验和，确认和重传机制来保证可靠传输<br>TCP给数据分节进行排序，并使用累积确认保证数据的顺序不变和非重复<br>TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制</p>
 <p>所谓三次握手(Three-way Handshake)，是指建立一个 TCP 连接时，需要客户端和服务器总共发送3个包。</p>
-<p>#####三次握手的目的是连接服务器指定端口，建立 TCP 连接，并同步连接双方的序列号和确认号，交换 TCP 窗口大小信息。在 socket 编程中，客户端执行 connect() 时。将触发三次握手。</p>
+<p>三次握手的目的是连接服务器指定端口，建立 TCP 连接，并同步连接双方的序列号和确认号，交换 TCP 窗口大小信息。在 socket 编程中，客户端执行 connect() 时。将触发三次握手。</p>
 <p>第一次握手(SYN=1, seq=x):</p>
 <p>客户端发送一个 TCP 的 SYN 标志位置1的包，指明客户端打算连接的服务器的端口，以及初始序号 X,保存在包头的序列号(Sequence Number)字段里。</p>
 <p>发送完毕后，客户端进入 SYN_SEND 状态。</p>
@@ -259,7 +263,7 @@
 <p>第三次握手(ACK=1，ACKnum=y+1)</p>
 <p>客户端再次发送确认包(ACK)，SYN 标志位为0，ACK 标志位为1，并且把服务器发来 ACK 的序号字段+1，放在确定字段中发送给对方，并且在数据段放写ISN的+1</p>
 <p>发送完毕后，客户端进入 ESTABLISHED 状态，当服务器端接收到这个包时，也进入 ESTABLISHED 状态，TCP 握手结束。<br>三次握手的过程的示意图如下：<img src="http://upload-images.jianshu.io/upload_images/1219253-108863fd622133ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tcp-connection-made-three-way-handshake.png"></p>
-<p>#####TCP 的连接的拆除需要发送四个包，因此称为四次挥手(Four-way handshake)，也叫做改进的三次握手。客户端或服务器均可主动发起挥手动作，在 socket 编程中，任何一方执行 close() 操作即可产生挥手操作。</p>
+<p>TCP的连接的拆除需要发送四个包，因此称为四次挥手(Four-way handshake)，也叫做改进的三次握手。客户端或服务器均可主动发起挥手动作，在 socket 编程中，任何一方执行 close() 操作即可产生挥手操作。</p>
 <p>第一次挥手(FIN=1，seq=x)</p>
 <p>假设客户端想要关闭连接，客户端发送一个 FIN 标志位置为1的包，表示自己已经没有数据可以发送了，但是仍然可以接受数据。</p>
 <p>发送完毕后，客户端进入 FIN_WAIT_1 状态。</p>
@@ -284,7 +288,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/10/08/2014-10-08-TCP协议三次握手与四次挥手/" data-id="cjbabzfdh0009lm56gpd7dr4a" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/10/08/2014-10-08-TCP协议三次握手与四次挥手/" data-id="cjbac31cs000bna56pa9n201e" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
