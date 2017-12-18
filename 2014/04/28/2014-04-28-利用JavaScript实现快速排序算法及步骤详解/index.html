@@ -6,18 +6,21 @@
     <title>利用JavaScript实现快速排序算法及步骤详解 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="javascript实现快速排序算法:
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546    function quickSort(array) &amp;#123;    // 交换元素位置    function swap(array, i, k) &amp;#123;        var">
+快速排序基本思想:使用分治法策略来把一个序列分为两个子序列
+步骤为：1.从数列中挑出一个元素,称为”基准”(pivot),一般选用最右边元素为基准元素.2.重新排序数列,所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区(partition)操作。3.递">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用JavaScript实现快速排序算法及步骤详解">
 <meta property="og:url" content="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
 <meta property="og:description" content="javascript实现快速排序算法:
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546    function quickSort(array) &amp;#123;    // 交换元素位置    function swap(array, i, k) &amp;#123;        var">
-<meta property="og:updated_time" content="2017-12-17T09:05:43.000Z">
+快速排序基本思想:使用分治法策略来把一个序列分为两个子序列
+步骤为：1.从数列中挑出一个元素,称为”基准”(pivot),一般选用最右边元素为基准元素.2.重新排序数列,所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区(partition)操作。3.递">
+<meta property="og:updated_time" content="2017-12-18T02:44:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用JavaScript实现快速排序算法及步骤详解">
 <meta name="twitter:description" content="javascript实现快速排序算法:
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546    function quickSort(array) &amp;#123;    // 交换元素位置    function swap(array, i, k) &amp;#123;        var">
+快速排序基本思想:使用分治法策略来把一个序列分为两个子序列
+步骤为：1.从数列中挑出一个元素,称为”基准”(pivot),一般选用最右边元素为基准元素.2.重新排序数列,所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区(partition)操作。3.递">
     
 
     
@@ -246,6 +249,9 @@
         
             
             <p>javascript实现快速排序算法:</p>
+<p>快速排序基本思想:<br>使用分治法策略来把一个序列分为两个子序列</p>
+<p>步骤为：<br>1.从数列中挑出一个元素,称为”基准”(pivot),一般选用最右边元素为基准元素.<br>2.重新排序数列,所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区(partition)操作。<br>3.递归地把小于基准值元素的子数列和大于基准值元素的子数列排序。<br>4.递归到最底部时,数列的大小是零或一,也就是已经排序好了。这个算法一定会结束,因为在每次的迭代中，它至少会把一个元素摆到它最后的位置去。</p>
+<p>在平均状况下，排序n个项目要O(nlogn)次比较。在最坏状况下则需要O(n^2)次比较,但这种状况并不常见</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">    function quickSort(array) &#123;</div><div class="line"></div><div class="line">    // 交换元素位置</div><div class="line">    function swap(array, i, k) &#123;</div><div class="line">        var temp = array[i];</div><div class="line">        array[i] = array[k];</div><div class="line">        array[k] = temp;</div><div class="line">    &#125;</div><div class="line">    // 数组分区，左小右大</div><div class="line">    function partition(array, left, right) &#123;</div><div class="line">        var storeIndex = left;        </div><div class="line">        var pivot = array[right]; // 直接选最右边的元素为基准元素</div><div class="line">        for (var i = left; i &lt; right; i++) &#123;</div><div class="line">            if (array[i] &lt; pivot) &#123;</div><div class="line">                swap(array, storeIndex, i);</div><div class="line">                storeIndex++; // 交换位置后，storeIndex 自增 1，代表下一个可能要交换的位置</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        swap(array, right, storeIndex); // 最后将基准元素放置正确位置上</div><div class="line">        return storeIndex;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function sort(array, left, right) &#123;</div><div class="line">        console.log(&quot;原始left=&quot;+left+&quot;---原始right=&quot;+right);</div><div class="line">        if (left &gt; right) &#123;</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        var storeIndex = partition(array, left, right);</div><div class="line">        </div><div class="line">        //基准元素左边排序</div><div class="line">        sort(array, left, storeIndex - 1);</div><div class="line">        </div><div class="line">        //基准元素右边排序</div><div class="line">        sort(array, storeIndex + 1, right);</div><div class="line">        </div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    sort(array, 0, array.length - 1);</div><div class="line"></div><div class="line">    return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr=[3,7,8,5,2,1,9,5,4];</div><div class="line"></div><div class="line">console.log(quickSort(arr));</div></pre></td></tr></table></figure>
 <p>步骤详解:</p>
 <p>原始顺序: 3 7 8 5 2 1 9 5 4</p>
@@ -276,7 +282,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/" data-id="cjbbljd3w0006cv56qbytvy12" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/" data-id="cjbbllljn0006e056etolyzmv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
