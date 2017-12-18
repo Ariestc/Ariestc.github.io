@@ -3,21 +3,27 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Copy详解 | 上善若水,道法自然</title>
+    <title>使用JavaScript语言实现冒泡排序算法 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="@property (copy) NSMutableArray *array;此写法存在两个问题:1.添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃.因为 copy 就是复制一个不可变 NSArray 的对象。2.使用了 atomic 属性会严重影响性能。
-nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非线程安全,适合内存小的移">
+    <meta name="description" content="冒泡排序算法的运作如下:
+1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。3.针对所有的元素重复以上的步骤，除了最后一个。4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较
+冒泡排序需要O(n^2)次交换
+1234567891011121314151617181920">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Copy详解">
-<meta property="og:url" content="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/index.html">
+<meta property="og:title" content="使用JavaScript语言实现冒泡排序算法">
+<meta property="og:url" content="http://www.ariest.net/2014/03/06/2014-03-06-使用JavaScript语言实现冒泡排序算法/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="@property (copy) NSMutableArray *array;此写法存在两个问题:1.添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃.因为 copy 就是复制一个不可变 NSArray 的对象。2.使用了 atomic 属性会严重影响性能。
-nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非线程安全,适合内存小的移">
-<meta property="og:updated_time" content="2017-04-04T08:31:32.000Z">
+<meta property="og:description" content="冒泡排序算法的运作如下:
+1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。3.针对所有的元素重复以上的步骤，除了最后一个。4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较
+冒泡排序需要O(n^2)次交换
+1234567891011121314151617181920">
+<meta property="og:updated_time" content="2017-12-18T03:05:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Copy详解">
-<meta name="twitter:description" content="@property (copy) NSMutableArray *array;此写法存在两个问题:1.添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃.因为 copy 就是复制一个不可变 NSArray 的对象。2.使用了 atomic 属性会严重影响性能。
-nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非线程安全,适合内存小的移">
+<meta name="twitter:title" content="使用JavaScript语言实现冒泡排序算法">
+<meta name="twitter:description" content="冒泡排序算法的运作如下:
+1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。3.针对所有的元素重复以上的步骤，除了最后一个。4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较
+冒泡排序需要O(n^2)次交换
+1234567891011121314151617181920">
     
 
     
@@ -212,7 +218,7 @@ nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非�
 </aside>
 
             
-            <section id="main"><article id="post-2015-02-01-Copy详解" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2014-03-06-使用JavaScript语言实现冒泡排序算法" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +226,7 @@ nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非�
                 
     
         <h1 class="article-title" itemprop="name">
-            Copy详解
+            使用JavaScript语言实现冒泡排序算法
         </h1>
     
 
@@ -229,8 +235,8 @@ nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非�
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2015/02/01/2015-02-01-Copy详解/">
-            <time datetime="2015-02-01T11:13:33.000Z" itemprop="datePublished">2015-02-01</time>
+        <a href="/2014/03/06/2014-03-06-使用JavaScript语言实现冒泡排序算法/">
+            <time datetime="2014-03-06T03:03:23.000Z" itemprop="datePublished">2014-03-06</time>
         </a>
     </div>
 
@@ -245,17 +251,11 @@ nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非�
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>@property (copy) NSMutableArray *array;<br>此写法存在两个问题:<br>1.添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃.因为 copy 就是复制一个不可变 NSArray 的对象。<br>2.使用了 atomic 属性会严重影响性能。</p>
-<p>nonatomic与atomic:<br>nonatomic即非原子属性,不会为setter方法加锁,非线程安全,适合内存小的移动设备。<br>atomic即原子属性,为setter方法加锁,线程安全,但需要消耗大量CPU的资源。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">NSMutableArray *array=[NSMutableArray <span class="symbol">arrayWithObjects:</span>@<span class="string">"Aries58"</span>,@<span class="string">"Aris5801"</span>, <span class="literal">nil</span>];</div><div class="line">   </div><div class="line">   <span class="keyword">self</span>.mutableArray=array;</div><div class="line">   </div><div class="line">   <span class="comment">#-[__NSArrayI removeObjectAtIndex:]: unrecognized selector sent to instance 0x7f9eb2c3ced0</span></div><div class="line"></div><div class="line">   [<span class="keyword">self</span>.mutableArray <span class="symbol">removeObjectAtIndex:</span><span class="number">0</span>];</div></pre></td></tr></table></figure>
-<p>互斥锁(线程同步技术):<br>锁定1份代码只能用一把锁,用多把锁是无效的。<br>优点:能有效防止因多线程抢夺资源造成的数据安全问题。<br>缺点:需要消耗大量的CPU资源。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@synchronized(锁对象) &#123;</div><div class="line">    </div><div class="line">    <span class="comment">#需要锁定的代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在非集合类对象中：对immutable对象进行copy操作,是指针复制,mutableCopy是内容复制。<br>               对mutable对象进行copy和mutableCopy都是内容复制。</p>
-<p>浅复制: [immutableObject copy]<br>深复制: [immutableObject mutableCopy]<br>       [mutableObject copy]<br>       [mutableObject mutableCopy]</p>
-<p>非集合类对象copy</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)test02&#123;</div><div class="line">    </div><div class="line">    NSMutableString *string=[NSMutableString <span class="symbol">stringWithString:</span>@<span class="string">"Aries58"</span>];</div><div class="line">    </div><div class="line">    NSString *stringCopy=[string copy];</div><div class="line">    <span class="comment">#NSString *stringCopy=[string mutableCopy];</span></div><div class="line">    <span class="comment">#NSString *stringCopy=string;</span></div><div class="line">    </div><div class="line">    [string <span class="symbol">appendString:</span>@<span class="string">"Successful"</span>];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"string=%@"</span>,string);</div><div class="line">    NSLog(@<span class="string">"stringCopy=%@"</span>,stringCopy);</div><div class="line"></div><div class="line">         string=Aries58Successful</div><div class="line">         stringCopy=Aries58</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>集合类对象copy</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)test04&#123;</div><div class="line">    </div><div class="line">    NSMutableArray *array=[NSMutableArray <span class="symbol">arrayWithObjects:</span>[NSMutableString <span class="symbol">stringWithString:</span>@<span class="string">"Aries58"</span>],@<span class="string">"Aries5802"</span>,@<span class="string">"Aries5803"</span>, <span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    NSArray *copyArray=[array copy];</div><div class="line">    </div><div class="line">    NSMutableArray *mCopyArray=[array mutableCopy];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"array=%p"</span>,array);</div><div class="line">    NSLog(@<span class="string">"copyArray=%p"</span>,copyArray);</div><div class="line">    NSLog(@<span class="string">"mCopyArray=%p"</span>,mCopyArray);</div><div class="line">    </div><div class="line">              array=<span class="number">0x7fe532e069d0</span></div><div class="line">          copyArray=<span class="number">0x7fe532e0bd80</span></div><div class="line">         mCopyArray=<span class="number">0x7fe532e0d9b0</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)test03&#123;</div><div class="line">    </div><div class="line">    NSArray *array=@[@[@<span class="string">"Aries58"</span>,@<span class="string">"Aries5801"</span>],@[@<span class="string">"Aries5802"</span>,@<span class="string">"Aries5803"</span>]];</div><div class="line">    </div><div class="line">    NSArray *copyArray=[array copy];</div><div class="line">    </div><div class="line">    NSMutableArray *mCopyArray=[array mutableCopy];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"array=%p"</span>,array);</div><div class="line">    NSLog(@<span class="string">"copyArray=%p"</span>,copyArray);</div><div class="line">    NSLog(@<span class="string">"mCopyArray=%p"</span>,mCopyArray);</div><div class="line">    </div><div class="line">    </div><div class="line">              array=<span class="number">0x7f8131c3d360</span></div><div class="line">          copyArray=<span class="number">0x7f8131c3d360</span></div><div class="line">         mCopyArray=<span class="number">0x7f8131c03bf0</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p>冒泡排序算法的运作如下:</p>
+<p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。<br>2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。<br>3.针对所有的元素重复以上的步骤，除了最后一个。<br>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较</p>
+<p>冒泡排序需要O(n^2)次交换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">function bubblesort(array,len) </div><div class="line">&#123;</div><div class="line">    </div><div class="line">    //len=4</div><div class="line"></div><div class="line">    function swap(array,k) </div><div class="line">    &#123;</div><div class="line"></div><div class="line">        var temp=array[k];</div><div class="line">        array[k]=array[k+1];</div><div class="line">        array[k+1]=temp;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    for (var i = 0; i &lt; len; i++) </div><div class="line">    &#123;</div><div class="line">        for (var j = 0; j&lt; len-i ; j++) </div><div class="line">        &#123;</div><div class="line">            if (array[j] &gt; array[j+1])</div><div class="line">            &#123;</div><div class="line">                swap(array,j);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return array;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr=[15,13,5,18,2];</div><div class="line"></div><div class="line">console.log(bubblesort(arr,arr.length-1));</div></pre></td></tr></table></figure>
+
         
         </div>
         <footer class="article-footer">
@@ -265,7 +265,7 @@ nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非�
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/" data-id="cjbbmb3cp000hjx56r6x4sjyu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/06/2014-03-06-使用JavaScript语言实现冒泡排序算法/" data-id="cjbbmb3ce0001jx56kno2ugz8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -333,7 +333,7 @@ nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非�
 
             
     
-        <a href="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/">Comments</a>
+        <a href="http://www.ariest.net/2014/03/06/2014-03-06-使用JavaScript语言实现冒泡排序算法/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/06/2014-03-06-使用JavaScript语言实现冒泡排序算法/">Comments</a>
     
 
         </footer>
@@ -342,19 +342,19 @@ nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非�
         
 <nav id="article-nav">
     
-        <a href="/2015/05/05/2015-05-05-网易阿里百度iOS面试题/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法及步骤详解/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    网易阿里百度iOS面试题
+                    使用C语言实现冒泡排序算法及步骤详解
                 
             </div>
         </a>
     
     
-        <a href="/2014/11/08/2014-11-08-搬瓦工VPS配置/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2014/03/03/2014-03-03-在Mac上用Hexo+Github Page轻松搭建博客/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">2014-11-08-搬瓦工VPS配置</div>
+            <div class="article-nav-title">在Mac上用Hexo+Github Page轻松搭建博客</div>
         </a>
     
 </nav>
@@ -533,9 +533,9 @@ nonatomic与atomic:nonatomic即非原子属性,不会为setter方法加锁,非�
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/';
+            this.page.url = 'http://www.ariest.net/2014/03/06/2014-03-06-使用JavaScript语言实现冒泡排序算法/';
         
-        this.page.identifier = '2015-02-01-Copy详解';
+        this.page.identifier = '2014-03-06-使用JavaScript语言实现冒泡排序算法';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
