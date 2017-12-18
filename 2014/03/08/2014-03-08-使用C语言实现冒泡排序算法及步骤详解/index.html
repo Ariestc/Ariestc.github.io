@@ -3,21 +3,27 @@
 <head>
     <meta charset="utf-8">
     
-    <title>使用C语言实现冒泡排序算法 | 上善若水,道法自然</title>
+    <title>使用C语言实现冒泡排序算法及步骤详解 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="冒泡排序算法的运作如下:比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
-元素交换123456void swap(int array[],int i,int j)&amp;#123;">
+    <meta name="description" content="冒泡排序算法的运作如下:
+1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。3.针对所有的元素重复以上的步骤，除了最后一个。4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较
+冒泡排序需要O(n^2)次交换
+1234567891011121314151617181920">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用C语言实现冒泡排序算法">
-<meta property="og:url" content="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/index.html">
+<meta property="og:title" content="使用C语言实现冒泡排序算法及步骤详解">
+<meta property="og:url" content="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法及步骤详解/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="冒泡排序算法的运作如下:比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
-元素交换123456void swap(int array[],int i,int j)&amp;#123;">
-<meta property="og:updated_time" content="2017-12-17T13:37:32.000Z">
+<meta property="og:description" content="冒泡排序算法的运作如下:
+1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。3.针对所有的元素重复以上的步骤，除了最后一个。4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较
+冒泡排序需要O(n^2)次交换
+1234567891011121314151617181920">
+<meta property="og:updated_time" content="2017-12-18T02:40:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用C语言实现冒泡排序算法">
-<meta name="twitter:description" content="冒泡排序算法的运作如下:比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
-元素交换123456void swap(int array[],int i,int j)&amp;#123;">
+<meta name="twitter:title" content="使用C语言实现冒泡排序算法及步骤详解">
+<meta name="twitter:description" content="冒泡排序算法的运作如下:
+1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。3.针对所有的元素重复以上的步骤，除了最后一个。4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较
+冒泡排序需要O(n^2)次交换
+1234567891011121314151617181920">
     
 
     
@@ -212,7 +218,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2014-03-08-使用C语言实现冒泡排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2014-03-08-使用C语言实现冒泡排序算法及步骤详解" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +226,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            使用C语言实现冒泡排序算法
+            使用C语言实现冒泡排序算法及步骤详解
         </h1>
     
 
@@ -229,7 +235,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/">
+        <a href="/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法及步骤详解/">
             <time datetime="2014-03-08T10:06:23.000Z" itemprop="datePublished">2014-03-08</time>
         </a>
     </div>
@@ -245,11 +251,21 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>冒泡排序算法的运作如下:<br>比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
-<p>元素交换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void swap(int array[],int i,int j)</div><div class="line">&#123;</div><div class="line">    int temp=array[i];</div><div class="line">    array[i]=array[j];</div><div class="line">    array[j]=temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>冒泡排序: 相邻元素进行比较<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">void BubbleSort(int array[],int len)</div><div class="line">&#123;</div><div class="line">    int exchange=<span class="number">1</span>;</div><div class="line">    <span class="comment">#exchange为标记 0表示已排好序 1表示未排好序</span></div><div class="line">    <span class="keyword">for</span> (int i=<span class="number">0</span>; (i&lt;len) &amp;&amp; exchange; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">#已经排序完毕</span></div><div class="line">        exchange=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (int j=len-<span class="number">1</span>; j&gt;i; j--)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (array[j] &lt; array[j-<span class="number">1</span>])</div><div class="line">            &#123;</div><div class="line">                swap(array, j, j-<span class="number">1</span>);</div><div class="line">                <span class="comment">#此处代码有执行 说明未排好序</span></div><div class="line">                exchange=<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>main函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    #冒泡排序</div><div class="line">    int a[]=&#123;3,1,5,2,8&#125;;</div><div class="line">    int count=sizeof(a)/sizeof(int);</div><div class="line">    BubbleSort(a, count);</div><div class="line">    for (int i=0; i&lt;count; i++)</div><div class="line">    &#123;</div><div class="line">        printf(&quot;result=%d\n&quot;,*(a+i));</div><div class="line">    &#125;</div><div class="line">    printf(&quot;Hello, World!\n&quot;);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p>冒泡排序算法的运作如下:</p>
+<p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。<br>2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。<br>3.针对所有的元素重复以上的步骤，除了最后一个。<br>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较</p>
+<p>冒泡排序需要O(n^2)次交换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">void swap(int *arr,int k)</div><div class="line">&#123;</div><div class="line">    int temp = arr[k];</div><div class="line">    arr[k] = arr[k+1];</div><div class="line">    arr[k+1] = temp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void bubble_sort(int *arr, int len) &#123;</div><div class="line"></div><div class="line">    int i, j;</div><div class="line"></div><div class="line">    // len=4</div><div class="line">    for (i = 0; i &lt; len; i++)</div><div class="line">    &#123;</div><div class="line">        for (j = 0; j &lt; len - i; j++)</div><div class="line">            </div><div class="line">        if (arr[j] &gt; arr[j + 1]) </div><div class="line">        &#123;</div><div class="line">            swap(arr,j);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">    int arr[] = &#123;16, 13, 15, 18, 12&#125;;</div><div class="line">    </div><div class="line">    int len = sizeof(arr) / sizeof(int);</div><div class="line">    </div><div class="line">    bubble_sort(arr, len-1);</div><div class="line">    </div><div class="line">    for (int i = 0; i &lt; len; i++)</div><div class="line">    &#123;</div><div class="line">        printf(&quot;%d &quot;, arr[i]);  </div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>步骤详解:</p>
+<p>原始值: 16 13 15 18 12</p>
+<p>i=0, j=0<br>13 16 15 18 12</p>
+<p>i=0,j=1<br>13 15 16 18 12</p>
+<p>i=0,j=2 </p>
+<p>i=0,j=3<br>13 15 16 12 18</p>
+<p>j=4时 第一次跳出内循环</p>
+<p>i=1, j=2时<br>13 15 12 16 18<br>j=3时 第二次跳出内循环</p>
+<p>i=2,j=1时<br>13 12 15 16 18<br>j=2 第三次跳出内循环</p>
+<p>i=3, j=0时<br>12 13 15 16 18<br>j=1时 第四次跳出内循环</p>
+<p>i=4时 跳出外循环<br>最终结果为:<br>12 13 15 16 18</p>
 
         
         </div>
@@ -260,7 +276,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/" data-id="cjbbjy2rw00021356gc4tuh8h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法及步骤详解/" data-id="cjbbljd3p0001cv5693zdjj4g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -328,7 +344,7 @@
 
             
     
-        <a href="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/">Comments</a>
+        <a href="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法及步骤详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法及步骤详解/">Comments</a>
     
 
         </footer>
@@ -528,9 +544,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/';
+            this.page.url = 'http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法及步骤详解/';
         
-        this.page.identifier = '2014-03-08-使用C语言实现冒泡排序算法';
+        this.page.identifier = '2014-03-08-使用C语言实现冒泡排序算法及步骤详解';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

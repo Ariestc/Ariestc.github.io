@@ -6,18 +6,21 @@
     <title>使用C语言实现插入排序算法及步骤详解 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="插入排序基本思想:1.每次将一个待排序元素的先记录,从第一个元素开始，该元素可以认为已经被排序2.取出下一个元素，在已经排序的元素序列中从后向前扫描3.如果该元素（已排序）大于新元素，将该元素移到下一位置4.重复步骤3，直到找到已排序的元素小于或者等于新元素的位置5.将新元素插入到该位置后6.重复步骤2~5
-123456789101112131415161718192021222324252627">
+插入排序只要最多O(n)次交换
+12345678910111213141516171819">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用C语言实现插入排序算法及步骤详解">
 <meta property="og:url" content="http://www.ariest.net/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
 <meta property="og:description" content="插入排序基本思想:1.每次将一个待排序元素的先记录,从第一个元素开始，该元素可以认为已经被排序2.取出下一个元素，在已经排序的元素序列中从后向前扫描3.如果该元素（已排序）大于新元素，将该元素移到下一位置4.重复步骤3，直到找到已排序的元素小于或者等于新元素的位置5.将新元素插入到该位置后6.重复步骤2~5
-123456789101112131415161718192021222324252627">
-<meta property="og:updated_time" content="2017-12-17T13:15:31.000Z">
+插入排序只要最多O(n)次交换
+12345678910111213141516171819">
+<meta property="og:updated_time" content="2017-12-18T02:13:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用C语言实现插入排序算法及步骤详解">
 <meta name="twitter:description" content="插入排序基本思想:1.每次将一个待排序元素的先记录,从第一个元素开始，该元素可以认为已经被排序2.取出下一个元素，在已经排序的元素序列中从后向前扫描3.如果该元素（已排序）大于新元素，将该元素移到下一位置4.重复步骤3，直到找到已排序的元素小于或者等于新元素的位置5.将新元素插入到该位置后6.重复步骤2~5
-123456789101112131415161718192021222324252627">
+插入排序只要最多O(n)次交换
+12345678910111213141516171819">
     
 
     
@@ -246,6 +249,7 @@
         
             
             <p>插入排序基本思想:<br>1.每次将一个待排序元素的先记录,从第一个元素开始，该元素可以认为已经被排序<br>2.取出下一个元素，在已经排序的元素序列中从后向前扫描<br>3.如果该元素（已排序）大于新元素，将该元素移到下一位置<br>4.重复步骤3，直到找到已排序的元素小于或者等于新元素的位置<br>5.将新元素插入到该位置后<br>6.重复步骤2~5</p>
+<p>插入排序只要最多O(n)次交换</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line"></div><div class="line">void insertSort(int *arr, int len)</div><div class="line"> &#123;</div><div class="line">      int i,j,temp;</div><div class="line">  </div><div class="line">     for (i = 1 ; i &lt; len ; i++ )</div><div class="line">    &#123;</div><div class="line">          temp = arr[i];//temp为要插入的元素</div><div class="line">  </div><div class="line">          for (j = i; j &gt; 0 &amp;&amp; arr[j-1] &gt; temp ; j--) //查找要插入的位置，循环结束则找到插入的位置</div><div class="line">        &#123;</div><div class="line">            arr[j] = arr[j-1];//移动元素的位置，给插入的元素使用</div><div class="line">        &#125;</div><div class="line"> </div><div class="line">         arr[j] = temp;//插入需要插入的元素</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line">int main(int argc, char const *argv[])</div><div class="line">&#123;</div><div class="line">    int a[]=&#123;3,2,5,8,9,6&#125;;</div><div class="line"></div><div class="line">    int length=sizeof(a)/sizeof(int);</div><div class="line"></div><div class="line">     //快速排序  </div><div class="line">    insertSort(a, length);  </div><div class="line"></div><div class="line">    //打印输出  </div><div class="line">    for(int i = 0; i &lt; length; i ++)  </div><div class="line">    &#123;  </div><div class="line">        printf(&quot;%d &quot;,a[i]);  </div><div class="line">    &#125;  </div><div class="line">    printf(&quot;\n&quot;); </div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>步骤详解:</p>
 <p>原始值: 3 2 5 8 9 6</p>
@@ -273,7 +277,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/" data-id="cjbbjy2rp00001356ftp52bv2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/" data-id="cjbbljd3r0002cv56z22o441h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -360,9 +364,9 @@
         </a>
     
     
-        <a href="/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法及步骤详解/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">使用C语言实现冒泡排序算法</div>
+            <div class="article-nav-title">使用C语言实现冒泡排序算法及步骤详解</div>
         </a>
     
 </nav>
