@@ -3,18 +3,29 @@
 <head>
     <meta charset="utf-8">
     
-    <title>iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads | 上善若水,道法自然</title>
+    <title>iOS使用URL Scheme实现App的进程间通信 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="麦克风权限：Privacy - Microphone Usage Description是否允许此App使用你的麦克风？相机权限：Privacy - Camera Usage Description 是否允许此App使用你的相机？相册权限：Privacy - Photo Library Usage Description 是否允许此App访问你的媒体资料库？通讯录权限：Privacy - Cont">
+    <meta name="description" content="1.新建Project One:ShangHai 并自定义URL Schemes
+工程项目的Info.plist -&amp;gt; Information Property List -&amp;gt; URL type 选项中添加以下信息:
+生成的源码:
+123456789101112&amp;lt;key&amp;gt;CFBundleURLTypes&amp;lt;/key&amp;gt;&amp;lt;array&amp;gt;	&amp;lt;dict&amp;g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads">
-<meta property="og:url" content="http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/index.html">
+<meta property="og:title" content="iOS使用URL Scheme实现App的进程间通信">
+<meta property="og:url" content="http://www.ariest.net/2015/06/18/2015-06-18-iOS使用URL Scheme实现App的进程间通信/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="麦克风权限：Privacy - Microphone Usage Description是否允许此App使用你的麦克风？相机权限：Privacy - Camera Usage Description 是否允许此App使用你的相机？相册权限：Privacy - Photo Library Usage Description 是否允许此App访问你的媒体资料库？通讯录权限：Privacy - Cont">
-<meta property="og:updated_time" content="2017-12-16T11:10:55.000Z">
+<meta property="og:description" content="1.新建Project One:ShangHai 并自定义URL Schemes
+工程项目的Info.plist -&amp;gt; Information Property List -&amp;gt; URL type 选项中添加以下信息:
+生成的源码:
+123456789101112&amp;lt;key&amp;gt;CFBundleURLTypes&amp;lt;/key&amp;gt;&amp;lt;array&amp;gt;	&amp;lt;dict&amp;g">
+<meta property="og:image" content="http://www.ariest.net/images/InfoPlist.png">
+<meta property="og:updated_time" content="2017-12-20T11:28:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads">
-<meta name="twitter:description" content="麦克风权限：Privacy - Microphone Usage Description是否允许此App使用你的麦克风？相机权限：Privacy - Camera Usage Description 是否允许此App使用你的相机？相册权限：Privacy - Photo Library Usage Description 是否允许此App访问你的媒体资料库？通讯录权限：Privacy - Cont">
+<meta name="twitter:title" content="iOS使用URL Scheme实现App的进程间通信">
+<meta name="twitter:description" content="1.新建Project One:ShangHai 并自定义URL Schemes
+工程项目的Info.plist -&amp;gt; Information Property List -&amp;gt; URL type 选项中添加以下信息:
+生成的源码:
+123456789101112&amp;lt;key&amp;gt;CFBundleURLTypes&amp;lt;/key&amp;gt;&amp;lt;array&amp;gt;	&amp;lt;dict&amp;g">
+<meta name="twitter:image" content="http://www.ariest.net/images/InfoPlist.png">
     
 
     
@@ -209,7 +220,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2015-06-18-iOS使用URL Scheme实现App的进程间通信" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -217,7 +228,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads
+            iOS使用URL Scheme实现App的进程间通信
         </h1>
     
 
@@ -226,8 +237,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/">
-            <time datetime="2017-05-18T11:09:53.000Z" itemprop="datePublished">2017-05-18</time>
+        <a href="/2015/06/18/2015-06-18-iOS使用URL Scheme实现App的进程间通信/">
+            <time datetime="2015-06-18T11:15:23.000Z" itemprop="datePublished">2015-06-18</time>
         </a>
     </div>
 
@@ -242,12 +253,20 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>麦克风权限：Privacy - Microphone Usage Description是否允许此App使用你的麦克风？<br>相机权限：Privacy - Camera Usage Description 是否允许此App使用你的相机？<br>相册权限：Privacy - Photo Library Usage Description 是否允许此App访问你的媒体资料库？<br>通讯录权限：Privacy - Contacts Usage Description 是否允许此App访问你的通讯录？<br>蓝牙权限：Privacy - Bluetooth Peripheral Usage Description是否许允此App使用蓝牙？<br>语音转文字权限：Privacy - Speech Recognition Usage Description是否允许此App使用语音识别？<br>日历权限：Privacy - Calendars Usage Description<br>定位权限：Privacy - Location When In Use Usage Description<br>定位权限:Privacy - Location Always Usage Description<br>位置权限：Privacy - Location Usage Description<br>媒体库权限：Privacy - Media Library Usage Description<br>健康分享权限：Privacy - Health Share Usage Description<br>健康更新权限：Privacy - Health Update Usage Description<br>运动使用权限：Privacy - Motion Usage Description<br>音乐权限：Privacy - Music Usage Description<br>提醒使用权限：Privacy - Reminders Usage Description<br>Siri使用权限：Privacy - Siri Usage Description<br>电视供应商使用权限：Privacy - TV Provider Usage Description<br>视频用户账号使用权限：Privacy - Video Subscriber Account Usage Description<br>info.plist开启网络服务：</p>
-<p><key>App Transport Security Settings</key></p>
-<p><dict></dict></p>
-<p><key>Allow Arbitrary Loads</key></p>
-<string>
-</string>
+            <p>1.新建Project One:ShangHai 并自定义URL Schemes</p>
+<p>工程项目的Info.plist -&gt; Information Property List -&gt; URL type 选项中添加以下信息:<br><img src="http://www.ariest.net/images/InfoPlist.png" alt="InfoPlist"></p>
+<p>生成的源码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;key&gt;CFBundleURLTypes&lt;/key&gt;</div><div class="line">&lt;array&gt;</div><div class="line">	&lt;dict&gt;</div><div class="line">		&lt;key&gt;CFBundleURLSchemes&lt;/key&gt;</div><div class="line">		&lt;array&gt;</div><div class="line">			&lt;string&gt;ShangHaiOne&lt;/string&gt;</div><div class="line">			&lt;string&gt;shanghaitwo&lt;/string&gt;</div><div class="line">		&lt;/array&gt;</div><div class="line">		&lt;key&gt;CFBundleURLName&lt;/key&gt;</div><div class="line">		&lt;string&gt;com.shanghai.www&lt;/string&gt;</div><div class="line">	&lt;/dict&gt;</div><div class="line">&lt;/array&gt;</div></pre></td></tr></table></figure>
+<p>2.新建Project Two: Beijing 并在界面创建一个button 并在方法中添加如下代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (IBAction)switchToShangHai:(id)sender &#123;</div><div class="line">    </div><div class="line">    NSURL *url=[NSURL URLWithString:@&quot;ShangHaiOne://?name=aries&amp;passoword=123456&quot;];</div><div class="line">    </div><div class="line">    if ([[UIApplication sharedApplication] canOpenURL:url]) &#123;</div><div class="line">        </div><div class="line">        NSDictionary *dict=@&#123;</div><div class="line">                            @&quot;city&quot;:@&quot;Beijing&quot;</div><div class="line">                            &#125;;</div><div class="line">        [[UIApplication sharedApplication] openURL:url options:dict completionHandler:^(BOOL success) &#123;</div><div class="line"> </div><div class="line">            NSLog(@&quot;跳转到上海%@&quot;,success?@&quot;成功&quot;:@&quot;失败&quot;);</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">    &#125;else&#123;</div><div class="line">        NSLog(@&quot;URL Not Exist&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.进程间数据传输<br>在Project One: ShangHai中的APPDelegate.m文件中添加此方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary&lt;UIApplicationOpenURLOptionsKey,id&gt; *)options</div><div class="line">&#123;</div><div class="line">    if ([[options objectForKey:UIApplicationOpenURLOptionsSourceApplicationKey] isEqualToString:@&quot;com.apple.Beijing&quot;]) &#123;</div><div class="line">        </div><div class="line">        NSLog(@&quot;options=%@--%@ %@&quot;,options,[url scheme],[url query]);</div><div class="line">    &#125;</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>4.ShangHai工程在启动的情况下,启动Beijing工程并点击跳转button:</p>
+<p>ShanHai工程输出:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">	ShangHai[4569:536608] oprtions=&#123;</div><div class="line">    UIApplicationOpenURLOptionsOpenInPlaceKey = 0;</div><div class="line">    UIApplicationOpenURLOptionsSourceApplicationKey = &quot;com.apple.Beijing&quot;;</div><div class="line">    &quot;_UIApplicationOpenURLOptionsSourceProcessHandleKey&quot; = &quot;&lt;BSProcessHandle: 0x600000275ec0; Beijing:4581; valid: YES&gt;&quot;;</div><div class="line">&#125;--ShangHaiOne name=aries&amp;passoword=123456</div></pre></td></tr></table></figure>
+<p>Beijing工程输出:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Beijing[4581:537158] 跳转到上海成功</div></pre></td></tr></table></figure>
+
         
         </div>
         <footer class="article-footer">
@@ -257,7 +276,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/" data-id="cjbez74ei0015q856j940pt6v" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2015/06/18/2015-06-18-iOS使用URL Scheme实现App的进程间通信/" data-id="cjbez74e3000kq856puyg48re" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -325,7 +344,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/">Comentarios</a>
+        <a href="http://www.ariest.net/2015/06/18/2015-06-18-iOS使用URL Scheme实现App的进程间通信/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2015/06/18/2015-06-18-iOS使用URL Scheme实现App的进程间通信/">Comentarios</a>
     
 
         </footer>
@@ -334,19 +353,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2015/06/23/2015-06-23-使用CocoaPods管理开源框架及安装详细步骤/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
-                    Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置
+                    使用CocoaPods管理开源框架及安装详细步骤
                 
             </div>
         </a>
     
     
-        <a href="/2017/05/13/2017-05-13-利用Runtime实现自动化归档的副本/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2015/06/15/2015-06-15-iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title">利用Runtime实现自动化归档</div>
+            <div class="article-nav-title">iOS数据存储之plist、prefrence、NSCoding、SQLite3、CoreData</div>
         </a>
     
 </nav>
@@ -525,9 +544,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/';
+            this.page.url = 'http://www.ariest.net/2015/06/18/2015-06-18-iOS使用URL Scheme实现App的进程间通信/';
         
-        this.page.identifier = '2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads';
+        this.page.identifier = '2015-06-18-iOS使用URL Scheme实现App的进程间通信';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
