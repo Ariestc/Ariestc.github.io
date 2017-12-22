@@ -3,21 +3,23 @@
 <head>
     <meta charset="utf-8">
     
-    <title>NSURLSession实现网络请求和下载任务 | 上善若水,道法自然</title>
+    <title>全局变量和局部变量的存储类别 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="NSURLConnection的继任者NSURLSession，他使用起来比NSURLConnection更加简单，更加强大。NSURLSession之所有能这么强大，和与他配套使用的类是分不开的，与他结合使用的类有NSURLSessionConfiguration 和 NSURLSessionTask。
-123456789-(void)touchesBegan:(NSSet&amp;lt;UITouch">
+    <meta name="description" content="一般来说每个变量和函数都有两个属性:数据类型和数据的存储类别
+  1.从变量的作用域(即从空间)角度来分,分为全局变量和局部变量    1&amp;gt; 全局变量全部存放在静态存储区,程序执行过程中有固定存储单元,执行完毕就释放    2&amp;gt; 局部变量(自动变量)存放在动态存储区,在调用栈上分配和释放       递归函数调用自己时,局部变量的每一份实例都在不同的地址空间    3&amp;gt; 静">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NSURLSession实现网络请求和下载任务">
-<meta property="og:url" content="http://www.ariest.net/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/index.html">
+<meta property="og:title" content="全局变量和局部变量的存储类别">
+<meta property="og:url" content="http://www.ariest.net/2014/07/15/2014-07-15-全局变量和局部变量的存储类别/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="NSURLConnection的继任者NSURLSession，他使用起来比NSURLConnection更加简单，更加强大。NSURLSession之所有能这么强大，和与他配套使用的类是分不开的，与他结合使用的类有NSURLSessionConfiguration 和 NSURLSessionTask。
-123456789-(void)touchesBegan:(NSSet&amp;lt;UITouch">
-<meta property="og:updated_time" content="2017-04-04T08:29:25.000Z">
+<meta property="og:description" content="一般来说每个变量和函数都有两个属性:数据类型和数据的存储类别
+  1.从变量的作用域(即从空间)角度来分,分为全局变量和局部变量    1&amp;gt; 全局变量全部存放在静态存储区,程序执行过程中有固定存储单元,执行完毕就释放    2&amp;gt; 局部变量(自动变量)存放在动态存储区,在调用栈上分配和释放       递归函数调用自己时,局部变量的每一份实例都在不同的地址空间    3&amp;gt; 静">
+<meta property="og:image" content="http://www.ariest.net/images/storeType.png">
+<meta property="og:updated_time" content="2017-12-22T16:01:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NSURLSession实现网络请求和下载任务">
-<meta name="twitter:description" content="NSURLConnection的继任者NSURLSession，他使用起来比NSURLConnection更加简单，更加强大。NSURLSession之所有能这么强大，和与他配套使用的类是分不开的，与他结合使用的类有NSURLSessionConfiguration 和 NSURLSessionTask。
-123456789-(void)touchesBegan:(NSSet&amp;lt;UITouch">
+<meta name="twitter:title" content="全局变量和局部变量的存储类别">
+<meta name="twitter:description" content="一般来说每个变量和函数都有两个属性:数据类型和数据的存储类别
+  1.从变量的作用域(即从空间)角度来分,分为全局变量和局部变量    1&amp;gt; 全局变量全部存放在静态存储区,程序执行过程中有固定存储单元,执行完毕就释放    2&amp;gt; 局部变量(自动变量)存放在动态存储区,在调用栈上分配和释放       递归函数调用自己时,局部变量的每一份实例都在不同的地址空间    3&amp;gt; 静">
+<meta name="twitter:image" content="http://www.ariest.net/images/storeType.png">
     
 
     
@@ -212,7 +214,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2016-06-07-NSURLSession实现网络请求和下载任务" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2014-07-15-全局变量和局部变量的存储类别" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +222,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            NSURLSession实现网络请求和下载任务
+            全局变量和局部变量的存储类别
         </h1>
     
 
@@ -229,8 +231,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/">
-            <time datetime="2016-06-07T14:14:53.000Z" itemprop="datePublished">2016-06-07</time>
+        <a href="/2014/07/15/2014-07-15-全局变量和局部变量的存储类别/">
+            <time datetime="2014-07-15T14:20:23.000Z" itemprop="datePublished">2014-07-15</time>
         </a>
     </div>
 
@@ -245,14 +247,11 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>NSURLConnection的继任者NSURLSession，他使用起来比NSURLConnection更加简单，更加强大。NSURLSession之所有能这么强大，和与他配套使用的类是分不开的，与他结合使用的类有NSURLSessionConfiguration 和 NSURLSessionTask。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)<span class="symbol">touchesBegan:</span>(NSSet&lt;UITouch *&gt; *)touches <span class="symbol">withEvent:</span>(UIEvent *)event&#123;</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> dataTask];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> downloadTask];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> downloadTask02];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>dataTask</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)dataTask&#123;</div><div class="line">    </div><div class="line">    NSURLSession *session=[NSURLSession sharedSession];</div><div class="line">    </div><div class="line">    <span class="comment">#post请求</span></div><div class="line">    NSURL *url=[NSURL <span class="symbol">URLWithString:</span>@<span class="string">""</span>];</div><div class="line">    NSMutableURLRequest *request=[NSMutableURLRequest <span class="symbol">requestWithURL:</span>url];</div><div class="line">    </div><div class="line">    request.HTTPMethod=@<span class="string">"POST"</span>;</div><div class="line">    request.HTTPBody=[@<span class="string">"username="</span><span class="string">"&amp;pwd="</span><span class="string">" dataUsingEncoding:NSUTF8StringEncoding];</span></div><div class="line">    </div><div class="line">    NSURLSessionDataTask *task= [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</div><div class="line">        </div><div class="line">        NSDictionary *dict=  [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];</div><div class="line">        </div><div class="line">        NSLog(@"dict=%@<span class="string">",dict);</span></div><div class="line">        </div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    #开启任务</div><div class="line">    [task resume];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>downloadTask</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)downloadTask&#123;</div><div class="line">    </div><div class="line">    NSURLSession *session=[NSURLSession sharedSession];</div><div class="line">    </div><div class="line">    NSURL *url=[NSURL <span class="symbol">URLWithString:</span>@<span class="string">""</span>];</div><div class="line">    </div><div class="line">    NSURLRequest *request=[NSURLRequest <span class="symbol">requestWithURL:</span>url];</div><div class="line">    </div><div class="line">    NSURLSessionDownloadTask *task=[session <span class="symbol">downloadTaskWithRequest:</span>request <span class="symbol">completionHandler:</span>^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</div><div class="line">        </div><div class="line">        <span class="comment">#在沙盒创建空文件</span></div><div class="line">        NSFileManager *fileManager=[NSFileManager defaultManager];</div><div class="line">        </div><div class="line">        <span class="comment">#toPath</span></div><div class="line">        NSString *path=NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;</div><div class="line">        NSString *filePath=[path <span class="symbol">stringByAppendingPathComponent:</span>response.suggestedFilename];</div><div class="line">        </div><div class="line">        <span class="comment">#剪贴文件到cache中</span></div><div class="line">        [fileManager <span class="symbol">moveItemAtPath:</span>location.path <span class="symbol">toPath:</span>filePath <span class="symbol">error:</span><span class="literal">nil</span>];</div><div class="line">        </div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    <span class="comment">#开启任务</span></div><div class="line">    [task resume];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>downloadTask02</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)downloadTask02&#123;</div><div class="line">    </div><div class="line">    NSURLSessionConfiguration *sessionConfig=[NSURLSessionConfiguration defaultSessionConfiguration];</div><div class="line">    </div><div class="line">    NSURLSession *session=[NSURLSession <span class="symbol">sessionWithConfiguration:</span>sessionConfig <span class="symbol">delegate:</span><span class="keyword">self</span> <span class="symbol">delegateQueue:</span>[NSOperationQueue mainQueue]];</div><div class="line">    </div><div class="line">    NSURL *url=[NSURL <span class="symbol">URLWithString:</span>@<span class="string">""</span>];</div><div class="line">    </div><div class="line">    NSURLSessionDownloadTask *task=[session <span class="symbol">downloadTaskWithURL:</span>url];</div><div class="line">    </div><div class="line">    <span class="comment">#开启任务</span></div><div class="line">    [task resume];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#pragma mark -- NSURLSessionDownloadDelegate</span></div><div class="line">-(void)<span class="symbol">URLSession:</span>(NSURLSession *)session <span class="symbol">downloadTask:</span>(NSURLSessionDownloadTask *)downloadTask <span class="symbol">didFinishDownloadingToURL:</span>(NSURL *)location</div><div class="line">&#123;</div><div class="line">    NSLog(@<span class="string">"didFinishDownloadingToURL---"</span>);</div><div class="line">    </div><div class="line">    NSString *path=NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;</div><div class="line">    NSString *filePath=[path <span class="symbol">stringByAppendingPathComponent:</span>downloadTask.response.suggestedFilename];</div><div class="line">    </div><div class="line">    NSFileManager *fileManager=[NSFileManager defaultManager];</div><div class="line">    [fileManager <span class="symbol">moveItemAtPath:</span>location.path <span class="symbol">toPath:</span>filePath <span class="symbol">error:</span><span class="literal">nil</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#恢复下载时调用</span></div><div class="line">-(void)<span class="symbol">URLSession:</span>(NSURLSession *)session <span class="symbol">downloadTask:</span>(NSURLSessionDownloadTask *)downloadTask <span class="symbol">didResumeAtOffset:</span>(int64_t)fileOffset <span class="symbol">expectedTotalBytes:</span>(int64_t)expectedTotalBytes</div><div class="line">&#123;</div><div class="line">    NSLog(@<span class="string">"didResumeAtOffset=%lld--expectedTotalBytes=%lld"</span>,fileOffset,expectedTotalBytes);</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)<span class="symbol">URLSession:</span>(NSURLSession *)session <span class="symbol">downloadTask:</span>(NSURLSessionDownloadTask *)downloadTask <span class="symbol">didWriteData:</span>(int64_t)bytesWritten <span class="symbol">totalBytesWritten:</span>(int64_t)totalBytesWritten <span class="symbol">totalBytesExpectedToWrite:</span>(int64_t)totalBytesExpectedToWrite</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span>.progressView.progress=(double)totalBytesWritten/totalBytesExpectedToWrite;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (IBAction)<span class="symbol">downloadBtnDidClick:</span>(UIButton *)sender &#123;</div><div class="line">    </div><div class="line">    sender.selected=!sender.selected;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (sender.selected) &#123;</div><div class="line">        </div><div class="line">        NSURLSessionConfiguration *sessionConfig=[NSURLSessionConfiguration defaultSessionConfiguration];</div><div class="line">        </div><div class="line">        NSURLSession *session=[NSURLSession <span class="symbol">sessionWithConfiguration:</span>sessionConfig <span class="symbol">delegate:</span><span class="keyword">self</span> <span class="symbol">delegateQueue:</span>[NSOperationQueue mainQueue]];</div><div class="line">        </div><div class="line">        NSURL *url=[NSURL <span class="symbol">URLWithString:</span>@<span class="string">""</span>];</div><div class="line">        </div><div class="line">        NSURLSessionDownloadTask *task=[session <span class="symbol">downloadTaskWithURL:</span>url];</div><div class="line">        </div><div class="line">        <span class="comment">#开启任务</span></div><div class="line">        [task resume];</div><div class="line">   </div><div class="line">    &#125;<span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        NSLog(@<span class="string">"暂停下载---"</span>);</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p><img src="http://www.ariest.net/images/storeType.png" alt="storeType"></p>
+<p>  一般来说每个变量和函数都有两个属性:数据类型和数据的存储类别</p>
+<p>  1.从变量的作用域(即从空间)角度来分,分为全局变量和局部变量<br>    1&gt; 全局变量全部存放在静态存储区,程序执行过程中有固定存储单元,执行完毕就释放<br>    2&gt; 局部变量(自动变量)存放在动态存储区,在调用栈上分配和释放<br>       递归函数调用自己时,局部变量的每一份实例都在不同的地址空间<br>    3&gt; 静态局部变量在函数内以static声明与自动局部变量作用域相同(即作用域都只限于函数内),但存放在静态存储区,两次调用变量值保持一致<br>  2.从变量值存在的时间(即生存期)角度来分,分为静态存储方式和动态存储方式<br>   1&gt; 静态存储方式是指在程序运行期间所分配固定的存储空间的方式<br>   2&gt; 动态存储方式是指在程序运行期间根据需要动态分配的存储空间的方式<br>  3.用户存储空间可以分为三部分:<br>    1&gt; 程序区<br>    2&gt; 静态存储区 (static memory allocation)<br>    3&gt; 动态存储区<br>  4.静态分配时存储空间在编译时于数据段分配,一次分配全程有效;而动态分配时存储空间在调用栈分配,只有在调用时分配和释放。<br>    1&gt; 数据段通是指用来存放程序中已初始化且不为0的全局变量的一块内存区域,数据段属于静态内存分配</p>
+<p>  5.栈(stack 先进后出): 有静态分配和动态分配。静态分配是由编译器自动管理,里面的变量通常是局部变量、函数参数、函数返回地址,不鼓励动态分配操作<br>    栈是系统提供的数据结构,计算机底层对栈分配专门的寄存器存放地址,压栈出栈都有专门的指令执行,所以栈的效率比较高<br>    寄存器是CPU的一部分,是一个有限容量的高速存储部件,可用来暂存指令、数据和地址<br>    栈类似去饭馆里吃饭,只管点菜(发出申请)和吃(使用),不必管做菜准备的事,但是自<br>  由度小<br>    栈就如储物柜里堆叠的鞋盒,只能从最顶层的盒子开始取,直到发现那只合适的.</p>
+<p>  6.堆(heap 顺序随意): 是动态分配,由程序员分配释放,里面通常是new alloc的对象<br>    堆类似自己动手做菜,麻烦，但符合自己的口味自由度大<br>    堆就如床上的旧衣服,无需花时间去整理,随时找到一件需要的衣服即可<br>  7.全局区/静态区:全局变量和静态变量的存储是放在一块的,程序结束后由系统释放<br>  8.文字常量区: 常量字符串就放在这里,程序结束后由系统释放<br>  9.程序代码区: 存放函数体的二进制代码。</p>
 
         
         </div>
@@ -263,7 +262,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/" data-id="cjbi3seb1000xgs56owceky3p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/07/15/2014-07-15-全局变量和局部变量的存储类别/" data-id="cjbi3seak000ags56ivq7prhe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -331,7 +330,7 @@
 
             
     
-        <a href="http://www.ariest.net/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/">Comments</a>
+        <a href="http://www.ariest.net/2014/07/15/2014-07-15-全局变量和局部变量的存储类别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/07/15/2014-07-15-全局变量和局部变量的存储类别/">Comments</a>
     
 
         </footer>
@@ -340,19 +339,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/06/10/2016-06-10-AFNetworking常见的错误解决方法和HTTP请求错误原因/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2014/08/25/2014-08-25-GCD详解/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    AFNetworking常见的错误解决方法和HTTP请求错误原因
+                    GCD详解
                 
             </div>
         </a>
     
     
-        <a href="/2016/04/15/2016-04-15-KCV/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">KCV</div>
+            <div class="article-nav-title">GCD之同步异步与串行并行队列详解</div>
         </a>
     
 </nav>
@@ -531,9 +530,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2016/06/07/2016-06-07-NSURLSession实现网络请求和下载任务/';
+            this.page.url = 'http://www.ariest.net/2014/07/15/2014-07-15-全局变量和局部变量的存储类别/';
         
-        this.page.identifier = '2016-06-07-NSURLSession实现网络请求和下载任务';
+        this.page.identifier = '2014-07-15-全局变量和局部变量的存储类别';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
