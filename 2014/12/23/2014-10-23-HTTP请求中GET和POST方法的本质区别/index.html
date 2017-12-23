@@ -3,18 +3,27 @@
 <head>
     <meta charset="utf-8">
     
-    <title>KVO底层实现 | 上善若水,道法自然</title>
+    <title>HTTP请求中GET和POST方法的本质区别 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
+    <meta name="description" content="GET: 幂等
+POST: 非幂等
+幂等: 指同一个请求方法执行多次和仅执行一次的效果完全相同引入幂等是为了处理同一个请求重复发送的情况,如请求响应前失去连接,方法是幂等的就可重新发一次请求。
+GET(select): 从服务器取出资源(一项或多项)    1&amp;gt; /zoos: 列出所有动物园    2&amp;gt; /zoos/ID: 获取某个指定动物园的信息    3&amp;gt; /zoos/ID/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KVO底层实现">
-<meta property="og:url" content="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/index.html">
+<meta property="og:title" content="HTTP请求中GET和POST方法的本质区别">
+<meta property="og:url" content="http://www.ariest.net/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
-<meta property="og:updated_time" content="2017-08-30T12:08:09.000Z">
+<meta property="og:description" content="GET: 幂等
+POST: 非幂等
+幂等: 指同一个请求方法执行多次和仅执行一次的效果完全相同引入幂等是为了处理同一个请求重复发送的情况,如请求响应前失去连接,方法是幂等的就可重新发一次请求。
+GET(select): 从服务器取出资源(一项或多项)    1&amp;gt; /zoos: 列出所有动物园    2&amp;gt; /zoos/ID: 获取某个指定动物园的信息    3&amp;gt; /zoos/ID/">
+<meta property="og:updated_time" content="2017-12-23T14:15:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KVO底层实现">
-<meta name="twitter:description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
+<meta name="twitter:title" content="HTTP请求中GET和POST方法的本质区别">
+<meta name="twitter:description" content="GET: 幂等
+POST: 非幂等
+幂等: 指同一个请求方法执行多次和仅执行一次的效果完全相同引入幂等是为了处理同一个请求重复发送的情况,如请求响应前失去连接,方法是幂等的就可重新发一次请求。
+GET(select): 从服务器取出资源(一项或多项)    1&amp;gt; /zoos: 列出所有动物园    2&amp;gt; /zoos/ID: 获取某个指定动物园的信息    3&amp;gt; /zoos/ID/">
     
 
     
@@ -209,7 +218,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-2017-08-30-KVO底层实现" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-2014-10-23-HTTP请求中GET和POST方法的本质区别" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -217,7 +226,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            KVO底层实现
+            HTTP请求中GET和POST方法的本质区别
         </h1>
     
 
@@ -226,8 +235,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/08/30/2017-08-30-KVO底层实现/">
-            <time datetime="2017-08-30T11:58:00.000Z" itemprop="datePublished">2017-08-30</time>
+        <a href="/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/">
+            <time datetime="2014-12-23T14:15:33.000Z" itemprop="datePublished">2014-12-23</time>
         </a>
     </div>
 
@@ -242,26 +251,19 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p> KVO本质就是去判断是否调用了一个对象的set方法<br>        KVO底层实现:<br>        1.动态创建Dog的子类NSKVONotifying_Dog<br>        2.修改当前对象的isa指针为NSKVONotifying_Dog<br>        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法<br>        4.重写NSKVONotifying_Dog的set方法:<br>            1&gt;[super set]<br>            2&gt;通知观察者属性改变</p>
-<p>自定义KVO方法:<br>ViewController:</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[dog <span class="symbol">aries_addObserver:</span><span class="keyword">self</span> <span class="symbol">forKeyPath:</span>@<span class="string">"age"</span> <span class="symbol">options:</span>NSKeyValueObservingOptionNew <span class="symbol">context:</span><span class="literal">nil</span>];</div></pre></td></tr></table></figure>
-<p>1.动态创建Dog的子类NSKVONotifying_Dog<br>2.修改当前对象的isa指针为NSKVONotifying_Dog<br>NSObject (KVO):</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-(void)<span class="symbol">aries_addObserver:</span>(NSObject *)observer <span class="symbol">forKeyPath:</span>(NSString *)keyPath <span class="symbol">options:</span>(NSKeyValueObservingOptions)options <span class="symbol">context:</span>(void *)context</div><div class="line">&#123;</div><div class="line">    object_setClass(<span class="keyword">self</span>, [NSKVONotifying_Dog <span class="class"><span class="keyword">class</span>]);</span></div><div class="line">    </div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, @<span class="string">"ariesObserve"</span>, observer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法<br>4.重写NSKVONotifying_Dog的set方法:<br>            1&gt;[super set]<br>            2&gt;通知观察者属性改变<br>NSKVONotifying_Dog(模拟系统动态创建的类):</p>
-<pre><code class="ruby">-(void)<span class="symbol">setAge:</span>(int)age
-{
-    [<span class="keyword">super</span> <span class="symbol">setAge:</span>age];
-
-    <span class="regexp">//</span>通知观察者
-  id ariesObserve= objc_getAssociatedObject(<span class="keyword">self</span>, @<span class="string">"ariesObserve"</span>);
-
-    [ariesObserve <span class="symbol">observeValueForKeyPath:</span>@<span class="string">"age"</span> <span class="symbol">ofObject:</span><span class="keyword">self</span> <span class="symbol">change:</span><span class="literal">nil</span> <span class="symbol">context:</span><span class="literal">nil</span>];
-
-}
-</code></pre>
-<p>记得调用age的set方法</p>
-<pre><code class="ruby">_dog.age++;
-</code></pre>
+            <p>GET: 幂等</p>
+<p>POST: 非幂等</p>
+<p>幂等: 指同一个请求方法执行多次和仅执行一次的效果完全相同<br>引入幂等是为了处理同一个请求重复发送的情况,如请求响应前失去连接,方法是幂等的就可重新发一次请求。</p>
+<p>GET(select): 从服务器取出资源(一项或多项)<br>    1&gt; /zoos: 列出所有动物园<br>    2&gt; /zoos/ID: 获取某个指定动物园的信息<br>    3&gt; /zoos/ID/animals: 列出某个指定动物园的所有动物信息</p>
+<p>POST(create): 在服务器新建一个资源<br>    1&gt; /zoos:新建一个动物园</p>
+<p>PUT(update): 在服务器更新资源(客户端提供改变后的完整资源）<br>    1&gt; /zoos/ID: 更新某个指定动物园的信息(提供该动物园的全部信息）</p>
+<p>PATCH（update): 在服务器更新资源(客户端提供改变的属性）<br>    1&gt; /zoos/ID: 更新某个指定动物园的信息(提供该动物园的部分信息）</p>
+<p>DELETE(delete):从服务器删除资源<br>    1&gt; DELETE /zoos/ID: 删除某个动物园<br>    2&gt; DELETE /zoos/ID/animals/ID: 删除某个指定动物园的指定动物的信息</p>
+<p>RFC规范:</p>
+<p>GET:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">The GET method requests transfer of a current selected representation</div><div class="line">  for the target resource.  GET is the primary mechanism of information</div><div class="line">  retrieval and the focus of almost all performance optimizations.</div><div class="line">  Hence, when people speak of retrieving some identifiable information</div><div class="line">  via HTTP, they are generally referring to making a GET request.</div><div class="line"></div><div class="line">  GET方法请求是指当前选定目标资源表示的传输. GET是主要的信息检索机制,注重性能优化.</div><div class="line">  因此,但人们谈论通过HTTP检索一些识别信息,他们通常会选用GET请求.</div><div class="line"></div><div class="line">   A payload within a GET request message has no defined semantics;</div><div class="line">  sending a payload body on a GET request might cause some existing</div><div class="line">  implementations to reject the request.</div><div class="line"></div><div class="line">  一个GET请求消息的有效载荷没有定义语义;发送一个GET请求的有效载荷体可能导致现有的实现拒绝请求.</div></pre></td></tr></table></figure>
+<p>POST:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">The POST method requests that the target resource process the</div><div class="line">  representation enclosed in the request according to the resource&apos;s</div><div class="line">  own specific semantics.  For example, POST is used for the following</div><div class="line">  functions (among others):</div><div class="line"></div><div class="line">  POST请求是指目标资源对拥有特定语义信息所包含请求体表示的处理,举例,POST有以下使用功能</div><div class="line">  </div><div class="line">  Providing a block of data, such as the fields entered into an HTML</div><div class="line">  form, to a data-handling process;</div><div class="line"></div><div class="line">  提供一个数据块,就如从插入一个HTML表单到数据处理过程的字段</div><div class="line"></div><div class="line">  Posting a message to a bulletin board, newsgroup, mailing list,</div><div class="line">     blog, or similar group of articles;</div><div class="line"></div><div class="line">  发送信息到公告栏,新闻组,邮件列表,博客,或者就像文章组</div><div class="line"></div><div class="line">  Creating a new resource that has yet to be identified by the</div><div class="line">   origin server; </div><div class="line"></div><div class="line">   创建一个还未被原始服务器标识的新资源</div><div class="line"></div><div class="line">  Appending data to a resource&apos;s existing representation.</div><div class="line">  给现有资源表示添加数据</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -272,7 +274,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/" data-id="cjbjfgb8w001c1p56bfo3qenu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/" data-id="cjbjfgb7z000d1p56uamphriz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -340,7 +342,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/">Comments</a>
+        <a href="http://www.ariest.net/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/">Comments</a>
     
 
         </footer>
@@ -349,19 +351,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2015/02/01/2015-02-01-Copy详解/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    通过ReactiveCocoa结合MVVM设计模式进行网络亲请求
+                    Copy详解
                 
             </div>
         </a>
     
     
-        <a href="/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2014/11/08/2014-11-08-搬瓦工VPS配置/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案</div>
+            <div class="article-nav-title">2014-11-08-搬瓦工VPS配置</div>
         </a>
     
 </nav>
@@ -540,9 +542,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/';
+            this.page.url = 'http://www.ariest.net/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/';
         
-        this.page.identifier = '2017-08-30-KVO底层实现';
+        this.page.identifier = '2014-10-23-HTTP请求中GET和POST方法的本质区别';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

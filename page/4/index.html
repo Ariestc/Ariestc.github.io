@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                49
+                50
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -259,7 +259,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/" data-id="cjbi3seaq000igs5685iqqbaw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2015/02/01/2015-02-01-Copy详解/" data-id="cjbjfgb84000j1p56qrsd9zit" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -337,6 +337,140 @@
 
 
 
+    <article id="post-2014-10-23-HTTP请求中GET和POST方法的本质区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/">HTTP请求中GET和POST方法的本质区别</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/">
+            <time datetime="2014-12-23T14:15:33.000Z" itemprop="datePublished">2014-12-23</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>GET: 幂等</p>
+<p>POST: 非幂等</p>
+<p>幂等: 指同一个请求方法执行多次和仅执行一次的效果完全相同<br>引入幂等是为了处理同一个请求重复发送的情况,如请求响应前失去连接,方法是幂等的就可重新发一次请求。</p>
+<p>GET(select): 从服务器取出资源(一项或多项)<br>    1&gt; /zoos: 列出所有动物园<br>    2&gt; /zoos/ID: 获取某个指定动物园的信息<br>    3&gt; /zoos/ID/animals: 列出某个指定动物园的所有动物信息</p>
+<p>POST(create): 在服务器新建一个资源<br>    1&gt; /zoos:新建一个动物园</p>
+<p>PUT(update): 在服务器更新资源(客户端提供改变后的完整资源）<br>    1&gt; /zoos/ID: 更新某个指定动物园的信息(提供该动物园的全部信息）</p>
+<p>PATCH（update): 在服务器更新资源(客户端提供改变的属性）<br>    1&gt; /zoos/ID: 更新某个指定动物园的信息(提供该动物园的部分信息）</p>
+<p>DELETE(delete):从服务器删除资源<br>    1&gt; DELETE /zoos/ID: 删除某个动物园<br>    2&gt; DELETE /zoos/ID/animals/ID: 删除某个指定动物园的指定动物的信息</p>
+<p>RFC规范:</p>
+<p>GET:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">The GET method requests transfer of a current selected representation</div><div class="line">  for the target resource.  GET is the primary mechanism of information</div><div class="line">  retrieval and the focus of almost all performance optimizations.</div><div class="line">  Hence, when people speak of retrieving some identifiable information</div><div class="line">  via HTTP, they are generally referring to making a GET request.</div><div class="line"></div><div class="line">  GET方法请求是指当前选定目标资源表示的传输. GET是主要的信息检索机制,注重性能优化.</div><div class="line">  因此,但人们谈论通过HTTP检索一些识别信息,他们通常会选用GET请求.</div><div class="line"></div><div class="line">   A payload within a GET request message has no defined semantics;</div><div class="line">  sending a payload body on a GET request might cause some existing</div><div class="line">  implementations to reject the request.</div><div class="line"></div><div class="line">  一个GET请求消息的有效载荷没有定义语义;发送一个GET请求的有效载荷体可能导致现有的实现拒绝请求.</div></pre></td></tr></table></figure>
+<p>POST:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">The POST method requests that the target resource process the</div><div class="line">  representation enclosed in the request according to the resource&apos;s</div><div class="line">  own specific semantics.  For example, POST is used for the following</div><div class="line">  functions (among others):</div><div class="line"></div><div class="line">  POST请求是指目标资源对拥有特定语义信息所包含请求体表示的处理,举例,POST有以下使用功能</div><div class="line">  </div><div class="line">  Providing a block of data, such as the fields entered into an HTML</div><div class="line">  form, to a data-handling process;</div><div class="line"></div><div class="line">  提供一个数据块,就如从插入一个HTML表单到数据处理过程的字段</div><div class="line"></div><div class="line">  Posting a message to a bulletin board, newsgroup, mailing list,</div><div class="line">     blog, or similar group of articles;</div><div class="line"></div><div class="line">  发送信息到公告栏,新闻组,邮件列表,博客,或者就像文章组</div><div class="line"></div><div class="line">  Creating a new resource that has yet to be identified by the</div><div class="line">   origin server; </div><div class="line"></div><div class="line">   创建一个还未被原始服务器标识的新资源</div><div class="line"></div><div class="line">  Appending data to a resource&apos;s existing representation.</div><div class="line">  给现有资源表示添加数据</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/" data-id="cjbjfgb7z000d1p56uamphriz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2014-11-08-搬瓦工VPS配置" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -385,7 +519,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/" data-id="cjbi3seaq000hgs56fm2c1vk0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/" data-id="cjbjfgb83000i1p568tgwr1zk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -514,7 +648,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/" data-id="cjbi3seao000fgs56t0pbf75c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/11/05/2014-11-05-如何在XCode6中创建PCH文件/" data-id="cjbjfgb83000h1p56eazniqey" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -662,7 +796,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/10/08/2014-10-08-TCP协议三次握手与四次挥手/" data-id="cjbi3seap000ggs56xjyjlchf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/10/08/2014-10-08-TCP协议三次握手与四次挥手/" data-id="cjbjfgb80000e1p562lg3vftq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -787,7 +921,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/" data-id="cjbi3seam000dgs56x4rqkks3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/10/02/2014-10-02-Objective-C中hitTest之底层实现原理/" data-id="cjbjfgb82000g1p561hx6pzfb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -935,7 +1069,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cjbi3sean000egs56k5v5001f" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/08/25/2014-08-25-GCD详解/" data-id="cjbjfgb81000f1p56p8xazr1k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1061,7 +1195,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/07/15/2014-07-15-全局变量和局部变量的存储类别/" data-id="cjbi3seak000ags56ivq7prhe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/07/15/2014-07-15-全局变量和局部变量的存储类别/" data-id="cjbjfgb7w000b1p561htx03s3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1188,7 +1322,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" data-id="cjbi3seal000cgs562tybs7oo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/07/13/2014-07-13-GCD之同步异步与串行并行队列详解/" data-id="cjbjfgb7x000c1p56gi4ncdal" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1312,7 +1446,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/" data-id="cjbi3seal000bgs56t0f4bslm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/" data-id="cjbjfgb7v00091p56ccf2gzps" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1381,139 +1515,6 @@
             
     
         <a href="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-2014-05-20-Category及封装的好处" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/03/2014-05-20-Category及封装的好处/">Category及封装的好处</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/05/03/2014-05-20-Category及封装的好处/">
-            <time datetime="2014-05-03T13:08:23.000Z" itemprop="datePublished">2014-05-03</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>category三种叫法：分类 类别 类目；</p>
-<p>分类作用：在不改变原来类内容基础上，可以为类增加一些方法</p>
-<p>分类使用注意：<br>1.分类只能增加方法，不能增加成员变量<br>2.分类方法实现中可以访问原来类中声明的成员变量<br>3.分类可以重新实现原来类中的方法，但是会覆盖原来的方法，会导致原来的方法没法在使用<br>4.方法调用的优先级：分类（最后参与编译的分类优先）-&gt; 原来类 -&gt; 父类</p>
-<p>给NSString增加一个类方法：计算某个字符串中阿拉伯数字的个数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+(int)numberCountOfString:(NSString *)str;</div><div class="line">&#123;</div><div class="line">	#定义变量计算数字的个数</div><div class="line">	int count=0;</div><div class="line"></div><div class="line">	for(int i=0;i&lt;str.length;i++)</div><div class="line">	&#123;</div><div class="line">		unichar c=[str characterAtIndex:i];</div><div class="line">		if(c&gt;=&apos;0&apos; &amp;&amp; c&lt;=&apos;9&apos;)</div><div class="line">		&#123;</div><div class="line">			count++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>给NSString增加一个对象方法：计算当前字符串中阿拉伯数字的个数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-(int)numberCount</div><div class="line">&#123;</div><div class="line">	int count=0;</div><div class="line">	for(int i&lt;0;i&lt;self.length;i++)</div><div class="line">	&#123;</div><div class="line">		unichar c=[self characterAtIndex:i];</div><div class="line">		if(c&gt;=&apos;0&apos;&amp;&amp;c&lt;=&apos;9&apos;)</div><div class="line">		&#123;</div><div class="line">			count++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int count=[@&quot;aries58&quot; numberCount];</div></pre></td></tr></table></figure>
-<p>封装的好处：<br>1.过滤不合理的值；<br>2.屏蔽内部的赋值过程<br>3.让外界不必关注内部的细节</p>
-<p>Set方法：<br>作用：提供一个方法给外界设置成员变量值，可以在方法里面对参数进行相应过滤。<br>命名规范：<br>1.方法名必须以set开头；<br>2.set后面跟上成员变量的名称，成员变量的首字母必须大写<br>3.返回值一定是void<br>4.一定要接受一个参数，而且参数类型跟成员变量类型一致<br>5.形参的名称不能跟成员变量名一样</p>
-<p>get方法<br>作用：返回对象内部的成员变量<br>命名规范：<br>1.肯定有返回值，返回值类型肯定与成员变量类型一致<br>2.方法名跟成员变量名一样<br>3.不需要接收任何参数</p>
-<p>成员变量的命名规范：一定要以下划线_开头<br>作用：<br>1.让成员变量和get方法的名称区分开<br>2.可以跟局部变量区分开，一看到下划线开头的变量，一般都是成员变量</p>
-<p>OC是在运行过程中才会检测对象有没有实现相应地方法<br>一旦运行过程中出错，就会出现闪退</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/" data-id="cjbi3seaj0009gs56yu828lel" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/">Comments</a>
     
 
         </footer>
@@ -1642,7 +1643,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">5</span></li></ul>
         </div>
     </div>
 

@@ -3,18 +3,14 @@
 <head>
     <meta charset="utf-8">
     
-    <title>KVO底层实现 | 上善若水,道法自然</title>
+    <title>Archive: 2014/12 | 上善若水,道法自然</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
-<meta property="og:type" content="article">
-<meta property="og:title" content="KVO底层实现">
-<meta property="og:url" content="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="上善若水,道法自然">
+<meta property="og:url" content="http://www.ariest.net/archives/2014/12/index.html">
 <meta property="og:site_name" content="上善若水,道法自然">
-<meta property="og:description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
-<meta property="og:updated_time" content="2017-08-30T12:08:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KVO底层实现">
-<meta name="twitter:description" content="KVO本质就是去判断是否调用了一个对象的set方法        KVO底层实现:        1.动态创建Dog的子类NSKVONotifying_Dog        2.修改当前对象的isa指针为NSKVONotifying_Dog        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法        4.重写NSKVONotifying_Dog的">
+<meta name="twitter:title" content="上善若水,道法自然">
     
 
     
@@ -209,179 +205,40 @@
 </aside>
 
             
-            <section id="main"><article id="post-2017-08-30-KVO底层实现" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main"><div class="timeline timeline-wrap">
+    
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fa fa-calendar"></i></span>
+                <h1 class="title">2014</h1>
+            </div>
         
-        
-            <header class="article-header">
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            KVO底层实现
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/">HTTP请求中GET和POST方法的本质区别</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/08/30/2017-08-30-KVO底层实现/">
-            <time datetime="2017-08-30T11:58:00.000Z" itemprop="datePublished">2017-08-30</time>
+        <a href="/2014/12/23/2014-10-23-HTTP请求中GET和POST方法的本质区别/">
+            <time datetime="2014-12-23T14:15:33.000Z" itemprop="datePublished">2014-12-23</time>
         </a>
     </div>
 
 
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p> KVO本质就是去判断是否调用了一个对象的set方法<br>        KVO底层实现:<br>        1.动态创建Dog的子类NSKVONotifying_Dog<br>        2.修改当前对象的isa指针为NSKVONotifying_Dog<br>        3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法<br>        4.重写NSKVONotifying_Dog的set方法:<br>            1&gt;[super set]<br>            2&gt;通知观察者属性改变</p>
-<p>自定义KVO方法:<br>ViewController:</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[dog <span class="symbol">aries_addObserver:</span><span class="keyword">self</span> <span class="symbol">forKeyPath:</span>@<span class="string">"age"</span> <span class="symbol">options:</span>NSKeyValueObservingOptionNew <span class="symbol">context:</span><span class="literal">nil</span>];</div></pre></td></tr></table></figure>
-<p>1.动态创建Dog的子类NSKVONotifying_Dog<br>2.修改当前对象的isa指针为NSKVONotifying_Dog<br>NSObject (KVO):</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-(void)<span class="symbol">aries_addObserver:</span>(NSObject *)observer <span class="symbol">forKeyPath:</span>(NSString *)keyPath <span class="symbol">options:</span>(NSKeyValueObservingOptions)options <span class="symbol">context:</span>(void *)context</div><div class="line">&#123;</div><div class="line">    object_setClass(<span class="keyword">self</span>, [NSKVONotifying_Dog <span class="class"><span class="keyword">class</span>]);</span></div><div class="line">    </div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, @<span class="string">"ariesObserve"</span>, observer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>3.调用对象的set方法，即调用NSKVONotifying_Dog的set方法<br>4.重写NSKVONotifying_Dog的set方法:<br>            1&gt;[super set]<br>            2&gt;通知观察者属性改变<br>NSKVONotifying_Dog(模拟系统动态创建的类):</p>
-<pre><code class="ruby">-(void)<span class="symbol">setAge:</span>(int)age
-{
-    [<span class="keyword">super</span> <span class="symbol">setAge:</span>age];
-
-    <span class="regexp">//</span>通知观察者
-  id ariesObserve= objc_getAssociatedObject(<span class="keyword">self</span>, @<span class="string">"ariesObserve"</span>);
-
-    [ariesObserve <span class="symbol">observeValueForKeyPath:</span>@<span class="string">"age"</span> <span class="symbol">ofObject:</span><span class="keyword">self</span> <span class="symbol">change:</span><span class="literal">nil</span> <span class="symbol">context:</span><span class="literal">nil</span>];
-
-}
-</code></pre>
-<p>记得调用age的set方法</p>
-<pre><code class="ruby">_dog.age++;
-</code></pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/" data-id="cjbjfgb8w001c1p56bfo3qenu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    通过ReactiveCocoa结合MVVM设计模式进行网络亲请求
-                
+                    
+                    
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-    
-    </section>
-
+</div>
 </section>
             
                 <aside id="sidebar">
@@ -540,13 +397,11 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/';
-        
-        this.page.identifier = '2017-08-30-KVO底层实现';
+        this.page.identifier = 'undefined';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'icarus' + '.disqus.com/embed.js';
+        s.src = '//' + 'icarus' + '.disqus.com/count.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
