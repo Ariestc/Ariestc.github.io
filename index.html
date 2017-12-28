@@ -76,7 +76,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -95,10 +95,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -129,7 +129,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -149,16 +149,16 @@
             <h2 id="name">Aries</h2>
             <h3 id="title">Moblie &amp; Web Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>ShangHai , China( email:wanglswift@gmail.com )</span>
-            <a id="follow" target="_blank" href="https://github.com/ariestc/">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://github.com/ariestc/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                50
-                <span>Entradas</span>
+                51
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>Etiqueta</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -206,7 +206,7 @@
 
             
             <section id="main">
-    <article id="post-2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2017-10-20-JavaScriptCore使用案例及Native与JavaScript交互之内部结构剖析" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -214,7 +214,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/">通过ReactiveCocoa结合MVVM设计模式进行网络亲请求</a>
+            <a class="article-title" href="/2017/10/20/2017-10-20-JavaScriptCore使用案例及Native与JavaScript交互之内部结构剖析/">JavaScriptCore使用案例及Native与JavaScript交互之内部结构剖析</a>
         </h1>
     
 
@@ -223,8 +223,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/">
-            <time datetime="2017-09-20T10:03:23.000Z" itemprop="datePublished">2017-09-20</time>
+        <a href="/2017/10/20/2017-10-20-JavaScriptCore使用案例及Native与JavaScript交互之内部结构剖析/">
+            <time datetime="2017-10-20T12:20:23.000Z" itemprop="datePublished">2017-10-20</time>
         </a>
     </div>
 
@@ -239,13 +239,26 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>ReactiveCocoa是由 Github 开源的一个应用于iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 Reactive Extensions 的设计和实现。</p>
-<p>视图模型(VM) RequestViewModel</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#import &lt;UIKit/UIKit.h&gt;</span></div><div class="line"><span class="comment">#import "ReactiveCocoa.h"</span></div><div class="line"></div><div class="line">@interface RequestViewModel : NSObject&lt;UITableViewDataSource&gt;</div><div class="line"></div><div class="line"><span class="comment">#请求命令</span></div><div class="line">@property(nonatomic,strong)  RACCommand *requestCommand;</div><div class="line"></div><div class="line"><span class="comment">#模型数组</span></div><div class="line">@property(nonatomic,strong) NSArray *modelArray;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<p>.m</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#import "AFNetworking.h"</span></div><div class="line"><span class="comment">#import "UIImageView+WebCache.h"</span></div><div class="line"><span class="comment">#import "MyModel.h"</span></div><div class="line"></div><div class="line">@implementation RequestViewModel</div><div class="line"></div><div class="line">-(instancetype)init</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>=[<span class="keyword">super</span> init]) &#123;</div><div class="line">        </div><div class="line">        [<span class="keyword">self</span> initialBind];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)initialBind</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span>.requestCommand=[[RACCommand alloc] <span class="symbol">initWithSignalBlock:</span>^RACSignal *(id input) &#123;</div><div class="line">        RACSignal *requestSignal=[RACSignal <span class="symbol">createSignal:</span>^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">            </div><div class="line">            NSMutableDictionary *params=[NSMutableDictionary dictionary];</div><div class="line">            params[@<span class="string">""</span>]=@<span class="string">""</span>;</div><div class="line">            </div><div class="line">            <span class="comment">#发送请求</span></div><div class="line">            [[AFHTTPSessionManager manager] <span class="symbol">GET:</span>@<span class="string">" "</span> <span class="symbol">parameters:</span>params <span class="symbol">progress:</span>^(NSProgress * _Nonnull downloadProgress) &#123;</div><div class="line">                </div><div class="line">            &#125; <span class="symbol">success:</span>^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) &#123;</div><div class="line">                </div><div class="line">                <span class="comment">#请求成功调用 把数据用信号传递出去</span></div><div class="line">                [subscriber <span class="symbol">sendNext:</span>responseObject];</div><div class="line">                </div><div class="line">                [subscriber sendCompleted];</div><div class="line">                </div><div class="line">            &#125; <span class="symbol">failure:</span>^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</div><div class="line">                </div><div class="line">                NSLog(@<span class="string">"error=%@"</span>,error);</div><div class="line">            &#125;];</div><div class="line">            </div><div class="line">            <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">        <span class="comment">#返回数据信号时 把数据中的字典映射成模型信号 传递出去</span></div><div class="line">        <span class="keyword">return</span> [requestSignal <span class="symbol">map:</span>^id(id value) &#123;</div><div class="line">            </div><div class="line">            NSMutableArray *dictArray=value[@<span class="string">"myModels"</span>];</div><div class="line">            </div><div class="line">            NSArray *modelArray=[[dictArray.rac_sequence <span class="symbol">map:</span>^id(id value) &#123;</div><div class="line">                </div><div class="line">                <span class="keyword">return</span> [myModel <span class="symbol">myModelWithDict:</span>value];</div><div class="line">                </div><div class="line">            &#125;] array];</div><div class="line">            </div><div class="line">            <span class="keyword">return</span> modelArray;</div><div class="line">        &#125;];</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#pragma mark -- UITableViewDataSources</span></div><div class="line">-(NSInteger)<span class="symbol">tableView:</span>(UITableView *)tableView <span class="symbol">numberOfRowsInSection:</span>(NSInteger)section</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.modelArray.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UITableViewCell *)<span class="symbol">tableView:</span>(UITableView *)tableView <span class="symbol">cellForRowAtIndexPath:</span>(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    static NSString *ID=@<span class="string">"cell"</span>;</div><div class="line">    </div><div class="line">    UITableViewCell *cell=[tableView <span class="symbol">dequeueReusableCellWithIdentifier:</span>ID];</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (cell==<span class="literal">nil</span>) &#123;</div><div class="line">        </div><div class="line">        cell=[[UITableViewCell alloc] <span class="symbol">initWithStyle:</span>UITableViewCellStyleSubtitle <span class="symbol">reuseIdentifier:</span>ID];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    MyModel *myModel=<span class="keyword">self</span>.modelArray[indexPath.row];</div><div class="line">    cell.textLabel.text=myModel.title;</div><div class="line">    cell.detailTextLabel.text=myModel.price;</div><div class="line">    [cell.imageView <span class="symbol">sd_setImageWithURL:</span>[NSURL <span class="symbol">URLWithString:</span>myModel.image] <span class="symbol">placeholderImage:</span>[UIImage <span class="symbol">imageNamed:</span>@<span class="string">"placeholder"</span>]];</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="keyword">return</span> cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>控制器</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#import "ReactiveCocoa.h"</span></div><div class="line"><span class="comment">#import "RequestViewModel.h"</span></div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line"></div><div class="line">@property(nonatomic,weak) UITableView *tableView;</div><div class="line"></div><div class="line">@property(nonatomic,strong) RequestViewModel *requestViewModel;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">-(RequestViewModel *)requestViewModel</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (_requestViewModel==<span class="literal">nil</span>) &#123;</div><div class="line">        </div><div class="line">        _requestViewModel=[[RequestViewModel alloc] init];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _requestViewModel;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    UITableView *tableView=[[UITableView alloc] <span class="symbol">initWithFrame:</span><span class="keyword">self</span>.view.bounds];</div><div class="line">    </div><div class="line">    tableView.dataSource=<span class="keyword">self</span>.requestViewModel;</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.view <span class="symbol">addSubview:</span>tableView];</div><div class="line">    <span class="keyword">self</span>.tableView=tableView;</div><div class="line">    </div><div class="line">    <span class="comment">#执行请求</span></div><div class="line">    RACSignal *requestSignal=[<span class="keyword">self</span>.requestViewModel.requestCommand <span class="symbol">execute:</span><span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="comment">#获取请求数据</span></div><div class="line">    [requestSignal <span class="symbol">subscribeNext:</span>^(NSArray *x) &#123;</div><div class="line">       </div><div class="line">        <span class="keyword">self</span>.requestViewModel.modelArray=x;</div><div class="line">        </div><div class="line">        [<span class="keyword">self</span>.tableView reloadData];</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+            <ol>
+<li><p>JSVirtualMachine<br>JavaScript代码是在创建JSVirtualMachine类的虚拟机下执行,不能在两个不同JSVirtualMachine类之间进行数据传输,每个JSVirtualMachine类实例有自己的堆和垃圾回收器.</p>
+</li>
+<li><p>JSContext<br>一个JSContext对象代表一个JavaScript代码执行环境,是一个全局对象,它在web开发中等同于一个window对象,同一个JSVirtualMachine类下不同的JSContext之间可以自由传值。</p>
+</li>
+<li><p>JSValue<br>是一个主要的数据类型,能够代表任何可能的JavaScript的值,一个JSValue的实例绑定到它所在的JSContext对象中。</p>
+</li>
+</ol>
+<p><img src="http://www.ariest.net/images/jscore01.png" alt="jscore01.png"></p>
+<ol>
+<li>JSExport<br>一种协议提供了声明式的方法去向JavaScript代码导出Objective-C的实例类及其实例方法,类方法和属性<br><img src="http://www.ariest.net/images/jscore02.gif" alt="jscore02.gif"></li>
+</ol>
+<p>第一步请求JavaScript网络数据解析并转换为Objective-C中对象模型数组:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">    //懒加载JSContext</div><div class="line">-(JSContext *)context&#123;</div><div class="line">    </div><div class="line">    if (_context == nil) &#123;</div><div class="line">        </div><div class="line">        _context = [[JSContext alloc] init];</div><div class="line">        </div><div class="line">      NSString *commonJSPath=[[NSBundle mainBundle] pathForResource:@&quot;common&quot; ofType:@&quot;js&quot;];</div><div class="line">      NSString *additionsJSPath=[[NSBundle mainBundle] pathForResource:@&quot;additions&quot; ofType:@&quot;js&quot;];</div><div class="line">    </div><div class="line">        </div><div class="line">      NSString *commomStr=[NSString stringWithContentsOfFile:commonJSPath encoding:NSUTF8StringEncoding error:nil];</div><div class="line">    </div><div class="line">      NSString *additionsStr=[NSString stringWithContentsOfFile:additionsJSPath encoding:NSUTF8StringEncoding error:nil];</div><div class="line">        </div><div class="line">        //将OC中的Movie类对象和JavaScript中的Movie对象桥接在一起</div><div class="line">        [_context setObject:[Movie self] forKeyedSubscript:@&quot;Movie&quot;];</div><div class="line">        </div><div class="line">        //执行js代码</div><div class="line">        [_context evaluateScript:commomStr];</div><div class="line">        [_context evaluateScript:additionsStr];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return _context;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)loadMoviesWith:(double)limit  moviesBlock:(void(^)(NSArray *movies))moviesBlock</div><div class="line">&#123;</div><div class="line">    AFHTTPSessionManager *mgr=[AFHTTPSessionManager manager];</div><div class="line">    </div><div class="line">    NSURLSessionDataTask *dataTask=[mgr GET:MovieURL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) &#123;</div><div class="line">      </div><div class="line">     NSString *jsonString=[self switchObjectToJSON:responseObject];</div><div class="line">      </div><div class="line">      //解析JSON数据并传出Movie模型数组</div><div class="line">      moviesBlock([self parseResponseObject:jsonString limit:limit]);</div><div class="line"></div><div class="line">    &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</div><div class="line">        </div><div class="line">        NSLog(@&quot;MovieViewData Load Error %@&quot;,error);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [dataTask resume];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">//解析JSON数据</div><div class="line">-(NSArray *)parseResponseObject:(NSString *)response limit:(double)limit&#123;</div><div class="line">    </div><div class="line">    //1</div><div class="line">   JSValue *parseFunction=[self.context objectForKeyedSubscript:@&quot;parseJson&quot;];</div><div class="line">   NSArray *parsed=[[parseFunction callWithArguments:@[response]] toArray];</div><div class="line">    </div><div class="line">    //2</div><div class="line">   JSValue *filterFunction=[self.context objectForKeyedSubscript:@&quot;filterByLimit&quot;];</div><div class="line">   NSArray *filtered=[filterFunction callWithArguments:@[parsed,@(limit)]].toArray;</div><div class="line">    </div><div class="line">    //3</div><div class="line">    return [self switchDictionaryArrayToModelArrayWith:filtered];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>第二步自定义cell中数据设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">    -(void)setMovie:(Movie *)movie</div><div class="line">&#123;</div><div class="line">    _movie=movie;</div><div class="line">    </div><div class="line">    _nameLabel.text=movie.title;</div><div class="line">    _priceLabel.text=movie.price;</div><div class="line">    </div><div class="line">    [_imageView sd_setImageWithURL:[NSURL URLWithString:movie.imageUrl]];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>第三部在控制器调用并加载数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">-(NSArray *)movies</div><div class="line">&#123;</div><div class="line">    if (_movies == nil) &#123;</div><div class="line">        </div><div class="line">        _movies=[[NSArray alloc] init];</div><div class="line">    &#125;</div><div class="line">    return _movies;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark -- UITextFieldDelegate</div><div class="line"></div><div class="line">-(BOOL)textFieldShouldReturn:(UITextField *)textField</div><div class="line">&#123;</div><div class="line">    //调用此方法 触发textFieldDidEndEditing:方法调用</div><div class="line">    [textField resignFirstResponder];</div><div class="line">    </div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)textFieldDidEndEditing:(UITextField *)textField</div><div class="line">&#123;</div><div class="line">    double number=[textField.text doubleValue];</div><div class="line">    </div><div class="line">    MovieViewData *mvData= [[MovieViewData alloc] init];</div><div class="line"></div><div class="line">    [mvData loadMoviesWith:number moviesBlock:^(NSArray *movies) &#123;</div><div class="line"></div><div class="line">        self.movies=movies;</div><div class="line"></div><div class="line">        [self.collectionView reloadData];</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">#pragma mark -- UICollectionViewDataSource</div><div class="line"></div><div class="line">-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section</div><div class="line">&#123;</div><div class="line">    return self.movies.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    </div><div class="line">   MovieViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:MovieViewCellID forIndexPath:indexPath];</div><div class="line">    </div><div class="line">    cell.movie=self.movies[indexPath.row];</div><div class="line">    </div><div class="line">    return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原生应用与JavaScript交互之内部结构剖析:</p>
+<p><img src="http://www.ariest.net/images/jscore03.png" alt="jscore03.png"></p>
 
         
         </div>
@@ -256,7 +269,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/" data-id="cjbkts4l7001dcs56jixlwrgs" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/10/20/2017-10-20-JavaScriptCore使用案例及Native与JavaScript交互之内部结构剖析/" data-id="cjbqht8ao001e3h563cwc7ks2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -324,7 +337,135 @@
 
             
     
-        <a href="http://www.ariest.net/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/10/20/2017-10-20-JavaScriptCore使用案例及Native与JavaScript交互之内部结构剖析/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/10/20/2017-10-20-JavaScriptCore使用案例及Native与JavaScript交互之内部结构剖析/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/">通过ReactiveCocoa结合MVVM设计模式进行网络亲请求</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/">
+            <time datetime="2017-09-20T10:03:23.000Z" itemprop="datePublished">2017-09-20</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>ReactiveCocoa是由 Github 开源的一个应用于iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 Reactive Extensions 的设计和实现。</p>
+<p>视图模型(VM) RequestViewModel</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#import &lt;UIKit/UIKit.h&gt;</span></div><div class="line"><span class="comment">#import "ReactiveCocoa.h"</span></div><div class="line"></div><div class="line">@interface RequestViewModel : NSObject&lt;UITableViewDataSource&gt;</div><div class="line"></div><div class="line"><span class="comment">#请求命令</span></div><div class="line">@property(nonatomic,strong)  RACCommand *requestCommand;</div><div class="line"></div><div class="line"><span class="comment">#模型数组</span></div><div class="line">@property(nonatomic,strong) NSArray *modelArray;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>.m</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#import "AFNetworking.h"</span></div><div class="line"><span class="comment">#import "UIImageView+WebCache.h"</span></div><div class="line"><span class="comment">#import "MyModel.h"</span></div><div class="line"></div><div class="line">@implementation RequestViewModel</div><div class="line"></div><div class="line">-(instancetype)init</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>=[<span class="keyword">super</span> init]) &#123;</div><div class="line">        </div><div class="line">        [<span class="keyword">self</span> initialBind];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)initialBind</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span>.requestCommand=[[RACCommand alloc] <span class="symbol">initWithSignalBlock:</span>^RACSignal *(id input) &#123;</div><div class="line">        RACSignal *requestSignal=[RACSignal <span class="symbol">createSignal:</span>^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">            </div><div class="line">            NSMutableDictionary *params=[NSMutableDictionary dictionary];</div><div class="line">            params[@<span class="string">""</span>]=@<span class="string">""</span>;</div><div class="line">            </div><div class="line">            <span class="comment">#发送请求</span></div><div class="line">            [[AFHTTPSessionManager manager] <span class="symbol">GET:</span>@<span class="string">" "</span> <span class="symbol">parameters:</span>params <span class="symbol">progress:</span>^(NSProgress * _Nonnull downloadProgress) &#123;</div><div class="line">                </div><div class="line">            &#125; <span class="symbol">success:</span>^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) &#123;</div><div class="line">                </div><div class="line">                <span class="comment">#请求成功调用 把数据用信号传递出去</span></div><div class="line">                [subscriber <span class="symbol">sendNext:</span>responseObject];</div><div class="line">                </div><div class="line">                [subscriber sendCompleted];</div><div class="line">                </div><div class="line">            &#125; <span class="symbol">failure:</span>^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</div><div class="line">                </div><div class="line">                NSLog(@<span class="string">"error=%@"</span>,error);</div><div class="line">            &#125;];</div><div class="line">            </div><div class="line">            <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">        <span class="comment">#返回数据信号时 把数据中的字典映射成模型信号 传递出去</span></div><div class="line">        <span class="keyword">return</span> [requestSignal <span class="symbol">map:</span>^id(id value) &#123;</div><div class="line">            </div><div class="line">            NSMutableArray *dictArray=value[@<span class="string">"myModels"</span>];</div><div class="line">            </div><div class="line">            NSArray *modelArray=[[dictArray.rac_sequence <span class="symbol">map:</span>^id(id value) &#123;</div><div class="line">                </div><div class="line">                <span class="keyword">return</span> [myModel <span class="symbol">myModelWithDict:</span>value];</div><div class="line">                </div><div class="line">            &#125;] array];</div><div class="line">            </div><div class="line">            <span class="keyword">return</span> modelArray;</div><div class="line">        &#125;];</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#pragma mark -- UITableViewDataSources</span></div><div class="line">-(NSInteger)<span class="symbol">tableView:</span>(UITableView *)tableView <span class="symbol">numberOfRowsInSection:</span>(NSInteger)section</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.modelArray.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UITableViewCell *)<span class="symbol">tableView:</span>(UITableView *)tableView <span class="symbol">cellForRowAtIndexPath:</span>(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    static NSString *ID=@<span class="string">"cell"</span>;</div><div class="line">    </div><div class="line">    UITableViewCell *cell=[tableView <span class="symbol">dequeueReusableCellWithIdentifier:</span>ID];</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (cell==<span class="literal">nil</span>) &#123;</div><div class="line">        </div><div class="line">        cell=[[UITableViewCell alloc] <span class="symbol">initWithStyle:</span>UITableViewCellStyleSubtitle <span class="symbol">reuseIdentifier:</span>ID];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    MyModel *myModel=<span class="keyword">self</span>.modelArray[indexPath.row];</div><div class="line">    cell.textLabel.text=myModel.title;</div><div class="line">    cell.detailTextLabel.text=myModel.price;</div><div class="line">    [cell.imageView <span class="symbol">sd_setImageWithURL:</span>[NSURL <span class="symbol">URLWithString:</span>myModel.image] <span class="symbol">placeholderImage:</span>[UIImage <span class="symbol">imageNamed:</span>@<span class="string">"placeholder"</span>]];</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="keyword">return</span> cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>控制器</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#import "ReactiveCocoa.h"</span></div><div class="line"><span class="comment">#import "RequestViewModel.h"</span></div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line"></div><div class="line">@property(nonatomic,weak) UITableView *tableView;</div><div class="line"></div><div class="line">@property(nonatomic,strong) RequestViewModel *requestViewModel;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">-(RequestViewModel *)requestViewModel</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (_requestViewModel==<span class="literal">nil</span>) &#123;</div><div class="line">        </div><div class="line">        _requestViewModel=[[RequestViewModel alloc] init];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _requestViewModel;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    UITableView *tableView=[[UITableView alloc] <span class="symbol">initWithFrame:</span><span class="keyword">self</span>.view.bounds];</div><div class="line">    </div><div class="line">    tableView.dataSource=<span class="keyword">self</span>.requestViewModel;</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.view <span class="symbol">addSubview:</span>tableView];</div><div class="line">    <span class="keyword">self</span>.tableView=tableView;</div><div class="line">    </div><div class="line">    <span class="comment">#执行请求</span></div><div class="line">    RACSignal *requestSignal=[<span class="keyword">self</span>.requestViewModel.requestCommand <span class="symbol">execute:</span><span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="comment">#获取请求数据</span></div><div class="line">    [requestSignal <span class="symbol">subscribeNext:</span>^(NSArray *x) &#123;</div><div class="line">       </div><div class="line">        <span class="keyword">self</span>.requestViewModel.modelArray=x;</div><div class="line">        </div><div class="line">        [<span class="keyword">self</span>.tableView reloadData];</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/" data-id="cjbqht8an001b3h56li28ua36" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/09/20/2017-09-20-通过ReactiveCocoa结合MVVM设计模式进行网络亲请求/">Comments</a>
     
 
         </footer>
@@ -397,7 +538,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/" data-id="cjbkts4l6001ccs56ebes24u2" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/" data-id="cjbqht8ao001d3h56jmc9c0li" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -465,7 +606,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/08/30/2017-08-30-KVO底层实现/">Comments</a>
     
 
         </footer>
@@ -528,7 +669,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/" data-id="cjbkts4l6001bcs569ee99bfo" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/" data-id="cjbqht8am001a3h56q3djtds7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -596,7 +737,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/06/15/2017-06-15-使用PHP后端语言进行文件上传，拷贝文件的方法move_uploaded_file无权限问题解决方案/">Comments</a>
     
 
         </footer>
@@ -656,7 +797,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" data-id="cjbkts4l5001acs56ttngd648" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/" data-id="cjbqht8an001c3h56ot431pez" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -724,7 +865,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/06/10/2017-06-10-Mac下安装PHP环境配置php+mysql+Apache+phpmyadmin及工具PhpStrom环境配置/">Comments</a>
     
 
         </footer>
@@ -806,7 +947,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" data-id="cjbkts4l50019cs56z5j2uisr" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" data-id="cjbqht8am00193h56703o7jrp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -874,7 +1015,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/">Comments</a>
     
 
         </footer>
@@ -932,7 +1073,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/" data-id="cjbkts4l40018cs56x8ql9tpe" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/" data-id="cjbqht8al00173h5610n9zz5v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1000,7 +1141,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/05/18/2017-05-18-iOS10之后，需要在plist文件中添加的权限Allow Arbitrary Loads/">Comments</a>
     
 
         </footer>
@@ -1058,7 +1199,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/05/13/2017-05-13-利用Runtime实现自动化归档的副本/" data-id="cjbkts4l40017cs56eyh1bmn1" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/05/13/2017-05-13-利用Runtime实现自动化归档的副本/" data-id="cjbqht8ak00163h56tvmox8b3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1126,7 +1267,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/05/13/2017-05-13-利用Runtime实现自动化归档的副本/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/05/13/2017-05-13-利用Runtime实现自动化归档的副本/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/05/13/2017-05-13-利用Runtime实现自动化归档的副本/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/05/13/2017-05-13-利用Runtime实现自动化归档的副本/">Comments</a>
     
 
         </footer>
@@ -1183,7 +1324,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/" data-id="cjbkts4l30016cs56m2ifuv5b" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/" data-id="cjbqht8aj00143h560h3yk0h2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1251,7 +1392,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/04/23/2017-04-23-Run Loop/">Comments</a>
     
 
         </footer>
@@ -1306,7 +1447,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2017/03/20/2017-03-20-iOS9新特性之UIStackView/" data-id="cjbkts4l30015cs56xv9nq5qo" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://www.ariest.net/2017/03/20/2017-03-20-iOS9新特性之UIStackView/" data-id="cjbqht8am00183h56n3keac5k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1374,130 +1515,7 @@
 
             
     
-        <a href="http://www.ariest.net/2017/03/20/2017-03-20-iOS9新特性之UIStackView/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/03/20/2017-03-20-iOS9新特性之UIStackView/">Comentarios</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-2016-12-16-iOS动画之CABasicAnimation" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/12/16/2016-12-16-iOS动画之CABasicAnimation/">iOS动画之CABasicAnimation</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/12/16/2016-12-16-iOS动画之CABasicAnimation/">
-            <time datetime="2016-12-16T13:18:23.000Z" itemprop="datePublished">2016-12-16</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>iOS动画有隐式和显示之分。隐式动画指的是，无须创建动画对象，只需改变动画层的属性，让核心动画自己去完成动画效果, 例如(CATransaction)。显示动画指的是，需要自己创建和管理动画对象，并且将它们应用到动画层，才能显示动画效果。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> setupMyView];</div><div class="line">    </div><div class="line"><span class="comment">#    [self test01];</span></div><div class="line"><span class="comment">#    [self test02];</span></div><div class="line"><span class="comment">#    [self test03];</span></div><div class="line"><span class="comment">#    [self test04];</span></div><div class="line">    [<span class="keyword">self</span> test05];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> setupShadow];</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)setupShadow</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span>.orangeView.layer.shadowColor=[UIColor <span class="symbol">colorWithRed:</span><span class="number">0</span> <span class="symbol">green:</span><span class="number">1</span> <span class="symbol">blue:</span><span class="number">1</span> <span class="symbol">alpha:</span><span class="number">1</span>].CGColor;</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.orangeView.layer.shadowOffset=CGSizeMake(<span class="number">10</span>, <span class="number">10</span>);</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.orangeView.layer.shadowOpacity=<span class="number">0</span>.<span class="number">5</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)setupMyView</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span>.myView=[[UIView alloc] init];</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.myView.layer.position=CGPointMake(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">    <span class="keyword">self</span>.myView.layer.bounds=CGRectMake(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line">    <span class="keyword">self</span>.myView.backgroundColor=[UIColor orangeColor];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.view <span class="symbol">addSubview:</span><span class="keyword">self</span>.myView];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#旋转动画</span></div><div class="line">-(void)test05</div><div class="line">&#123;</div><div class="line">    <span class="comment">#写法一</span></div><div class="line">    CABasicAnimation *animate=[CABasicAnimation <span class="symbol">animationWithKeyPath:</span>@<span class="string">"transform"</span>];</div><div class="line">    </div><div class="line">    animate.duration=<span class="number">3.0</span>;</div><div class="line">    animate.removedOnCompletion=NO;</div><div class="line">    animate.fillMode=kCAFillModeForwards;</div><div class="line">    <span class="comment">#旋转180°</span></div><div class="line">    animate.toValue=[NSValue <span class="symbol">valueWithCATransform3D:</span>CATransform3DMakeRotation(M_PI, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>)];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.myView.layer <span class="symbol">addAnimation:</span>animate <span class="symbol">forKey:</span><span class="literal">nil</span>];</div><div class="line">    </div><div class="line">	<span class="comment">#NSValue *value=[NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI_2, 1, 0, 1)];</span></div><div class="line"> </div><div class="line">	<span class="comment">#[self.myView.layer setValue:value forKeyPath:@"transform"];</span></div><div class="line">    </div><div class="line">	<span class="comment">#[self.myView.layer setValue:@(0.3) forKeyPath:@"transform.scale.y"];</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#缩放动画 方法二</span></div><div class="line">-(void)test04</div><div class="line">&#123;</div><div class="line">    CABasicAnimation *animate=[CABasicAnimation <span class="symbol">animationWithKeyPath:</span>@<span class="string">"transform"</span>];</div><div class="line">    </div><div class="line">    animate.duration=<span class="number">3.0</span>;</div><div class="line">    </div><div class="line">    animate.fromValue=[NSValue <span class="symbol">valueWithCATransform3D:</span>CATransform3DMakeScale(<span class="number">0</span>.<span class="number">1</span>, <span class="number">0</span>.<span class="number">1</span>, <span class="number">1</span>)];</div><div class="line">    animate.toValue=[NSValue <span class="symbol">valueWithCATransform3D:</span>CATransform3DMakeScale(<span class="number">2.0</span>, <span class="number">2.0</span>, <span class="number">1</span>)];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.myView.layer <span class="symbol">addAnimation:</span>animate <span class="symbol">forKey:</span><span class="literal">nil</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#缩放动画 方法一</span></div><div class="line">-(void)test03</div><div class="line">&#123;</div><div class="line">    CABasicAnimation *animate=[CABasicAnimation <span class="symbol">animationWithKeyPath:</span>@<span class="string">"bounds"</span>];</div><div class="line">    </div><div class="line">    animate.duration=<span class="number">3.0</span>;</div><div class="line">    </div><div class="line">    animate.toValue=[NSValue <span class="symbol">valueWithCGRect:</span>CGRectMake(<span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>, <span class="number">30</span>)];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.myView.layer <span class="symbol">addAnimation:</span>animate <span class="symbol">forKey:</span><span class="literal">nil</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#平移动画 方法二</span></div><div class="line">-(void)test02</div><div class="line">&#123;</div><div class="line">    CABasicAnimation *animate=[CABasicAnimation <span class="symbol">animationWithKeyPath:</span>@<span class="string">"transform"</span>];</div><div class="line">    </div><div class="line">    animate.duration=<span class="number">3.0</span>;</div><div class="line">    </div><div class="line">    CATransform3D form=CATransform3DMakeTranslation(<span class="number">200</span>, <span class="number">200</span>, <span class="number">0</span>);</div><div class="line">    animate.toValue=[NSValue <span class="symbol">valueWithCATransform3D:</span>form];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.myView.layer <span class="symbol">addAnimation:</span>animate <span class="symbol">forKey:</span>@<span class="string">"123"</span>];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#平移动画 方法一</span></div><div class="line">-(void)test01</div><div class="line">&#123;</div><div class="line">    CABasicAnimation *animate=[CABasicAnimation <span class="symbol">animationWithKeyPath:</span>@<span class="string">"position"</span>];</div><div class="line">    </div><div class="line">    animate.duration=<span class="number">3.0</span>;</div><div class="line">    </div><div class="line">    animate.fromValue=[NSValue <span class="symbol">valueWithCGPoint:</span>CGPointMake(<span class="number">50</span>, <span class="number">50</span>)];</div><div class="line">    animate.toValue=[NSValue <span class="symbol">valueWithCGPoint:</span>CGPointMake(<span class="number">200</span>, <span class="number">200</span>)];</div><div class="line">    </div><div class="line">    animate.delegate=<span class="keyword">self</span>;</div><div class="line">    </div><div class="line">    <span class="comment">#保持动画执行后的状态</span></div><div class="line">	<span class="comment">#animate.removedOnCompletion=NO;</span></div><div class="line">	<span class="comment">#animate.fillMode=kCAFillModeForwards;</span></div><div class="line">    </div><div class="line">    <span class="comment">#添加动画对象到图层 @"translate"是给动画对象起个名称</span></div><div class="line">    [<span class="keyword">self</span>.myView.layer <span class="symbol">addAnimation:</span>animate <span class="symbol">forKey:</span>@<span class="string">"translate"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#pragma mark -- 动画代理</span></div><div class="line">-(void)<span class="symbol">animationDidStart:</span>(CAAnimation *)anim</div><div class="line">&#123;</div><div class="line">    NSString *str=NSStringFromCGPoint(<span class="keyword">self</span>.myView.layer.position);</div><div class="line">    NSLog(@<span class="string">"动画开始了---position:%@"</span>,str);</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)<span class="symbol">animationDidStop:</span>(CAAnimation *)anim <span class="symbol">finished:</span>(BOOL)flag</div><div class="line">&#123;</div><div class="line">    NSString *str=NSStringFromCGPoint(<span class="keyword">self</span>.myView.layer.position);</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"动画结束了---position:%@"</span>,str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2016/12/16/2016-12-16-iOS动画之CABasicAnimation/" data-id="cjbkts4l10012cs56qdpsyyxx" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2016/12/16/2016-12-16-iOS动画之CABasicAnimation/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2016/12/16/2016-12-16-iOS动画之CABasicAnimation/">Comentarios</a>
+        <a href="http://www.ariest.net/2017/03/20/2017-03-20-iOS9新特性之UIStackView/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2017/03/20/2017-03-20-iOS9新特性之UIStackView/">Comments</a>
     
 
         </footer>
@@ -1508,7 +1526,7 @@
 
 
     <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Siguiente  &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -1516,9 +1534,28 @@
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Recientes</h3>
+        <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/20/2017-10-20-JavaScriptCore使用案例及Native与JavaScript交互之内部结构剖析/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/10/20/2017-10-20-JavaScriptCore使用案例及Native与JavaScript交互之内部结构剖析/" class="title">JavaScriptCore使用案例及Native与JavaScript交互之内部结构剖析</a></p>
+                            <p class="item-date"><time datetime="2017-10-20T12:20:23.000Z" itemprop="datePublished">2017-10-20</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1596,25 +1633,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/06/03/2017-06-03-Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置/" class="title">Mac下用Homebrew进行Php、Mysql、Nginx环境安装及配置</a></p>
-                            <p class="item-date"><time datetime="2017-06-03T12:05:00.000Z" itemprop="datePublished">2017-06-03</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1624,9 +1642,9 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Archivos</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -1637,7 +1655,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">Links</h3>
+        <h3 class="widget-title">links</h3>
         <div class="widget">
             <ul>
                 
