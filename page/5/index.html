@@ -34,6 +34,17 @@
         <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
     
     
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-111690461-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
     
     
 
@@ -252,7 +263,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/" data-id="cjbqht89z00093h56xcjj2mac" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/05/10/2014-05-10-NSArray、NSDictionary以及NSSet的区别/" data-id="cjbvxceox00099456171aiop4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -330,135 +341,6 @@
 
 
 
-    <article id="post-2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">
-            <time datetime="2014-05-03T13:08:23.000Z" itemprop="datePublished">2014-05-03</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>在非ARC的环境下,initWithFormat是实例化方法,通过[[NSString alloc] initWithFormat:@””]调用,但是必须通过手动添加release来释放内存;</p>
-<p>而stringWithFormat是类方法,通过[NSString stringWithFormat:@””]调用,不用手动添加release,内存管理是autorelease.</p>
-<p>在ARC的环境下,两者相同。</p>
-<p>以下是在非ARC情况下的例子:</p>
-<p><img src="http://aries58.com/images/001.png" alt="001 icon"></p>
-<p>是通过initWithFormat初始化NSString, 返回的是alloc申请内存的NSString实例,需手动release。</p>
-<p><img src="http://aries58.com/images/002.png" alt="002 icon"></p>
-<p>stringWithFormat是返回autorelease的NSString实例,不用手动release,在自动释放池中自动释放。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjbqht8a0000a3h56kxb9npcs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-2014-05-20-Category及封装的好处" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -514,7 +396,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/" data-id="cjbqht89x00073h5613ln1p4b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/05/03/2014-05-20-Category及封装的好处/" data-id="cjbvxceox000a9456225auib6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -592,6 +474,135 @@
 
 
 
+    <article id="post-2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">
+            <time datetime="2014-05-03T13:08:23.000Z" itemprop="datePublished">2014-05-03</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>在非ARC的环境下,initWithFormat是实例化方法,通过[[NSString alloc] initWithFormat:@””]调用,但是必须通过手动添加release来释放内存;</p>
+<p>而stringWithFormat是类方法,通过[NSString stringWithFormat:@””]调用,不用手动添加release,内存管理是autorelease.</p>
+<p>在ARC的环境下,两者相同。</p>
+<p>以下是在非ARC情况下的例子:</p>
+<p><img src="http://aries58.com/images/001.png" alt="001 icon"></p>
+<p>是通过initWithFormat初始化NSString, 返回的是alloc申请内存的NSString实例,需手动release。</p>
+<p><img src="http://aries58.com/images/002.png" alt="002 icon"></p>
+<p>stringWithFormat是返回autorelease的NSString实例,不用手动release,在自动释放池中自动释放。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/" data-id="cjbvxceow00089456r9t6oxji" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/05/03/2014-05-03-Objective-C中NSString初始化方法initWithFormat与StringWithFormat之区别/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2014-04-28-利用JavaScript实现快速排序算法及步骤详解" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -659,7 +670,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/" data-id="cjbqht89y00083h56esuuc2wm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/" data-id="cjbvxceov00079456cv4ncwd1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -728,6 +739,131 @@
             
     
         <a href="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/28/2014-04-28-利用JavaScript实现快速排序算法及步骤详解/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2014-04-25-使用C语言实现快速排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/04/25/2014-04-25-使用C语言实现快速排序算法/">使用C语言实现快速排序算法</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/04/25/2014-04-25-使用C语言实现快速排序算法/">
+            <time datetime="2014-04-25T11:06:23.000Z" itemprop="datePublished">2014-04-25</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>快速排序基本思想:<br>使用分治法策略来把一个序列分为两个子序列</p>
+<p>步骤为：<br>1.从数列中挑出一个元素,称为”基准”(pivot),一般选用最右边元素为基准元素.<br>2.重新排序数列,所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区(partition)操作。<br>3.递归地把小于基准值元素的子数列和大于基准值元素的子数列排序。<br>4.递归到最底部时,数列的大小是零或一,也就是已经排序好了。这个算法一定会结束,因为在每次的迭代中，它至少会把一个元素摆到它最后的位置去。</p>
+<p>在平均状况下，排序n个项目要O(nlogn)次比较。在最坏状况下则需要O(n^2)次比较,但这种状况并不常见</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">//交换元素位置</div><div class="line">void swarrp(int *arr,int n,int k)</div><div class="line">&#123;</div><div class="line">    int temp=arr[n];</div><div class="line">    arr[n]=arr[k];</div><div class="line">    arr[k]=temp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//数组分区,左小右大</div><div class="line">int parrrtition(int *arr,int left,int right)</div><div class="line">&#123;</div><div class="line">    int storeIndex=left;</div><div class="line">    int pivot=arr[right];//选最右边的元素为基准元素</div><div class="line"></div><div class="line">    for (int i=left; i &lt; right; i++)</div><div class="line">    &#123;</div><div class="line">        if (arr[i] &lt; pivot)</div><div class="line">        &#123;</div><div class="line">            swarrp(arr,storeIndex,i);</div><div class="line">            </div><div class="line">            storeIndex++;//交换位置后，storeIndex自增1,代表下一个可能要交换的位置</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    swarrp(arr,storeIndex,right);//最后将基准元素放到正确位置</div><div class="line">    return storeIndex;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void quick_sort(int *arr,int left, int right)</div><div class="line">&#123;</div><div class="line">    if (left &gt; right)</div><div class="line">    &#123;</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    int storeIndex=parrrtition(arr,left,right);</div><div class="line"></div><div class="line">    //基准左边</div><div class="line">    quick_sort(arr,left,storeIndex-1);</div><div class="line">    //基准右边</div><div class="line">    quick_sort(arr,storeIndex+1,right);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, char const *argv[])</div><div class="line">&#123;</div><div class="line">    int a[]=&#123;6,3,8,1,12,5&#125;;</div><div class="line"></div><div class="line">    int length=sizeof(a)/sizeof(int);</div><div class="line"></div><div class="line">    quick_sort(a,0,length-1);</div><div class="line"></div><div class="line">    </div><div class="line">    for (int i = 0; i &lt;length; i++)</div><div class="line">    &#123;</div><div class="line">        printf(&quot;%d &quot;,a[i]);</div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-使用C语言实现快速排序算法/" data-id="cjbvxceou00069456ouowlcuo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ariest.net/2014/04/25/2014-04-25-使用C语言实现快速排序算法/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-25-使用C语言实现快速排序算法/">Comments</a>
     
 
         </footer>
@@ -807,7 +943,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/" data-id="cjbqht89v00043h56dbk3fuqh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/04/25/2014-04-03-多态与继承那些事儿/" data-id="cjbvxceot0005945630ehjcom" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -885,131 +1021,6 @@
 
 
 
-    <article id="post-2014-04-25-使用C语言实现快速排序算法" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/04/25/2014-04-25-使用C语言实现快速排序算法/">使用C语言实现快速排序算法</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/04/25/2014-04-25-使用C语言实现快速排序算法/">
-            <time datetime="2014-04-25T11:06:23.000Z" itemprop="datePublished">2014-04-25</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>快速排序基本思想:<br>使用分治法策略来把一个序列分为两个子序列</p>
-<p>步骤为：<br>1.从数列中挑出一个元素,称为”基准”(pivot),一般选用最右边元素为基准元素.<br>2.重新排序数列,所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区(partition)操作。<br>3.递归地把小于基准值元素的子数列和大于基准值元素的子数列排序。<br>4.递归到最底部时,数列的大小是零或一,也就是已经排序好了。这个算法一定会结束,因为在每次的迭代中，它至少会把一个元素摆到它最后的位置去。</p>
-<p>在平均状况下，排序n个项目要O(nlogn)次比较。在最坏状况下则需要O(n^2)次比较,但这种状况并不常见</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">//交换元素位置</div><div class="line">void swarrp(int *arr,int n,int k)</div><div class="line">&#123;</div><div class="line">    int temp=arr[n];</div><div class="line">    arr[n]=arr[k];</div><div class="line">    arr[k]=temp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//数组分区,左小右大</div><div class="line">int parrrtition(int *arr,int left,int right)</div><div class="line">&#123;</div><div class="line">    int storeIndex=left;</div><div class="line">    int pivot=arr[right];//选最右边的元素为基准元素</div><div class="line"></div><div class="line">    for (int i=left; i &lt; right; i++)</div><div class="line">    &#123;</div><div class="line">        if (arr[i] &lt; pivot)</div><div class="line">        &#123;</div><div class="line">            swarrp(arr,storeIndex,i);</div><div class="line">            </div><div class="line">            storeIndex++;//交换位置后，storeIndex自增1,代表下一个可能要交换的位置</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    swarrp(arr,storeIndex,right);//最后将基准元素放到正确位置</div><div class="line">    return storeIndex;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void quick_sort(int *arr,int left, int right)</div><div class="line">&#123;</div><div class="line">    if (left &gt; right)</div><div class="line">    &#123;</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    int storeIndex=parrrtition(arr,left,right);</div><div class="line"></div><div class="line">    //基准左边</div><div class="line">    quick_sort(arr,left,storeIndex-1);</div><div class="line">    //基准右边</div><div class="line">    quick_sort(arr,storeIndex+1,right);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, char const *argv[])</div><div class="line">&#123;</div><div class="line">    int a[]=&#123;6,3,8,1,12,5&#125;;</div><div class="line"></div><div class="line">    int length=sizeof(a)/sizeof(int);</div><div class="line"></div><div class="line">    quick_sort(a,0,length-1);</div><div class="line"></div><div class="line">    </div><div class="line">    for (int i = 0; i &lt;length; i++)</div><div class="line">    &#123;</div><div class="line">        printf(&quot;%d &quot;,a[i]);</div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.ariest.net/2014/04/25/2014-04-25-使用C语言实现快速排序算法/" data-id="cjbqht89u00033h56kks14vev" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.ariest.net/2014/04/25/2014-04-25-使用C语言实现快速排序算法/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.ariest.net/2014/04/25/2014-04-25-使用C语言实现快速排序算法/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-2014-03-20-递归算法应用" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1059,7 +1070,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/" data-id="cjbqht89w00053h56fokzzava" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/20/2014-03-20-递归算法应用/" data-id="cjbvxceos00049456woyn38t0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1199,7 +1210,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/" data-id="cjbqht89x00063h56sxie188y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/10/2014-03-10-使用C语言实现插入排序算法及步骤详解/" data-id="cjbvxceor00039456yf2w2n20" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1335,7 +1346,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法及步骤详解/" data-id="cjbqht89p00003h56x9dw203m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/08/2014-03-08-使用C语言实现冒泡排序算法及步骤详解/" data-id="cjbvxceom000194561wnq1j6y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1460,7 +1471,7 @@
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/03/06/2014-03-06-使用JavaScript语言实现冒泡排序算法/" data-id="cjbqht89u00023h56tc4i49q8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/03/06/2014-03-06-使用JavaScript语言实现冒泡排序算法/" data-id="cjbvxceoo00029456vlgpeji6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1673,7 +1684,7 @@
             <ul>
                 
                     <li>
-                        <a href="http://hexo.io">Hexo</a>
+                        <a href="http://www.ariest.net">Hexo</a>
                     </li>
                 
             </ul>
@@ -1689,7 +1700,7 @@
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 Aries<br>
+            &copy; 2018 Aries<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>
