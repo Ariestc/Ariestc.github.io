@@ -17,7 +17,7 @@
 
 点击Main Controls 后先进行stop操作，后面安装完后进行start操作即可
 点击Install new OS 选择centos-6-x86_64-b">
-<meta property="og:updated_time" content="2017-11-20T13:06:48.000Z">
+<meta property="og:updated_time" content="2018-03-23T14:19:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2014-11-08-搬瓦工VPS配置">
 <meta name="twitter:description" content="1.打开官网https://www.bwh1.net 选择要进行购买的套餐并支付。2.网页拽到最底端点击My Services选项会看到购买到的IP及激活状态(active)3.点击该栏右边KiwiVM Control Panel选项
@@ -267,6 +267,16 @@ ga('send', 'pageview');
 <li>点击Main Controls 后先进行stop操作，后面安装完后进行start操作即可</li>
 <li>点击Install new OS 选择centos-6-x86_64-bbr进行安装<br>6.选择Shadowsocks Server进行安装，安装后会产生encryption port password<br>7.选择ShadowsocksX客户端将以下信息进行配置<br>Shadowsocks server encryption<br>Shadowsocks server port<br>Shadowsocks server password<br>8.配置浏览器设置代理(不同浏览器更具体是配置即可)<br>Proxy type：Socks v5<br>Proxy IP(Socks Host):127.0.0.1<br>port:1080</li>
 </ol>
+<p>附: 无Shadowsocks Server的情况<br>1.下载wget-1.18.0.pkg安装包<br>2.ssh root@IP地址 -p 端口号<br>3.yum -y install wget</p>
+<ol>
+<li><p>终端在[root@host ~]#的情况下输入以下命令:<br>1&gt;  wget –no-check-certificate -O shadowsocks-all.sh <a href="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh" target="_blank" rel="external">https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</a><br>2&gt; chmod +x shadowsocks-all.sh<br>3&gt; ./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</p>
+</li>
+<li><p>Which Shadowsocks server you’d select: Default Shadowsocks-Python</p>
+</li>
+</ol>
+<p>password和port可以自己设置</p>
+<p>加密类型一般选择第7个: aes-256-cfb</p>
+<p>6.回车最终会提示成功</p>
 
         
         </div>
@@ -277,7 +287,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/" data-id="cjbvxw3ln000ife56nwrq3377" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://www.ariest.net/2014/11/08/2014-11-08-搬瓦工VPS配置/" data-id="cjf419hof000fm556r9na9fhk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
